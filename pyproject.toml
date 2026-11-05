@@ -1,0 +1,34 @@
+[project]
+name = "actionpicker"
+version = "0.1.0"
+description = "Private picker for martial-arts action and crime titles"
+requires-python = ">=3.11"
+dependencies = [
+  "requests",
+  "beautifulsoup4",
+  "duckduckgo-search",
+  "pydantic>=2",
+  "pyyaml",
+]
+
+[project.optional-dependencies]
+dev = ["pytest", "responses", "ruff"]
+
+[project.scripts]
+actionpicker = "actionpicker.cli:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+src = ["src", "tests"]

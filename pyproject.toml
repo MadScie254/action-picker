@@ -6,7 +6,7 @@ requires-python = ">=3.11"
 dependencies = [
   "requests",
   "beautifulsoup4",
-  "duckduckgo-search",
+  "ddgs",
   "pydantic>=2",
   "pyyaml",
 ]

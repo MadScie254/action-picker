@@ -104,6 +104,22 @@ def test_find_review_urls_filters_dedupes_and_limits():
     assert urls == ["https://a.test/review", "https://b.test/review"]
 
 
+class VideoHeavyDDGS:
+    def text(self, query, max_results=10):
+        return [
+            {"href": "https://www.youtube.com/watch?v=x"},
+            {"href": "https://m.youtube.com/watch?v=y"},
+            {"href": "https://www.tiktok.com/@a/video/1"},
+            {"href": "https://www.reddit.com/r/movies/comments/z"},
+            {"href": "https://www.rogerebert.com/reviews/ip-man"},
+        ]
+
+
+def test_find_review_urls_skips_video_and_social_domains():
+    urls = find_review_urls("Ip Man", 2008, limit=5, ddgs=VideoHeavyDDGS())
+    assert urls == ["https://www.rogerebert.com/reviews/ip-man"]
+
+
 @responses.activate
 def test_skipped_page_logs_the_reason(tmp_path, caplog):
     responses.add(responses.GET, ROBOTS_URL, status=404)

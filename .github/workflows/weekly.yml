@@ -1,0 +1,74 @@
+name: weekly-digest
+
+on:
+  schedule:
+    - cron: "17 5 * * 1"   # Mondays 05:17 UTC (08:17 in Nairobi)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: weekly-digest
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
+      LLM_MODEL: ${{ vars.LLM_MODEL }}
+      REGION: KE
+      DB_PATH: actionpicker.db
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install
+        run: pip install -e .
+
+      - name: Restore database from the data branch
+        run: |
+          git fetch origin data || true
+          git show origin/data:actionpicker.db > actionpicker.db || rm -f actionpicker.db
+
+      - name: Restore scraped-page cache
+        uses: actions/cache@v4
+        with:
+          path: cache/pages
+          key: pages-${{ github.run_id }}
+          restore-keys: pages-
+
+      - name: Ingest (max 30 new titles)
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          LLM_API_KEY: ${{ secrets.LLM_API_KEY }}
+        run: python -m actionpicker.cli ingest --limit 30
+
+      - name: Send digest
+        env:
+          TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_APP_PASSWORD: ${{ secrets.SMTP_APP_PASSWORD }}
+          DIGEST_TO: ${{ secrets.DIGEST_TO }}
+        run: python -m actionpicker.cli digest
+
+      - name: Drop stored review text (keep the database small, do not republish scraped text)
+        if: ${{ !cancelled() }}
+        run: python -m actionpicker.cli compact
+
+      - name: Save database to the data branch
+        if: ${{ !cancelled() }}
+        run: |
+          mkdir /tmp/data && cp actionpicker.db /tmp/data/
+          cd /tmp/data
+          git init -q -b data
+          git config user.name "actionpicker-bot"
+          git config user.email "actionpicker-bot@users.noreply.github.com"
+          git add actionpicker.db
+          git commit -q -m "database $(date -u +%F)"
+          git push --force "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" data

@@ -125,3 +125,15 @@ def test_find_titles_matches_substring_case_insensitive():
     store.upsert_title(make_title(tmdb_id=1, name="Into the Badlands"))
     store.upsert_title(make_title(tmdb_id=2, name="Warrior"))
     assert [t.name for t in store.find_titles("badlands")] == ["Into the Badlands"]
+
+
+def test_purge_scored_reviews_removes_only_scored_titles_reviews():
+    store = Store(":memory:")
+    done = store.upsert_title(make_title(tmdb_id=1, name="Done"))
+    todo = store.upsert_title(make_title(tmdb_id=2, name="Todo"))
+    store.add_review(done, None, "https://x.test/d", "scraped text")
+    store.add_review(todo, None, "https://x.test/t", "scraped text")
+    store.save_scores(make_scores(done))
+    assert store.purge_scored_reviews() == 1
+    assert store.get_reviews(done, None) == []
+    assert len(store.get_reviews(todo, None)) == 1

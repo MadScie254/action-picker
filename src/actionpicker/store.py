@@ -153,6 +153,21 @@ class Store:
         with self.db:
             self.db.execute("UPDATE titles SET attempts = attempts + 1 WHERE id=?", (title_id,))
 
+    def purge_scored_reviews(self) -> int:
+        """Delete stored review text for titles that already have scores (keeps the db small)."""
+        with self.db:
+            cur = self.db.execute(
+                "DELETE FROM reviews WHERE title_id IN (SELECT title_id FROM scores)"
+            )
+        self.db.execute("VACUUM")
+        return cur.rowcount
+
+    def season_no(self, season_id: int | None) -> int | None:
+        if season_id is None:
+            return None
+        row = self.db.execute("SELECT season_no FROM seasons WHERE id=?", (season_id,)).fetchone()
+        return row[0] if row else None
+
     def title_count(self) -> int:
         return self.db.execute("SELECT COUNT(*) FROM titles").fetchone()[0]
 

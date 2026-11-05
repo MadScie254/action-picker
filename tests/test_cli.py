@@ -43,3 +43,28 @@ def test_show_unknown_title_returns_1(tmp_path, capsys):
     db = str(tmp_path / "t.db")
     seed_db(db)
     assert main(["--db", db, "show", "nonexistent"]) == 1
+
+
+def test_digest_dry_run_prints_without_sending_or_marking_sent(tmp_path, capsys):
+    db = str(tmp_path / "t.db")
+    seed_db(db)
+    assert main(["--db", db, "digest", "--dry-run"]) == 0
+    assert "Ip Man" in capsys.readouterr().out
+    assert Store(db).sent_keys() == set()
+
+
+def test_digest_without_smtp_settings_returns_2(tmp_path, monkeypatch, capsys):
+    db = str(tmp_path / "t.db")
+    seed_db(db)
+    for k in ("SMTP_USER", "SMTP_APP_PASSWORD", "DIGEST_TO"):
+        monkeypatch.delenv(k, raising=False)
+    assert main(["--env", str(tmp_path / "none.env"), "--db", db, "digest"]) == 2
+
+
+def test_compact_command_purges_scored_reviews(tmp_path, capsys):
+    db = str(tmp_path / "t.db")
+    seed_db(db)
+    store = Store(db)
+    store.add_review(1, None, "https://x.test/r", "scraped text")
+    assert main(["--db", db, "compact"]) == 0
+    assert Store(db).get_reviews(1, None) == []

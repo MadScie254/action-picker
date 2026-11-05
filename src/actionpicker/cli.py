@@ -76,6 +76,49 @@ def _cmd_ingest(args, store: Store) -> int:
     return 0
 
 
+def _cmd_digest(args, store: Store) -> int:
+    import requests
+
+    from .digest import SmtpConfig, build_digest, render, send
+    from .sources.tmdb import RateLimitError, TmdbSource
+
+    cfg = None
+    if not args.dry_run:
+        user = os.environ.get("SMTP_USER", "")
+        pw = os.environ.get("SMTP_APP_PASSWORD", "")
+        to = os.environ.get("DIGEST_TO", "")
+        if not (user and pw and to):
+            print("SMTP_USER, SMTP_APP_PASSWORD and DIGEST_TO must be set", file=sys.stderr)
+            return 2
+        cfg = SmtpConfig(user, pw, to)
+    key = os.environ.get("TMDB_API_KEY", "")
+    providers = lambda t: []
+    if key and not args.dry_run:
+        tmdb = TmdbSource(key, region=os.environ.get("REGION", "KE"))
+
+        def providers(t):
+            try:
+                return tmdb.watch_providers(t.tmdb_id, t.kind)
+            except (RateLimitError, requests.RequestException):
+                return []  # shown as "unknown", never guessed
+
+    digest = build_digest(store, load_weights(args.weights), providers)
+    if digest is None:
+        print("nothing new to send")
+        return 0
+    if args.dry_run:
+        print(render(digest)[0])
+        return 0
+    send(digest, cfg, store)
+    print("digest sent")
+    return 0
+
+
+def _cmd_compact(args, store: Store) -> int:
+    print(f"removed {store.purge_scored_reviews()} stored reviews of scored titles")
+    return 0
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="actionpicker")
     ap.add_argument("--env", default=".env")
@@ -91,6 +134,13 @@ def main(argv: list[str] | None = None) -> int:
     p_show = sub.add_parser("show")
     p_show.add_argument("name")
     p_show.set_defaults(fn=_cmd_show)
+
+    p_dig = sub.add_parser("digest")
+    p_dig.add_argument("--dry-run", action="store_true")
+    p_dig.set_defaults(fn=_cmd_digest)
+
+    p_cmp = sub.add_parser("compact")
+    p_cmp.set_defaults(fn=_cmd_compact)
 
     p_ing = sub.add_parser("ingest")
     p_ing.add_argument("--limit", type=int, default=30)

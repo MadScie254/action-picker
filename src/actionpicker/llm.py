@@ -9,10 +9,15 @@ import requests
 
 
 class LlmError(Exception):
-    """The LLM call failed or returned something unusable."""
+    """Transient or configuration failure (network, quota, bad key): the run should stop."""
+
+
+class LlmOutputError(LlmError):
+    """The model replied, but its output is unusable for this prompt: skip the title."""
 
 
 _RETRY_STATUS = {429, 500, 502, 503, 504}
+_OUTPUT_STATUS = {400, 413, 422}  # this prompt was refused, not the whole service
 _ATTEMPTS = 3
 
 
@@ -21,9 +26,9 @@ def _parse_json(text: str) -> dict:
     try:
         out = json.loads(cleaned)
     except json.JSONDecodeError as exc:
-        raise LlmError(f"model did not return valid JSON: {exc}") from exc
+        raise LlmOutputError(f"model did not return valid JSON: {exc}") from exc
     if not isinstance(out, dict):
-        raise LlmError("model JSON was not an object")
+        raise LlmOutputError("model JSON was not an object")
     return out
 
 
@@ -91,13 +96,15 @@ def complete_json(
         else:
             if resp.status_code in _RETRY_STATUS:
                 last = f"HTTP {resp.status_code}"
+            elif resp.status_code in _OUTPUT_STATUS:
+                raise LlmOutputError(f"HTTP {resp.status_code} from {provider} for this prompt")
             elif resp.status_code != 200:
                 raise LlmError(f"HTTP {resp.status_code} from {provider}")
             else:
                 try:
                     return _parse_json(pick(resp.json()))
                 except (KeyError, IndexError, TypeError, ValueError) as exc:
-                    raise LlmError(f"unexpected {provider} response shape: {exc}") from exc
+                    raise LlmOutputError(f"unexpected {provider} response shape: {exc}") from exc
         if attempt < _ATTEMPTS - 1:
             sleep(2 ** (attempt + 1))
     raise LlmError(f"{provider} failed after {_ATTEMPTS} attempts: {last}")

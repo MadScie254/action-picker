@@ -1,8 +1,8 @@
-from actionpicker.extract import compute_content_hash
+from actionpicker.extract import compute_content_hash, extract_scores
 from actionpicker.ingest import run_ingest
-from actionpicker.llm import LlmError
+from actionpicker.llm import LlmError, LlmOutputError
 from actionpicker.models import Scores, Title
-from actionpicker.sources.tmdb import RateLimitError
+from actionpicker.sources.tmdb import RateLimitError, TmdbError
 from actionpicker.store import Store
 
 
@@ -11,15 +11,18 @@ def movie(i: int) -> Title:
 
 
 class FakeTmdb:
-    def __init__(self, by_query, seasons=None, fail_on=None):
+    def __init__(self, by_query, seasons=None, fail_on=None, fail_exc=None, seasons_exc=None):
         self.by_query, self._seasons, self.fail_on = by_query, seasons or {}, fail_on
+        self.fail_exc, self.seasons_exc = fail_exc, seasons_exc
 
     def discover(self, query):
         if query == self.fail_on:
-            raise RateLimitError("429")
+            raise self.fail_exc or RateLimitError("429")
         return list(self.by_query.get(query, []))
 
     def seasons(self, tmdb_id):
+        if self.seasons_exc:
+            raise self.seasons_exc
         return self._seasons.get(tmdb_id, [])
 
 
@@ -117,3 +120,63 @@ def test_ingest_scores_each_season_for_series():
     assert [s[0] for s in seasons] == [1, 2] and len({s[1] for s in seasons}) == 2
     assert len(store.all_scored()) == 2
     assert any("season 1" in n for n in finder.names) and any("season 2" in n for n in finder.names)
+
+
+def test_ingest_skips_title_whose_llm_reply_is_never_valid_and_continues():
+    store = Store(":memory:")
+    tmdb = FakeTmdb({"q": [movie(1), movie(2)]})
+
+    def llm(prompt, schema):
+        if "Movie 1 " in prompt:
+            raise LlmOutputError("not json")
+        return {"fight_quality": 8, "style": "hand_to_hand", "action_density": 8,
+                "grit": 7, "crime_tone": 2, "pacing": 7, "evidence": []}
+
+    report = ingest(store, tmdb, lambda t, n, sid, revs: extract_scores(t, n, sid, revs, llm=llm))
+    assert report.scored == 1 and report.skipped == 1
+    assert report.stopped_on_ratelimit is False
+    assert [t.name for t in store.pending_titles(10)] == ["Movie 1"]
+
+
+def test_ingest_survives_finder_exception():
+    store, ex = Store(":memory:"), FakeExtractor()
+    tmdb = FakeTmdb({"q": [movie(1), movie(2)]})
+    calls = {"n": 0}
+
+    def finder(name, year):
+        calls["n"] += 1
+        if calls["n"] == 1:
+            raise RuntimeError("duckduckgo ratelimit")
+        return ["https://x.test/ok"]
+
+    report = ingest(store, tmdb, ex, finder=finder)
+    assert report.scored == 1 and report.skipped == 1 and not report.stopped_on_ratelimit
+
+
+def test_ingest_survives_tmdb_error_on_one_discover_query():
+    store, ex = Store(":memory:"), FakeExtractor()
+    tmdb = FakeTmdb({"a": [movie(1)], "b": [movie(2)]}, fail_on="a", fail_exc=TmdbError("HTTP 500"))
+    report = ingest(store, tmdb, ex, queries=("a", "b"))
+    assert report.scored == 1 and report.stopped_on_ratelimit is False
+
+
+def test_ingest_series_seasons_error_skips_title_and_continues():
+    store, ex = Store(":memory:"), FakeExtractor()
+    show = Title(None, 22, "series", "Gone Show", 2019, "", 8.0, 100)
+    tmdb = FakeTmdb({"q": [show, movie(1)]}, seasons_exc=TmdbError("HTTP 404"))
+    report = ingest(store, tmdb, ex)
+    assert report.scored == 1 and report.skipped == 1
+    assert [c[0] for c in ex.calls] == ["Movie 1"]
+
+
+def test_ingest_reports_stop_reason_when_llm_fails():
+    store = Store(":memory:")
+    report = ingest(store, FakeTmdb({"q": [movie(1)]}), FakeExtractor(fail_after=0))
+    assert report.stopped_on_ratelimit is True and "quota" in report.stop_reason
+
+
+def test_ingest_logs_each_skipped_title(caplog):
+    store = Store(":memory:")
+    with caplog.at_level("INFO", logger="actionpicker"):
+        ingest(store, FakeTmdb({"q": [movie(1)]}), fetcher=FakeFetcher(ok=False))
+    assert "Movie 1" in caplog.text and "skip" in caplog.text.lower()

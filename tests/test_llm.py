@@ -1,7 +1,7 @@
 import pytest
 import responses
 
-from actionpicker.llm import LlmError, complete_json
+from actionpicker.llm import LlmError, LlmOutputError, complete_json
 
 SCHEMA = {"type": "object"}
 
@@ -83,5 +83,37 @@ def test_non_json_reply_raises(monkeypatch):
     responses.add(
         responses.POST, "http://localhost:11434/api/chat", json={"message": {"content": "sorry"}}
     )
-    with pytest.raises(LlmError):
+    with pytest.raises(LlmOutputError):
         complete_json("hi", SCHEMA, provider="ollama")
+
+
+@responses.activate
+def test_http_400_is_an_output_error_for_that_prompt(monkeypatch):
+    monkeypatch.setenv("LLM_MODEL", "m")
+    monkeypatch.setenv("OLLAMA_URL", "http://localhost:11434")
+    responses.add(responses.POST, "http://localhost:11434/api/chat", status=400)
+    with pytest.raises(LlmOutputError):
+        complete_json("hi", SCHEMA, provider="ollama")
+
+
+@responses.activate
+def test_http_401_is_a_plain_error_that_should_stop_the_run(monkeypatch):
+    monkeypatch.setenv("LLM_MODEL", "m")
+    monkeypatch.setenv("OLLAMA_URL", "http://localhost:11434")
+    responses.add(responses.POST, "http://localhost:11434/api/chat", status=401)
+    with pytest.raises(LlmError) as info:
+        complete_json("hi", SCHEMA, provider="ollama")
+    assert not isinstance(info.value, LlmOutputError)
+
+
+@responses.activate
+def test_unexpected_response_shape_is_an_output_error(monkeypatch):
+    monkeypatch.setenv("LLM_MODEL", "gem")
+    monkeypatch.setenv("LLM_API_KEY", "k")
+    responses.add(
+        responses.POST,
+        "https://generativelanguage.googleapis.com/v1beta/models/gem:generateContent",
+        json={"candidates": [{"finishReason": "SAFETY"}]},
+    )
+    with pytest.raises(LlmOutputError):
+        complete_json("hi", SCHEMA, provider="gemini")

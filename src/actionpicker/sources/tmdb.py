@@ -7,7 +7,11 @@ from ..models import Title
 BASE = "https://api.themoviedb.org/3"
 
 
-class RateLimitError(Exception):
+class TmdbError(Exception):
+    """A TMDB call failed. The message never contains the API key."""
+
+
+class RateLimitError(TmdbError):
     """TMDB answered 429."""
 
 
@@ -24,12 +28,17 @@ class TmdbSource:
         self.session = session or requests.Session()
 
     def _get(self, path: str, **params: str) -> dict:
-        resp = self.session.get(
-            f"{BASE}{path}", params={"api_key": self.api_key, **params}, timeout=15
-        )
+        try:
+            resp = self.session.get(
+                f"{BASE}{path}", params={"api_key": self.api_key, **params}, timeout=15
+            )
+        except requests.RequestException as exc:
+            # requests puts the full URL, api_key included, in its messages: drop it.
+            raise TmdbError(f"{type(exc).__name__} calling TMDB {path}") from None
         if resp.status_code == 429:
             raise RateLimitError("TMDB rate limit reached")
-        resp.raise_for_status()
+        if resp.status_code >= 400:
+            raise TmdbError(f"HTTP {resp.status_code} from TMDB {path}")
         return resp.json()
 
     def discover(self, query: str) -> list[Title]:

@@ -1,5 +1,5 @@
 from actionpicker.extract import compute_content_hash, extract_scores
-from actionpicker.llm import LlmError
+from actionpicker.llm import LlmError, LlmOutputError
 from actionpicker.models import Review, Title
 
 TITLE = Title(7, 100, "series", "Warrior", 2019, "Tong wars", 8.2, 900)
@@ -99,4 +99,10 @@ def test_extract_llm_error_twice_raises_so_callers_can_stop():
     llm = FakeLlm(LlmError("down"), LlmError("still down"))
     with pytest.raises(LlmError):
         run(llm)
+    assert len(llm.prompts) == 2
+
+
+def test_extract_output_error_twice_returns_none_so_title_is_skipped():
+    llm = FakeLlm(LlmOutputError("not json"), LlmOutputError("still not json"))
+    assert run(llm) is None
     assert len(llm.prompts) == 2

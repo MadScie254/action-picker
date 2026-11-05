@@ -102,3 +102,12 @@ class FakeDDGS:
 def test_find_review_urls_filters_dedupes_and_limits():
     urls = find_review_urls("Ip Man 2", 2010, limit=2, ddgs=FakeDDGS())
     assert urls == ["https://a.test/review", "https://b.test/review"]
+
+
+@responses.activate
+def test_skipped_page_logs_the_reason(tmp_path, caplog):
+    responses.add(responses.GET, ROBOTS_URL, status=404)
+    responses.add(responses.GET, PAGE_URL, status=403)
+    with caplog.at_level("INFO", logger="actionpicker"):
+        fetcher(tmp_path, sleep=lambda s: None).fetch(PAGE_URL)
+    assert PAGE_URL in caplog.text and "403" in caplog.text

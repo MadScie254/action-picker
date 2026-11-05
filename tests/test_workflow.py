@@ -42,3 +42,16 @@ def test_workflow_needs_write_permission_and_only_documented_secrets():
 
 def test_workflow_never_prints_secrets():
     assert "echo ${{ secrets" not in WORKFLOW.read_text()
+
+
+def test_digest_step_still_runs_when_ingest_fails():
+    steps = load()["jobs"]["run"]["steps"]
+    digest = next(s for s in steps if "actionpicker.cli digest" in s.get("run", ""))
+    assert "!cancelled()" in digest["if"]
+
+
+def test_restore_step_does_not_turn_a_failed_fetch_into_an_empty_database():
+    steps = load()["jobs"]["run"]["steps"]
+    restore = next(s for s in steps if "Restore database" in s.get("name", ""))["run"]
+    assert "ls-remote --exit-code" in restore
+    assert "|| true" not in restore and "rm -f actionpicker.db" not in restore

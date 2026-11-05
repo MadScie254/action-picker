@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import argparse
+import logging
 import os
 import re
 import sys
@@ -149,6 +150,7 @@ def main(argv: list[str] | None = None) -> int:
     p_ing.set_defaults(fn=_cmd_ingest)
 
     args = ap.parse_args(argv)
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s")
     load_env(args.env)
     store = Store(args.db or os.environ.get("DB_PATH", "actionpicker.db"))
     return args.fn(args, store)

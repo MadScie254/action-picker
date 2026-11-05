@@ -5,7 +5,7 @@ from typing import Literal
 
 from pydantic import BaseModel, Field, ValidationError, field_validator, model_validator
 
-from .llm import LlmError, complete_json
+from .llm import LlmError, LlmOutputError, complete_json
 from .models import Review, Scores, Title
 
 Style = Literal["hand_to_hand", "swordplay", "wuxia", "gun_fu", "brawl", "mixed", "other"]
@@ -89,6 +89,9 @@ def extract_scores(
         try:
             raw = llm(_prompt(title, season_no, reviews, error), schema)
             result = ExtractionResult.model_validate(raw)
+        except LlmOutputError as exc:
+            error, last_llm_error = str(exc)[:300], None
+            continue
         except LlmError as exc:
             error, last_llm_error = str(exc)[:300], exc
             continue

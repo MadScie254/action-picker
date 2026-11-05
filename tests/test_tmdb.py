@@ -2,9 +2,10 @@ import json
 from pathlib import Path
 
 import pytest
+import requests
 import responses
 
-from actionpicker.sources.tmdb import RateLimitError, TmdbSource
+from actionpicker.sources.tmdb import RateLimitError, TmdbError, TmdbSource
 
 FIX = Path(__file__).parent / "fixtures"
 BASE = "https://api.themoviedb.org/3"
@@ -49,3 +50,27 @@ def test_http_429_raises_ratelimit_error():
     responses.add(responses.GET, f"{BASE}/search/multi", status=429)
     with pytest.raises(RateLimitError):
         TmdbSource("k").discover("anything")
+
+
+@responses.activate
+def test_http_error_raises_tmdb_error_without_leaking_api_key():
+    responses.add(responses.GET, f"{BASE}/search/multi", status=500)
+    with pytest.raises(TmdbError) as info:
+        TmdbSource("SECRETKEY").discover("x")
+    assert "SECRETKEY" not in str(info.value) and "500" in str(info.value)
+
+
+@responses.activate
+def test_connection_error_raises_tmdb_error_without_leaking_api_key():
+    responses.add(
+        responses.GET, f"{BASE}/tv/5",
+        body=requests.ConnectionError("failed for url ?api_key=SECRETKEY"),
+    )
+    with pytest.raises(TmdbError) as info:
+        TmdbSource("SECRETKEY").seasons(5)
+    assert "SECRETKEY" not in str(info.value)
+    assert "SECRETKEY" not in repr(info.value.__cause__)
+
+
+def test_ratelimit_error_is_a_tmdb_error():
+    assert issubclass(RateLimitError, TmdbError)

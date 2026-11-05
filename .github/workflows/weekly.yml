@@ -33,8 +33,19 @@ jobs:
 
       - name: Restore database from the data branch
         run: |
-          git fetch origin data || true
-          git show origin/data:actionpicker.db > actionpicker.db || rm -f actionpicker.db
+          set +e
+          git ls-remote --exit-code --heads origin data > /dev/null
+          rc=$?
+          set -e
+          if [ "$rc" -eq 0 ]; then
+            git fetch origin data
+            git show origin/data:actionpicker.db > actionpicker.db
+          elif [ "$rc" -eq 2 ]; then
+            echo "No data branch yet: starting with an empty database"
+          else
+            echo "Cannot reach origin (exit $rc); refusing to start from an empty database"
+            exit 1
+          fi
 
       - name: Restore scraped-page cache
         uses: actions/cache@v4
@@ -50,6 +61,7 @@ jobs:
         run: python -m actionpicker.cli ingest --limit 30
 
       - name: Send digest
+        if: ${{ !cancelled() }}
         env:
           TMDB_API_KEY: ${{ secrets.TMDB_API_KEY }}
           SMTP_USER: ${{ secrets.SMTP_USER }}

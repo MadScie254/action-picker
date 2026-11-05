@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import hashlib
+import logging
 import re
 import time
 from pathlib import Path
@@ -12,6 +13,7 @@ from bs4 import BeautifulSoup
 
 _BLOCK_PHRASES = re.compile(r"captcha|verify you are human|are you a robot|access denied", re.IGNORECASE)
 _MIN_CHARS = 200
+log = logging.getLogger("actionpicker")
 
 
 class ReviewFetcher:
@@ -87,16 +89,19 @@ class ReviewFetcher:
             return None
         if not self._allowed(url):
             skip.write_text("robots")
+            log.info("skip %s: disallowed by robots.txt", url)
             return None
         resp = self._get(url)
         if resp is None:
             return None  # network error: not cached, retry next run
         if resp.status_code != 200:
             skip.write_text(str(resp.status_code))
+            log.info("skip %s: HTTP %s", url, resp.status_code)
             return None
         text = self._extract(resp.text)
         if len(text) < _MIN_CHARS or (len(text) < 1500 and _BLOCK_PHRASES.search(text)):
             skip.write_text("empty-or-blocked")
+            log.info("skip %s: empty page or captcha", url)
             return None
         hit.write_text(text)
         return text

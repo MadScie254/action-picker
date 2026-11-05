@@ -1,4 +1,4 @@
-"""Golden pool helpers: used by tests and scripts/tune_weights.py.
+﻿"""Golden pool helpers: used by tests and scripts/tune_weights.py.
 
 The seed pool JSON holds the reference titles plus a few strong decoys. Weak decoys are
 generated deterministically so the pool is large enough for a meaningful top-15% check.
@@ -48,7 +48,7 @@ def make_decoys(start_id: int, n: int, seed: int = 7) -> list[tuple[Title, Score
 
 
 def build_pool(path: str, total: int = 80) -> tuple[list[tuple[Title, Scores]], set[str]]:
-    with open(path) as fh:
+    with open(path, encoding="utf-8") as fh:
         entries = [e for e in json.load(fh) if "name" in e]
     cands: list[tuple[Title, Scores]] = []
     seeds: set[str] = set()

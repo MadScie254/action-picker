@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 from collections.abc import Iterable
 from dataclasses import dataclass
@@ -27,7 +27,7 @@ class Ranked:
 
 
 def load_weights(path: str) -> Weights:
-    with open(path) as fh:
+    with open(path, encoding="utf-8") as fh:
         raw = yaml.safe_load(fh)
     return Weights(
         action=dict(raw["action"]),

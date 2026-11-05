@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import argparse
 import logging
@@ -20,7 +20,7 @@ def load_env(path: str) -> None:
     p = Path(path)
     if not p.exists():
         return
-    for line in p.read_text().splitlines():
+    for line in p.read_text(encoding="utf-8").splitlines():
         line = line.strip()
         if not line or line.startswith("#") or "=" not in line:
             continue
@@ -68,7 +68,7 @@ def _cmd_ingest(args, store: Store) -> int:
     if not key:
         print("TMDB_API_KEY is not set (see .env.example)", file=sys.stderr)
         return 2
-    seed = yaml.safe_load(Path(args.seed).read_text())
+    seed = yaml.safe_load(Path(args.seed).read_text(encoding="utf-8"))
     queries = list(seed.get("seeds", [])) + list(seed.get("discover_queries", []))
     tmdb = TmdbSource(key, region=os.environ.get("REGION", "KE"))
     fetcher = ReviewFetcher(cache_dir=args.cache)

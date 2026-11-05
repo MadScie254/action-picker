@@ -1,4 +1,4 @@
-from __future__ import annotations
+﻿from __future__ import annotations
 
 import hashlib
 import logging
@@ -84,7 +84,7 @@ class ReviewFetcher:
     def fetch(self, url: str) -> str | None:
         hit, skip = self._paths(url)
         if hit.exists():
-            return hit.read_text()
+            return hit.read_text(encoding="utf-8", errors="replace")
         if skip.exists():
             return None
         if not self._allowed(url):
@@ -103,5 +103,5 @@ class ReviewFetcher:
             skip.write_text("empty-or-blocked")
             log.info("skip %s: empty page or captcha", url)
             return None
-        hit.write_text(text)
+        hit.write_text(text, encoding="utf-8")
         return text

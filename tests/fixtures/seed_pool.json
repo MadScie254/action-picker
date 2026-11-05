@@ -1,0 +1,33 @@
+[
+ {"_note": "Illustrative fixtures estimated by the author from public reputation, NOT extracted from real reviews. Replace with real extractions when the database has them."},
+ {"name": "Ip Man", "kind": "movie", "tmdb_rating": 7.6, "vote_count": 3000, "seed": true,
+  "scores": {"fight_quality": 9, "style": "hand_to_hand", "action_density": 7, "grit": 6, "crime_tone": 1, "pacing": 7, "review_count": 40}},
+ {"name": "Ip Man 2", "kind": "movie", "tmdb_rating": 7.3, "vote_count": 2000, "seed": true,
+  "scores": {"fight_quality": 9, "style": "hand_to_hand", "action_density": 7, "grit": 6, "crime_tone": 1, "pacing": 7, "review_count": 30}},
+ {"name": "Sakra", "kind": "movie", "tmdb_rating": 6.5, "vote_count": 300, "seed": true,
+  "scores": {"fight_quality": 8, "style": "wuxia", "action_density": 8, "grit": 6, "crime_tone": 1, "pacing": 7, "review_count": 12}},
+ {"name": "John Wick", "kind": "movie", "tmdb_rating": 7.4, "vote_count": 9000, "seed": true,
+  "scores": {"fight_quality": 9, "style": "gun_fu", "action_density": 8, "grit": 8, "crime_tone": 8, "pacing": 8, "review_count": 50}},
+ {"name": "John Wick: Chapter 2", "kind": "movie", "tmdb_rating": 7.3, "vote_count": 7000, "seed": true,
+  "scores": {"fight_quality": 9, "style": "gun_fu", "action_density": 9, "grit": 8, "crime_tone": 8, "pacing": 8, "review_count": 45}},
+ {"name": "John Wick: Chapter 3 - Parabellum", "kind": "movie", "tmdb_rating": 7.4, "vote_count": 6500, "seed": true,
+  "scores": {"fight_quality": 9, "style": "gun_fu", "action_density": 9, "grit": 8, "crime_tone": 7, "pacing": 8, "review_count": 45}},
+ {"name": "John Wick: Chapter 4", "kind": "movie", "tmdb_rating": 7.7, "vote_count": 5000, "seed": true,
+  "scores": {"fight_quality": 9, "style": "gun_fu", "action_density": 9, "grit": 8, "crime_tone": 7, "pacing": 7, "review_count": 40}},
+ {"name": "The Furious", "kind": "movie", "tmdb_rating": 6.5, "vote_count": 150, "seed": true,
+  "scores": {"fight_quality": 8, "style": "hand_to_hand", "action_density": 9, "grit": 8, "crime_tone": 4, "pacing": 8, "review_count": 8}},
+ {"name": "Warrior", "kind": "series", "tmdb_rating": 8.2, "vote_count": 900, "seed": true,
+  "seasons": [
+   {"n": 1, "scores": {"fight_quality": 8, "style": "hand_to_hand", "action_density": 7, "grit": 8, "crime_tone": 7, "pacing": 7, "review_count": 15}},
+   {"n": 2, "scores": {"fight_quality": 8, "style": "hand_to_hand", "action_density": 7, "grit": 8, "crime_tone": 7, "pacing": 7, "review_count": 14}},
+   {"n": 3, "scores": {"fight_quality": 8, "style": "hand_to_hand", "action_density": 7, "grit": 8, "crime_tone": 7, "pacing": 7, "review_count": 12}}]},
+ {"name": "Into the Badlands", "kind": "series", "tmdb_rating": 7.5, "vote_count": 1200, "seed": true,
+  "seasons": [
+   {"n": 1, "scores": {"fight_quality": 8, "style": "wuxia", "action_density": 7, "grit": 7, "crime_tone": 4, "pacing": 6, "review_count": 14}},
+   {"n": 2, "scores": {"fight_quality": 8, "style": "wuxia", "action_density": 7, "grit": 7, "crime_tone": 4, "pacing": 6, "review_count": 12}},
+   {"n": 3, "scores": {"fight_quality": 7, "style": "wuxia", "action_density": 7, "grit": 7, "crime_tone": 4, "pacing": 6, "review_count": 10}}]},
+ {"name": "The Raid 2", "kind": "movie", "tmdb_rating": 7.6, "vote_count": 2500, "seed": false,
+  "scores": {"fight_quality": 10, "style": "hand_to_hand", "action_density": 9, "grit": 10, "crime_tone": 9, "pacing": 7, "review_count": 35}},
+ {"name": "Ong-Bak", "kind": "movie", "tmdb_rating": 7.1, "vote_count": 1500, "seed": false,
+  "scores": {"fight_quality": 9, "style": "hand_to_hand", "action_density": 8, "grit": 6, "crime_tone": 3, "pacing": 7, "review_count": 25}}
+]

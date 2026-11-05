@@ -1,0 +1,19 @@
+# Reference titles: they seed ingestion and define the golden "must rank high" set.
+seeds:
+  - Ip Man
+  - Ip Man 2
+  - Sakra
+  - John Wick
+  - John Wick: Chapter 2
+  - John Wick: Chapter 3 - Parabellum
+  - John Wick: Chapter 4
+  - The Furious
+  - Warrior
+  - Into the Badlands
+# Extra TMDB search queries to widen the candidate pool.
+discover_queries:
+  - martial arts
+  - kung fu
+  - wuxia swordplay
+  - gritty crime thriller
+  - triad gangster

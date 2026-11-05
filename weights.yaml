@@ -1,0 +1,25 @@
+# Starting weights from spec section 7. Each mode's weights sum to 1.
+action:
+  fight_quality: 0.35
+  action_density: 0.20
+  grit: 0.10
+  pacing: 0.10
+  tmdb_rating: 0.15
+  crime_tone: 0.10
+crime:
+  fight_quality: 0.20
+  action_density: 0.15
+  grit: 0.10
+  pacing: 0.10
+  tmdb_rating: 0.10
+  crime_tone: 0.35
+style_factor:
+  hand_to_hand: 1.0
+  swordplay: 1.0
+  wuxia: 1.0
+  gun_fu: 0.85
+  brawl: 0.8
+  mixed: 0.9
+  other: 0.5
+min_action_density: 5
+shrinkage_k: 5

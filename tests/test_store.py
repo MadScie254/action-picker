@@ -98,3 +98,30 @@ def test_sent_keys_after_mark_sent():
 
 def test_seen_ids_empty_by_default():
     assert Store(":memory:").seen_ids() == set()
+
+
+def test_title_count():
+    store = Store(":memory:")
+    assert store.title_count() == 0
+    store.upsert_title(make_title(tmdb_id=1))
+    store.upsert_title(make_title(tmdb_id=1))
+    store.upsert_title(make_title(tmdb_id=2))
+    assert store.title_count() == 2
+
+
+def test_bump_attempts_demotes_then_drops_title():
+    store = Store(":memory:")
+    a = store.upsert_title(make_title(tmdb_id=1, name="A"))
+    store.upsert_title(make_title(tmdb_id=2, name="B"))
+    store.bump_attempts(a)
+    assert [t.name for t in store.pending_titles(10)] == ["B", "A"]
+    store.bump_attempts(a)
+    store.bump_attempts(a)
+    assert [t.name for t in store.pending_titles(10)] == ["B"]
+
+
+def test_find_titles_matches_substring_case_insensitive():
+    store = Store(":memory:")
+    store.upsert_title(make_title(tmdb_id=1, name="Into the Badlands"))
+    store.upsert_title(make_title(tmdb_id=2, name="Warrior"))
+    assert [t.name for t in store.find_titles("badlands")] == ["Into the Badlands"]

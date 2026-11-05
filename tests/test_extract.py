@@ -91,3 +91,12 @@ def test_prompt_names_season_and_includes_reviews_and_no_invent_rule():
     assert "Warrior" in p and "season 2" in p.lower()
     assert "Brutal hatchet fights." in p and "https://b.test/2" in p
     assert "null" in p and "never invent" in p.lower()
+
+
+def test_extract_llm_error_twice_raises_so_callers_can_stop():
+    import pytest
+
+    llm = FakeLlm(LlmError("down"), LlmError("still down"))
+    with pytest.raises(LlmError):
+        run(llm)
+    assert len(llm.prompts) == 2

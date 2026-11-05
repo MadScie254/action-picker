@@ -15,6 +15,7 @@ CREATE TABLE IF NOT EXISTS titles (
   overview TEXT NOT NULL DEFAULT '',
   tmdb_rating REAL NOT NULL DEFAULT 0,
   vote_count INTEGER NOT NULL DEFAULT 0,
+  attempts INTEGER NOT NULL DEFAULT 0,
   UNIQUE (tmdb_id, kind)
 );
 CREATE TABLE IF NOT EXISTS seasons (
@@ -143,8 +144,22 @@ class Store:
         rows = self.db.execute(
             f"SELECT {_TITLE_COLS} FROM titles t "
             "WHERE NOT EXISTS (SELECT 1 FROM scores s WHERE s.title_id=t.id) "
-            "ORDER BY t.id LIMIT ?",
+            "AND t.attempts < 3 ORDER BY t.attempts, t.id LIMIT ?",
             (limit,),
+        ).fetchall()
+        return [_title(r) for r in rows]
+
+    def bump_attempts(self, title_id: int) -> None:
+        with self.db:
+            self.db.execute("UPDATE titles SET attempts = attempts + 1 WHERE id=?", (title_id,))
+
+    def title_count(self) -> int:
+        return self.db.execute("SELECT COUNT(*) FROM titles").fetchone()[0]
+
+    def find_titles(self, name_part: str) -> list[Title]:
+        rows = self.db.execute(
+            f"SELECT {_TITLE_COLS} FROM titles t WHERE LOWER(t.name) LIKE ? ORDER BY t.name",
+            (f"%{name_part.lower()}%",),
         ).fetchall()
         return [_title(r) for r in rows]
 

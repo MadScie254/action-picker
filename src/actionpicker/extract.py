@@ -84,12 +84,16 @@ def extract_scores(
         return None
     schema = ExtractionResult.model_json_schema()
     error = ""
+    last_llm_error: LlmError | None = None
     for _ in range(2):
         try:
             raw = llm(_prompt(title, season_no, reviews, error), schema)
             result = ExtractionResult.model_validate(raw)
-        except (LlmError, ValidationError) as exc:
-            error = str(exc)[:300]
+        except LlmError as exc:
+            error, last_llm_error = str(exc)[:300], exc
+            continue
+        except ValidationError as exc:
+            error, last_llm_error = str(exc)[:300], None
             continue
         return Scores(
             title_id=title.id,
@@ -104,4 +108,6 @@ def extract_scores(
             evidence=[e.model_dump() for e in result.evidence],
             content_hash=compute_content_hash(reviews),
         )
+    if last_llm_error is not None:
+        raise last_llm_error  # outage, not a bad title: let the caller stop the run
     return None

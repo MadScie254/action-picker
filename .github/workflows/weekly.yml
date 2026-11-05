@@ -19,6 +19,7 @@ jobs:
     env:
       LLM_PROVIDER: ${{ vars.LLM_PROVIDER }}
       LLM_MODEL: ${{ vars.LLM_MODEL }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ vars.CLOUDFLARE_ACCOUNT_ID }}
       REGION: KE
       DB_PATH: actionpicker.db
     steps:

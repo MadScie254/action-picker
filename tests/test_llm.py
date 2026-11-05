@@ -54,6 +54,37 @@ def test_gemini_parses_candidate_text(monkeypatch):
     assert complete_json("hi", SCHEMA, provider="gemini") == {"a": 3}
 
 
+CF_URL = "https://api.cloudflare.com/client/v4/accounts/acct/ai/run/@cf/meta/m"
+
+
+@responses.activate
+def test_cloudflare_parses_result_response(monkeypatch):
+    monkeypatch.setenv("LLM_MODEL", "@cf/meta/m")
+    monkeypatch.setenv("LLM_API_KEY", "tok")
+    monkeypatch.setenv("CLOUDFLARE_ACCOUNT_ID", "acct")
+    responses.add(
+        responses.POST, CF_URL, json={"result": {"response": '{"a": 4}'}, "success": True}
+    )
+    assert complete_json("hi", SCHEMA, provider="cloudflare") == {"a": 4}
+    assert responses.calls[0].request.headers["Authorization"] == "Bearer tok"
+
+
+@responses.activate
+def test_cloudflare_accepts_response_already_parsed_as_object(monkeypatch):
+    monkeypatch.setenv("LLM_MODEL", "@cf/meta/m")
+    monkeypatch.setenv("LLM_API_KEY", "tok")
+    monkeypatch.setenv("CLOUDFLARE_ACCOUNT_ID", "acct")
+    responses.add(responses.POST, CF_URL, json={"result": {"response": {"a": 5}}})
+    assert complete_json("hi", SCHEMA, provider="cloudflare") == {"a": 5}
+
+
+def test_cloudflare_without_account_id_raises(monkeypatch):
+    monkeypatch.setenv("LLM_MODEL", "@cf/meta/m")
+    monkeypatch.delenv("CLOUDFLARE_ACCOUNT_ID", raising=False)
+    with pytest.raises(LlmError, match="CLOUDFLARE_ACCOUNT_ID"):
+        complete_json("hi", SCHEMA, provider="cloudflare")
+
+
 @responses.activate
 def test_retries_on_429_with_backoff_then_succeeds(monkeypatch):
     monkeypatch.setenv("LLM_MODEL", "m")

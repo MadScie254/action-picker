@@ -60,6 +60,21 @@ def _build_request(provider: str, prompt: str, schema: dict) -> tuple[str, dict,
             },
             lambda j: j["choices"][0]["message"]["content"],
         )
+    if provider == "cloudflare":
+        account = os.environ.get("CLOUDFLARE_ACCOUNT_ID", "")
+        if not account:
+            raise LlmError("CLOUDFLARE_ACCOUNT_ID is not set")
+
+        def _cf_text(j: dict) -> str:
+            out = j["result"]["response"]
+            return out if isinstance(out, str) else json.dumps(out)
+
+        return (
+            f"https://api.cloudflare.com/client/v4/accounts/{account}/ai/run/{model}",
+            {"Authorization": f"Bearer {key}"},
+            {"messages": [{"role": "user", "content": full}]},
+            _cf_text,
+        )
     if provider == "ollama":
         base = os.environ.get("OLLAMA_URL", "http://localhost:11434")
         return (

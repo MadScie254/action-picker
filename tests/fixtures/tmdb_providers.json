@@ -1,0 +1,5 @@
+{"id": 22, "results": {
+ "KE": {"flatrate": [{"provider_name": "Netflix"}, {"provider_name": "Showmax"}], "ads": [{"provider_name": "Netflix"}]},
+ "US": {"flatrate": [{"provider_name": "Max"}]},
+ "GB": {"rent": [{"provider_name": "Apple TV"}]}
+}}

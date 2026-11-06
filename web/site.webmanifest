@@ -1,0 +1,14 @@
+{
+  "name": "ActionPicker",
+  "short_name": "ActionPicker",
+  "description": "Martial-arts and gritty-crime films and series, ranked on how the fights are made.",
+  "start_url": "/app/",
+  "display": "standalone",
+  "background_color": "#10130f",
+  "theme_color": "#10130f",
+  "icons": [
+    { "src": "/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/favicon.svg", "sizes": "any", "type": "image/svg+xml" }
+  ]
+}

@@ -1,5 +1,5 @@
 {
- "generated": "2026-11-06T09:05:54+00:00",
+ "generated": "2026-11-06T22:23:57+00:00",
  "region": "KE",
  "action": [
   {
@@ -7,7 +7,7 @@
    "year": 2015,
    "kind": "series",
    "season": 2,
-   "value": 7.08,
+   "value": 7.07,
    "style": "wuxia",
    "tmdb_rating": 7.623,
    "overview": "In a land controlled by feudal barons, a great warrior and a young boy embark on a journey across a dangerous land to find enlightenment. \n\nA genre-bending martial arts series very loosely based on the classic Chinese tale Journey to the West.",
@@ -62,7 +62,7 @@
    "year": 2019,
    "kind": "series",
    "season": 1,
-   "value": 6.95,
+   "value": 6.93,
    "style": "hand_to_hand",
    "tmdb_rating": 7.983,
    "overview": "A gritty, action-packed crime drama set during the brutal Tong Wars of San Francisco’s Chinatown in the second half of the 19th century. The series follows Ah Sahm, a martial arts prodigy who immigrates from China to San Francisco under mysterious circumstances, and becomes a hatchet man for one of Chinatown’s most powerful tongs.",
@@ -116,9 +116,9 @@
    "year": 2026,
    "kind": "movie",
    "season": null,
-   "value": 6.65,
+   "value": 6.63,
    "style": "mixed",
-   "tmdb_rating": 8.241,
+   "tmdb_rating": 8.242,
    "overview": "When Wang Wei's daughter is abducted by a criminal organization and law enforcement declines to intervene due to corruption, Wei embarks on a solo mission to find her. His sole ally is Navin, a determined journalist whose wife has also mysteriously disappeared. Together, this improbable pair confronts the kidnappers in a fierce martial arts confrontation, driven by an intense desire for retribution.",
    "fight_quality": 9,
    "action_density": 8,
@@ -178,9 +178,9 @@
    "year": 2010,
    "kind": "movie",
    "season": null,
-   "value": 6.62,
+   "value": 6.61,
    "style": "hand_to_hand",
-   "tmdb_rating": 7.46,
+   "tmdb_rating": 7.5,
    "overview": "Having defeated the best fighters of the Imperial Japanese army in occupied Shanghai, Ip Man and his family settle in post-war Hong Kong. Struggling to make a living, Master Ip opens a kung fu school to bring his celebrated art of Wing Chun to the troubled youth of Hong Kong. His growing reputation soon brings challenges from powerful enemies, including pre-eminent Hung Gar master, Hung Quan.",
    "fight_quality": 9,
    "action_density": 8,
@@ -247,9 +247,9 @@
    "year": 2023,
    "kind": "movie",
    "season": null,
-   "value": 6.55,
+   "value": 6.53,
    "style": "gun_fu",
-   "tmdb_rating": 7.71,
+   "tmdb_rating": 7.7,
    "overview": "With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.",
    "fight_quality": 9,
    "action_density": 8,
@@ -314,7 +314,7 @@
    "year": 1999,
    "kind": "movie",
    "season": null,
-   "value": 6.5,
+   "value": 6.48,
    "style": "swordplay",
    "tmdb_rating": 6.721,
    "overview": "A Muslim ambassador exiled from his homeland joins a group of Vikings, initially offended by their behavior but growing to respect them. As they travel together, they learn of a legendary evil closing in and must unite to confront this formidable force.",
@@ -372,7 +372,7 @@
    "year": 1990,
    "kind": "movie",
    "season": null,
-   "value": 6.49,
+   "value": 6.48,
    "style": "mixed",
    "tmdb_rating": 8.8,
    "overview": "The most explosive barehanded combat sequences ever filmed. An electrifying video of martial arts mastery and mayhem. This program takes a behind-the-scenes look at the weapons, the mystical eastern philosophy, and the incredible skills that have made martial arts films one of the most popular genres in the world today.",
@@ -408,7 +408,7 @@
    "year": 2020,
    "kind": "series",
    "season": 2,
-   "value": 6.49,
+   "value": 6.48,
    "style": "mixed",
    "tmdb_rating": 7.872,
    "overview": "After waking up in a morgue, an orphaned teen discovers she now possesses superpowers as the chosen Halo-Bearer for a secret sect of demon-hunting nuns.",
@@ -453,7 +453,7 @@
    "year": 1995,
    "kind": "series",
    "season": 2,
-   "value": 6.42,
+   "value": 6.4,
    "style": "swordplay",
    "tmdb_rating": 7.529,
    "overview": "Xena is an infamous warrior on a quest to seek redemption for her past sins against the innocent. Accompanied by her comrade-in-arms Gabrielle, the campy couple use their formidable fighting skills to help those who are unable to defend themselves.",
@@ -501,7 +501,7 @@
    "year": 2015,
    "kind": "movie",
    "season": null,
-   "value": 6.42,
+   "value": 6.4,
    "style": "gun_fu",
    "tmdb_rating": 7.461,
    "overview": "Behind the scenes look at fight choreography and action training.",
@@ -536,7 +536,7 @@
    "year": 2009,
    "kind": "series",
    "season": 3,
-   "value": 6.41,
+   "value": 6.39,
    "style": "swordplay",
    "tmdb_rating": 7.4,
    "overview": "Deadliest Warrior was a television program in which information on historical or modern warriors and their weapons are used to determine which of them is the \"deadliest\" based upon tests performed during each episode. The show was characterized by its use of data compiled in creating a dramatization of the warriors' battle to the death. The show ran for three seasons.",
@@ -575,1387 +575,6 @@
     ],
     "link": "https://www.themoviedb.org/tv/18545-deadliest-warrior/watch?locale=US"
    }
-  },
-  {
-   "name": "John Wick: Chapter 2",
-   "year": 2017,
-   "kind": "movie",
-   "season": null,
-   "value": 6.41,
-   "style": "gun_fu",
-   "tmdb_rating": 7.347,
-   "overview": "John Wick is forced out of retirement by a former associate looking to seize control of a shadowy international assassins’ guild. Bound by a blood oath to aid him, Wick travels to Rome and does battle against some of the world’s most dangerous killers.",
-   "fight_quality": 9,
-   "action_density": 8,
-   "grit": 8,
-   "pacing": 8,
-   "crime_tone": 9,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "non-stop, thrillingly choreographed action",
-     "url": "https://www.rottentomatoes.com/m/john_wick_chapter_2"
-    },
-    {
-     "text": "bone-crunching action presented here is delicious",
-     "url": "https://flickside.com/john-wick-chapter-2-review-keanu-reeves/"
-    }
-   ],
-   "poster": "/hXWBc0ioZP3cN4zCu6SN3YHXZVO.jpg",
-   "backdrop": "/Aa9Lx6gotP0szl9tlt5SPCN08oF.jpg",
-   "runtime": 122,
-   "tagline": "Never stab the devil in the back!",
-   "genres": [
-    "Action",
-    "Thriller",
-    "Crime"
-   ],
-   "trailer": "LZrX9mffH8Y",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Amazon Prime Video",
-     "HBO Max Amazon Channel",
-     "Philo",
-     "AMC+ Amazon Channel",
-     "YouTube TV",
-     "Amazon Prime Video with Ads"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home",
-     "FlixFling"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/324552-john-wick-chapter-2/watch?locale=US"
-   }
-  },
-  {
-   "name": "American Ninja Warrior",
-   "year": 2009,
-   "kind": "series",
-   "season": 9,
-   "value": 6.38,
-   "style": "mixed",
-   "tmdb_rating": 6.818,
-   "overview": "Follow competitors as they tackle a series of challenging obstacle courses in both city qualifying and city finals rounds across the country. Those that successfully complete the finals course in their designated region move on to the national finals round in Las Vegas, where they face a stunning four-stage course modeled after the famed Mt. Midoriyama course in Japan. The winner will take home a grand prize of $1 million.",
-   "fight_quality": 8,
-   "action_density": 9,
-   "grit": 6,
-   "pacing": 8,
-   "crime_tone": null,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "obstacles used",
-     "url": "https://en.wikipedia.org/wiki/American_Ninja_Warrior_season_9"
-    },
-    {
-     "text": "competitors run Stage 1",
-     "url": "https://episode.ninja/series/american-ninja-warrior/season-9"
-    }
-   ],
-   "poster": "/iAL6JYSfMp3v009qbQCyMwiGl2g.jpg",
-   "backdrop": "/wCuGxz9dxsPPPoCW9eqcZnEyM4A.jpg",
-   "runtime": 60,
-   "tagline": "",
-   "genres": [
-    "Reality"
-   ],
-   "trailer": null,
-   "watch": {
-    "region": "US",
-    "stream": [
-     "fuboTV",
-     "Peacock Premium",
-     "NBC",
-     "Peacock Premium Plus",
-     "Wonder Project Amazon Channel"
-    ],
-    "rent": [],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/tv/37913-american-ninja-warrior/watch?locale=US"
-   }
-  },
-  {
-   "name": "The Continental: From the World of John Wick",
-   "year": 2023,
-   "kind": "series",
-   "season": 1,
-   "value": 6.31,
-   "style": "mixed",
-   "tmdb_rating": 7.365,
-   "overview": "The origin behind the iconic hotel-for-assassins through the eyes and actions of a young Winston Scott, as he's dragged into the Hell-scape of 1970's New York City to face a past he thought he'd left behind. Winston charts a deadly course through the hotel's mysterious underworld in a harrowing attempt to seize the hotel where he will eventually take his future throne.",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 8,
-   "pacing": 6,
-   "crime_tone": 9,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "top-notch action sequences, expertly choreographed fight scenes",
-     "url": "https://readysteadycut.com/2023/09/21/the-continental-from-the-world-of-john-wick-review/"
-    },
-    {
-     "text": "filled with top-notch action sequences, expertly choreographed fight scenes, and disturbingly creative death scenes",
-     "url": "https://readysteadycut.com/2023/09/21/the-continental-from-the-world-of-john-wick-review/"
-    }
-   ],
-   "poster": "/2urdwqEL9FRkGMKAkhfvWTALG00.jpg",
-   "backdrop": "/1gajPADcRyzmYvfAefbJwhCy4bk.jpg",
-   "runtime": null,
-   "tagline": "Prepare for check-in.",
-   "genres": [
-    "Crime",
-    "Drama",
-    "Action & Adventure"
-   ],
-   "trailer": "Z3KmgnQbor8",
-   "watch": {
-    "region": "KE",
-    "stream": [
-     "Amazon Prime Video"
-    ],
-    "rent": [],
-    "buy": [],
-    "link": "https://www.themoviedb.org/tv/72710-the-continental-from-the-world-of-john-wick/watch?locale=KE"
-   }
-  },
-  {
-   "name": "Ip Man: The Awakening",
-   "year": 2021,
-   "kind": "movie",
-   "season": null,
-   "value": 6.31,
-   "style": "hand_to_hand",
-   "tmdb_rating": 6.8,
-   "overview": "When a young Master Ip stops a kidnapping, he ignites a turf war with a ruthless human-trafficking ring. In retaliation, the gang kidnaps one of Ip Man's close friends, forcing him to face the group's brutal boxing champion head-on.",
-   "fight_quality": 6,
-   "action_density": 8,
-   "grit": 6,
-   "pacing": 8,
-   "crime_tone": 7,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "fight scenes every few minutes",
-     "url": "https://theactionelite.com/ip-man-the-awakening-2022-review/"
-    },
-    {
-     "text": "regular fight scenes make for an easy watch",
-     "url": "https://theactionelite.com/ip-man-the-awakening-2022-review/"
-    }
-   ],
-   "poster": "/A7vhdyGrpPMKXsuFBZzxmave94F.jpg",
-   "backdrop": "/Xfn9eDOaZKSz5W3PRoJI928I9c.jpg",
-   "runtime": 76,
-   "tagline": "The legend begins",
-   "genres": [
-    "Action",
-    "Adventure",
-    "History",
-    "Drama"
-   ],
-   "trailer": "yVCiktvgHb4",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Amazon Prime Video",
-     "Peacock Premium",
-     "Hi-YAH",
-     "Amazon Prime Video with Ads",
-     "Peacock Premium Plus"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/875104/watch?locale=US"
-   }
-  },
-  {
-   "name": "John Wick Chapter 2: Wick-vizzed",
-   "year": 2017,
-   "kind": "movie",
-   "season": null,
-   "value": 6.3,
-   "style": "gun_fu",
-   "tmdb_rating": 7.6,
-   "overview": "A candid look at rehearsal footage in support of a focus on pre-viz.",
-   "fight_quality": 9,
-   "action_density": 8,
-   "grit": 8,
-   "pacing": 7,
-   "crime_tone": 9,
-   "reviews": 2,
-   "evidence": [
-    {
-     "text": "non-stop, thrillingly choreographed action",
-     "url": "https://www.rottentomatoes.com/m/john_wick_chapter_2"
-    },
-    {
-     "text": "bone-crunching action",
-     "url": "https://flickside.com/john-wick-chapter-2-review-keanu-reeves/"
-    }
-   ],
-   "poster": "/qQFBj2tBlkKhAcAgDVpdFWLX5x.jpg",
-   "backdrop": "/vWNGnjBB3pa6R8slwjhwDxRqBUf.jpg",
-   "runtime": 5,
-   "tagline": "",
-   "genres": [
-    "Documentary"
-   ],
-   "trailer": null,
-   "watch": null
-  },
-  {
-   "name": "Ip Man 4: The Finale",
-   "year": 2019,
-   "kind": "movie",
-   "season": null,
-   "value": 6.25,
-   "style": "hand_to_hand",
-   "tmdb_rating": 7.267,
-   "overview": "Following the death of his wife, Ip Man travels to San Francisco to ease tensions between the local kung fu masters and his star student, Bruce Lee, while searching for a better future for his son.",
-   "fight_quality": 8,
-   "action_density": 6,
-   "grit": 7,
-   "pacing": 7,
-   "crime_tone": 4,
-   "reviews": 2,
-   "evidence": [
-    {
-     "text": "fantastic fights scenes",
-     "url": "https://www.fareastfilms.com/review/ip-man-4-the-finale/"
-    },
-    {
-     "text": "frequent hard-hitting fights",
-     "url": "https://celluloidscore.com/reviews/ip-man-4-the-finale-2019-review/"
-    }
-   ],
-   "poster": "/b5cz6BoyHrgBnhfDHOW5hXRWbln.jpg",
-   "backdrop": "/jZDudPPIV4lSxEVgzfK9Z6nHdhi.jpg",
-   "runtime": 105,
-   "tagline": "",
-   "genres": [
-    "Action",
-    "History",
-    "Drama"
-   ],
-   "trailer": "f40JahDi1Uc",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Amazon Prime Video",
-     "Hulu",
-     "Peacock Premium",
-     "YouTube TV",
-     "Hi-YAH",
-     "ViX Premium Amazon Channel",
-     "Amazon Prime Video with Ads",
-     "Peacock Premium Plus",
-     "Hi-YAH Amazon Channel"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/449924-4/watch?locale=US"
-   }
-  },
-  {
-   "name": "Warrior",
-   "year": 2011,
-   "kind": "movie",
-   "season": null,
-   "value": 6.25,
-   "style": "mixed",
-   "tmdb_rating": 7.845,
-   "overview": "The youngest son of an alcoholic former boxer returns home, where he's trained by his father for competition in a mixed martial arts tournament – a path that puts the fighter on a collision course with his estranged, older brother.",
-   "fight_quality": 8,
-   "action_density": 6,
-   "grit": 7,
-   "pacing": 8,
-   "crime_tone": null,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "gripping action",
-     "url": "https://www.rottentomatoes.com/m/1212910-warrior"
-    },
-    {
-     "text": "quickly and brutally knocks out opponents",
-     "url": "https://en.wikipedia.org/wiki/Warrior_(2011_film)"
-    }
-   ],
-   "poster": "/zeGvf99lr63RcvFXa6Woyq3iPs1.jpg",
-   "backdrop": "/zb7b40ieuRGiIc9ebIEapneaCsl.jpg",
-   "runtime": 140,
-   "tagline": "Family is worth fighting for.",
-   "genres": [
-    "Drama",
-    "Action"
-   ],
-   "trailer": "I5kzcwcQA1Q",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Lionsgate+ Amazon Channel",
-     "Outside TV Features Amzon Channel"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/59440-warrior/watch?locale=US"
-   }
-  },
-  {
-   "name": "John Wick: Assassin's Code",
-   "year": 2015,
-   "kind": "movie",
-   "season": null,
-   "value": 6.25,
-   "style": "gun_fu",
-   "tmdb_rating": 7.7,
-   "overview": "John Wick Movie Extra",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 8,
-   "pacing": 8,
-   "crime_tone": 9,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "intense combat scenes",
-     "url": "https://movieweb.com/john-wick-best-action-scenes/"
-    },
-    {
-     "text": "visceral, emotional quality",
-     "url": "https://gamerant.com/john-wick-best-fights-every-movie/"
-    }
-   ],
-   "poster": "/fJbw16AwM59dEhSiCIAfFGgIgOP.jpg",
-   "backdrop": null,
-   "runtime": 5,
-   "tagline": "John Wick's world vs. the assassin underworld",
-   "genres": [],
-   "trailer": null,
-   "watch": null
-  },
-  {
-   "name": "Ip Man: Kung Fu Legend",
-   "year": 2026,
-   "kind": "movie",
-   "season": null,
-   "value": 6.24,
-   "style": "hand_to_hand",
-   "tmdb_rating": 7.045,
-   "overview": "In 1950s Hong Kong, British merchants and Chinese triads have joined forces to expand their territory, forcibly demolishing factories without regard for public welfare. This move draws fierce opposition from Ip Man, standing up for the workers, he faces pressure from all sides. Framed for murder, he is sent to prison. Within the prison walls, the triads set multiple deadly traps. Can Ip Man overcome these trials, escape the danger, and clear his name?",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 6,
-   "pacing": 8,
-   "crime_tone": 8,
-   "reviews": 1,
-   "evidence": [
-    {
-     "text": "action is consistently entertaining",
-     "url": "https://asianmoviepulse.com/2026/06/ip-man-kung-fu-legend-2026/"
-    },
-    {
-     "text": "editing maintains a brisk pace",
-     "url": "https://asianmoviepulse.com/2026/06/ip-man-kung-fu-legend-2026/"
-    }
-   ],
-   "poster": "/m3Low6jJrKXHSYFpXNkmYsG1Q6I.jpg",
-   "backdrop": "/6HBbzW5D7StUBRi0yO6ZEq9rNB5.jpg",
-   "runtime": 94,
-   "tagline": "",
-   "genres": [
-    "Action"
-   ],
-   "trailer": "cqlZSRvH7BU",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Hi-YAH Amazon Channel",
-     "Tencent Video"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Fandango At Home",
-     "Plex"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/1628071-2/watch?locale=US"
-   }
-  },
-  {
-   "name": "As Above, So Below: The Underworld of 'John Wick'",
-   "year": 2017,
-   "kind": "movie",
-   "season": null,
-   "value": 6.24,
-   "style": "gun_fu",
-   "tmdb_rating": 7.35,
-   "overview": "A close look at the assassin's lifestyle in the film.",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 8,
-   "pacing": 8,
-   "crime_tone": 9,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "complexly conceived and constructed with careful choreography",
-     "url": "https://thecriticalcritics.com/reviews/movie-review-john-wick-chapter-2/"
-    },
-    {
-     "text": "the franchise always makes good use of the settings",
-     "url": "https://collider.com/john-wick-best-action-scenes-ranked/"
-    }
-   ],
-   "poster": null,
-   "backdrop": null,
-   "runtime": 5,
-   "tagline": "",
-   "genres": [
-    "Documentary"
-   ],
-   "trailer": null,
-   "watch": null
-  },
-  {
-   "name": "Young Ip Man: Crisis Time",
-   "year": 2020,
-   "kind": "movie",
-   "season": null,
-   "value": 6.23,
-   "style": "hand_to_hand",
-   "tmdb_rating": 5.536,
-   "overview": "In 1917 young Ip Man first came to Hong Kong to study, but his peaceful campus life was unexpectedly broken. A shocking hostage situation occurred on the day when the school held an English speech contest. All students in the school were held hostage, and one person was killed every minute. Facing the immediate crisis, Ip Man stepped forward, but unexpectedly discovered that the kidnapper was his master, and his good brother turned out to be an accomplice of the kidnapper.",
-   "fight_quality": 6,
-   "action_density": 8,
-   "grit": 7,
-   "pacing": 7,
-   "crime_tone": 6,
-   "reviews": 4,
-   "evidence": [
-    {
-     "text": "plenty of quality fight scenes",
-     "url": "https://neofilmshop.com/blogs/news/film-review-ip-man-crisis-time-2020"
-    },
-    {
-     "text": "some satisfying action sequences",
-     "url": "https://www.wearemoviegeeks.com/2023/04/young-ip-man-crisis-time-review/"
-    }
-   ],
-   "poster": "/jWeP8CIjHY7iPpcV9mWPWJEWez9.jpg",
-   "backdrop": "/2HRXtyR5Xd2ann68k9wOCHzJs8X.jpg",
-   "runtime": 79,
-   "tagline": "",
-   "genres": [
-    "Action"
-   ],
-   "trailer": null,
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Hi-YAH",
-     "Hi-YAH Amazon Channel"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store"
-    ],
-    "link": "https://www.themoviedb.org/movie/751391/watch?locale=US"
-   }
-  },
-  {
-   "name": "Sakra",
-   "year": 2023,
-   "kind": "movie",
-   "season": null,
-   "value": 6.21,
-   "style": "wuxia",
-   "tmdb_rating": 6.471,
-   "overview": "Qiao Feng is the respected leader of a roving band of martial artists. After he is wrongfully accused of murder and subsequently exiled, Qiao Feng goes on the run in search of answers about his own mysterious origin story—and the unknown enemies working to destroy him from the shadows.",
-   "fight_quality": 8,
-   "action_density": 6,
-   "grit": 7,
-   "pacing": 5,
-   "crime_tone": 4,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "Sakra soars in the action department",
-     "url": "https://www.fareastfilms.com/review/sakra/"
-    },
-    {
-     "text": "kinetic energy to the action",
-     "url": "https://theactionelite.com/sakra-2023-review/"
-    }
-   ],
-   "poster": "/jGKCpt3zzbGZbgoza6HCvecqElM.jpg",
-   "backdrop": "/e5H1SGeouEonsXHlQ6rEY8aAAWa.jpg",
-   "runtime": 130,
-   "tagline": "When a warrior belongs nowhere, the enemy is everywhere.",
-   "genres": [
-    "Action",
-    "Adventure"
-   ],
-   "trailer": "aHP_pyGtFIk",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Amazon Prime Video",
-     "Peacock Premium",
-     "Hi-YAH",
-     "Amazon Prime Video with Ads",
-     "Peacock Premium Plus",
-     "Hi-YAH Amazon Channel"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home",
-     "Rakuten Viki",
-     "Plex"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/990140/watch?locale=US"
-   }
-  },
-  {
-   "name": "John Wick: Chapter 3 - Parabellum",
-   "year": 2019,
-   "kind": "movie",
-   "season": null,
-   "value": 6.21,
-   "style": "gun_fu",
-   "tmdb_rating": 7.439,
-   "overview": "Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn.",
-   "fight_quality": 8,
-   "action_density": 8,
-   "grit": 7,
-   "pacing": 8,
-   "crime_tone": 9,
-   "reviews": 2,
-   "evidence": [
-    {
-     "text": "pure aesthetic desensitization",
-     "url": "https://variety.com/2019/film/reviews/john-wick-3-review-film-parabellum-1203210529/"
-    },
-    {
-     "text": "exhilarating, sometimes semi-comic, occasionally merely exhausting",
-     "url": "https://www.hollywoodreporter.com/movies/movie-reviews/john-wick-chapter-3-parabellum-review-1209471/"
-    }
-   ],
-   "poster": "/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg",
-   "backdrop": "/vVpEOvdxVBP2aV166j5Xlvb5Cdc.jpg",
-   "runtime": 131,
-   "tagline": "If you want peace, prepare for war.",
-   "genres": [
-    "Action",
-    "Thriller",
-    "Crime"
-   ],
-   "trailer": "pU8-7BX9uxs",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Amazon Prime Video",
-     "Philo",
-     "AMC+ Amazon Channel",
-     "YouTube TV",
-     "Amazon Prime Video with Ads"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home",
-     "FlixFling",
-     "Spectrum On Demand",
-     "Plex"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/458156-john-wick-chapter-3-parabellum/watch?locale=US"
-   }
-  },
-  {
-   "name": "Desert Warrior",
-   "year": 2026,
-   "kind": "movie",
-   "season": null,
-   "value": 6.13,
-   "style": "swordplay",
-   "tmdb_rating": 5.921,
-   "overview": "In 7th-century Arabia, Princess Hind becomes a warrior to defy the ruthless Emperor Kisra. Forged into a warrior and aided by legendary bandit Hanzala, Hind unites warring tribes for a last stand—the historic Battle of Dhi Qar—that will change history.",
-   "fight_quality": 6,
-   "action_density": 7,
-   "grit": 8,
-   "pacing": 5,
-   "crime_tone": 6,
-   "reviews": 4,
-   "evidence": [
-    {
-     "text": "Plenty of elaborate battles scenes",
-     "url": "https://www.hollywoodreporter.com/movies/movie-reviews/desert-warrior-review-anthony-mackie-saudi-arabia-1236573205/"
-    },
-    {
-     "text": "Spectacular and often surprising battle sequence",
-     "url": "https://geekvibesnation.com/desert-warrior-review/"
-    }
-   ],
-   "poster": "/waxnw1NpzTPY5JkqWvu0muSopRJ.jpg",
-   "backdrop": "/ohlNSR8MsHk5e6fcAxqAJmcz4Sm.jpg",
-   "runtime": 127,
-   "tagline": "One warrior must unite them all.",
-   "genres": [
-    "History",
-    "War",
-    "Action"
-   ],
-   "trailer": "fraAGOuT3sA",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Hulu"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/898704-desert-warrior/watch?locale=US"
-   }
-  },
-  {
-   "name": "Martial Arts of Shaolin",
-   "year": 1986,
-   "kind": "movie",
-   "season": null,
-   "value": 6.07,
-   "style": "mixed",
-   "tmdb_rating": 6.3,
-   "overview": "In ancient China, Zhi Ming trains at the legendary Northern Shaolin temple to avenge the death of his father at the hands of a nefarious magistrate.",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 6,
-   "pacing": 8,
-   "crime_tone": 4,
-   "reviews": 2,
-   "evidence": [
-    {
-     "text": "Martial Arts of Shaolin has some spectacular martial arts sequences",
-     "url": "https://theactionelite.com/martial-arts-of-shaolin-1986-review/"
-    },
-    {
-     "text": "Jet Li stars in this Shaw Brother’s gem which has some truly breathtaking martial arts",
-     "url": "https://theactionelite.com/martial-arts-of-shaolin-1986-review/"
-    }
-   ],
-   "poster": "/5Gk38G7JcGJY6aR4cdrZ8sftSsv.jpg",
-   "backdrop": "/mcYYFEONBY5XzTDoT7d4xrhkTwt.jpg",
-   "runtime": 94,
-   "tagline": "",
-   "genres": [
-    "Action",
-    "Comedy"
-   ],
-   "trailer": "MZ9KthGwgTE",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Hi-YAH",
-     "Hi-YAH Amazon Channel",
-     "ARROW"
-    ],
-    "rent": [
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube"
-    ],
-    "buy": [
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube"
-    ],
-    "link": "https://www.themoviedb.org/movie/37032/watch?locale=US"
-   }
-  },
-  {
-   "name": "The Fate of the Furious",
-   "year": 2017,
-   "kind": "movie",
-   "season": null,
-   "value": 6.01,
-   "style": "brawl",
-   "tmdb_rating": 6.846,
-   "overview": "When a mysterious woman seduces Dom into the world of crime and a betrayal of those closest to him, the crew face trials that will test them as never before.",
-   "fight_quality": 8,
-   "action_density": 8,
-   "grit": 6,
-   "pacing": 8,
-   "crime_tone": 7,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "stunning action set pieces",
-     "url": "https://variety.com/2017/film/reviews/the-fate-of-the-furious-review-vin-diesel-dwayne-johnson-1202026947/"
-    },
-    {
-     "text": "crazy over the top, are also usually crazy entertaining",
-     "url": "https://www.highonfilms.com/the-fate-of-the-furious-2017-movie-review/"
-    }
-   ],
-   "poster": "/dImWM7GJqryWJO9LHa3XQ8DD5NH.jpg",
-   "backdrop": "/3IJ8kG8i84PncXkSovu0PaZQfjM.jpg",
-   "runtime": 136,
-   "tagline": "Never give up on family.",
-   "genres": [
-    "Action",
-    "Crime",
-    "Thriller"
-   ],
-   "trailer": "iVdIiOKBPkg",
-   "watch": {
-    "region": "KE",
-    "stream": [
-     "Netflix",
-     "Amazon Prime Video"
-    ],
-    "rent": [],
-    "buy": [],
-    "link": "https://www.themoviedb.org/movie/337339-the-fate-of-the-furious/watch?locale=KE"
-   }
-  },
-  {
-   "name": "Across the Furious Sea",
-   "year": 2023,
-   "kind": "movie",
-   "season": null,
-   "value": 5.94,
-   "style": "brawl",
-   "tmdb_rating": 6.3,
-   "overview": "A murder case reveals unknown secrets of the killer and the victim.",
-   "fight_quality": 7,
-   "action_density": 6,
-   "grit": 8,
-   "pacing": 8,
-   "crime_tone": 9,
-   "reviews": 1,
-   "evidence": [
-    {
-     "text": "a large portion of the film consists of Jin chasing Miao Miao",
-     "url": "https://asianmoviepulse.com/2024/05/film-review-across-the-furious-sea-2023-by-cao-bao-ping/"
-    },
-    {
-     "text": "relentless in its pacing",
-     "url": "https://asianmoviepulse.com/2024/05/film-review-across-the-furious-sea-2023-by-cao-bao-ping/"
-    }
-   ],
-   "poster": "/qCMqLOHZNut5DdUXjU2lAIwNKMH.jpg",
-   "backdrop": "/ZhGLgD066SagMiIOZ0wScQQLHa.jpg",
-   "runtime": 144,
-   "tagline": "",
-   "genres": [
-    "Crime",
-    "Thriller",
-    "Drama",
-    "Mystery"
-   ],
-   "trailer": null,
-   "watch": null
-  },
-  {
-   "name": "Kung Fu Panda: Secrets of the Furious Five",
-   "year": 2008,
-   "kind": "movie",
-   "season": null,
-   "value": 5.82,
-   "style": "hand_to_hand",
-   "tmdb_rating": 6.801,
-   "overview": "Ordered to teach a martial arts class of rambunctious bunny kittens, Po tells stories of each of the Furious Five's pasts.",
-   "fight_quality": 6,
-   "action_density": 5,
-   "grit": 3,
-   "pacing": null,
-   "crime_tone": null,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "Violence & peril 3/10",
-     "url": "https://www.movie-knight.com/title/kung-fu-panda-secrets-of-the-furious-five-2008"
-    },
-    {
-     "text": "Po tells stories of each of the Furious Five's pasts",
-     "url": "https://www.themoviedb.org/movie/15854-kung-fu-panda-secrets-of-the-furious-five"
-    }
-   ],
-   "poster": "/3HENPRM1tGRswyjgiIbP9b4sult.jpg",
-   "backdrop": "/iezp56ettTUsHWgBjkqvEps5oxc.jpg",
-   "runtime": 25,
-   "tagline": "Now you can see what no one else have seen before.",
-   "genres": [
-    "Animation",
-    "Family",
-    "Action"
-   ],
-   "trailer": null,
-   "watch": null
-  },
-  {
-   "name": "The Fast and the Furious",
-   "year": 2001,
-   "kind": "movie",
-   "season": null,
-   "value": 5.8,
-   "style": "brawl",
-   "tmdb_rating": 7.026,
-   "overview": "Dominic Toretto is a Los Angeles street racer suspected of masterminding a series of big-rig hijackings. When undercover cop Brian O'Conner infiltrates Toretto's iconoclastic crew, he falls for Toretto's sister and must choose a side: the gang or the LAPD.",
-   "fight_quality": 6,
-   "action_density": 7,
-   "grit": 5,
-   "pacing": 8,
-   "crime_tone": 8,
-   "reviews": 2,
-   "evidence": [
-    {
-     "text": "Critics praised action sequences",
-     "url": "https://en.wikipedia.org/wiki/The_Fast_and_the_Furious_(2001_film)"
-    },
-    {
-     "text": "Sleek and shiny on the surface",
-     "url": "https://www.rottentomatoes.com/m/1108372-fast_and_the_furious"
-    }
-   ],
-   "poster": "/gqY0ITBgT7A82poL9jv851qdnIb.jpg",
-   "backdrop": "/jY9ef5nqY4xIIMu3yzW3qamUCoi.jpg",
-   "runtime": 106,
-   "tagline": "If you have what it takes, you can have it all.",
-   "genres": [
-    "Action",
-    "Crime",
-    "Thriller"
-   ],
-   "trailer": "iIU1xlDbbQk",
-   "watch": {
-    "region": "KE",
-    "stream": [
-     "Netflix",
-     "Amazon Prime Video"
-    ],
-    "rent": [],
-    "buy": [],
-    "link": "https://www.themoviedb.org/movie/9799-the-fast-and-the-furious/watch?locale=KE"
-   }
-  },
-  {
-   "name": "The Fast and the Furious: Tokyo Drift",
-   "year": 2006,
-   "kind": "movie",
-   "season": null,
-   "value": 5.3,
-   "style": "other",
-   "tmdb_rating": 6.564,
-   "overview": "In order to avoid a jail sentence, Sean Boswell heads to Tokyo to live with his military father. In a low-rent section of the city, Sean gets caught up in the underground world of drift racing",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 6,
-   "pacing": 8,
-   "crime_tone": 5,
-   "reviews": 2,
-   "evidence": [
-    {
-     "text": "ramped-up races",
-     "url": "https://screenrant.com/fast-furious-tokyo-drift-best-scenes-action-sequences/"
-    },
-    {
-     "text": "one of the most dramatic chase sequences",
-     "url": "https://screenrant.com/fast-furious-tokyo-drift-best-scenes-action-sequences/"
-    }
-   ],
-   "poster": "/46xqGOwHbh2TH2avWSw3SMXph4E.jpg",
-   "backdrop": "/dMARcKLrv0T7kVJ4iQR3vqTTdtT.jpg",
-   "runtime": 104,
-   "tagline": "On the streets of Tokyo, speed needs no translation.",
-   "genres": [
-    "Action",
-    "Crime",
-    "Thriller"
-   ],
-   "trailer": "K6RWbKMSDcg",
-   "watch": {
-    "region": "KE",
-    "stream": [
-     "Netflix",
-     "Amazon Prime Video"
-    ],
-    "rent": [],
-    "buy": [],
-    "link": "https://www.themoviedb.org/movie/9615-the-fast-and-the-furious-tokyo-drift/watch?locale=KE"
-   }
-  }
- ],
- "crime": [
-  {
-   "name": "Warrior",
-   "year": 2019,
-   "kind": "series",
-   "season": 1,
-   "value": 7.04,
-   "style": "hand_to_hand",
-   "tmdb_rating": 7.983,
-   "overview": "A gritty, action-packed crime drama set during the brutal Tong Wars of San Francisco’s Chinatown in the second half of the 19th century. The series follows Ah Sahm, a martial arts prodigy who immigrates from China to San Francisco under mysterious circumstances, and becomes a hatchet man for one of Chinatown’s most powerful tongs.",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 8,
-   "pacing": 8,
-   "crime_tone": 9,
-   "reviews": 5,
-   "evidence": [
-    {
-     "text": "awesome fight scenes",
-     "url": "https://theactionelite.com/warrior-season-1-2019-review/"
-    },
-    {
-     "text": "great fights dotted throughout its run-time",
-     "url": "https://www.thereviewgeek.com/warrior-s1review/"
-    }
-   ],
-   "poster": "/hR9qPFMI6BoR63XK6BBX5Ueghan.jpg",
-   "backdrop": "/akshc6F3VmhJpvniRRlgqDt1ndT.jpg",
-   "runtime": 55,
-   "tagline": "Choose a side.",
-   "genres": [
-    "Crime",
-    "Drama",
-    "Action & Adventure",
-    "Western"
-   ],
-   "trailer": null,
-   "watch": {
-    "region": "US",
-    "stream": [
-     "HBO Max Amazon Channel",
-     "HBO Max"
-    ],
-    "rent": [
-     "Amazon Video"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/tv/73544-warrior/watch?locale=US"
-   }
-  },
-  {
-   "name": "Into the Badlands",
-   "year": 2015,
-   "kind": "series",
-   "season": 2,
-   "value": 7.01,
-   "style": "wuxia",
-   "tmdb_rating": 7.623,
-   "overview": "In a land controlled by feudal barons, a great warrior and a young boy embark on a journey across a dangerous land to find enlightenment. \n\nA genre-bending martial arts series very loosely based on the classic Chinese tale Journey to the West.",
-   "fight_quality": 9,
-   "action_density": 8,
-   "grit": 9,
-   "pacing": 8,
-   "crime_tone": null,
-   "reviews": 4,
-   "evidence": [
-    {
-     "text": "best-executed action scenes on television",
-     "url": "https://www.indiewire.com/criticism/shows/into-the-badlands-review-season-2-1201794886/"
-    },
-    {
-     "text": "cinema-worthy martial arts on the small screen",
-     "url": "https://www.ign.com/articles/2017/05/28/into-the-badlands-season-2-review"
-    }
-   ],
-   "poster": "/jtceMKMxHSriLFUGAUfqHsW7uCo.jpg",
-   "backdrop": "/1p9FUL7MKKOW0ZhsXkbpD3DVTy1.jpg",
-   "runtime": 43,
-   "tagline": "",
-   "genres": [
-    "Action & Adventure",
-    "Drama",
-    "Sci-Fi & Fantasy"
-   ],
-   "trailer": "5KyHy4KRvIc",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Philo",
-     "AMC Plus Apple TV channel",
-     "AMC+ Amazon Channel",
-     "AMC+ Roku Premium Channel",
-     "AMC+",
-     "Spectrum On Demand"
-    ],
-    "rent": [],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/tv/47450-into-the-badlands/watch?locale=US"
-   }
-  },
-  {
-   "name": "The Furious",
-   "year": 2026,
-   "kind": "movie",
-   "season": null,
-   "value": 6.52,
-   "style": "mixed",
-   "tmdb_rating": 8.241,
-   "overview": "When Wang Wei's daughter is abducted by a criminal organization and law enforcement declines to intervene due to corruption, Wei embarks on a solo mission to find her. His sole ally is Navin, a determined journalist whose wife has also mysteriously disappeared. Together, this improbable pair confronts the kidnappers in a fierce martial arts confrontation, driven by an intense desire for retribution.",
-   "fight_quality": 9,
-   "action_density": 8,
-   "grit": 9,
-   "pacing": 9,
-   "crime_tone": 8,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "eye-popping brutality",
-     "url": "https://www.slashfilm.com/2190320/the-furious-2026-movie-review/"
-    },
-    {
-     "text": "extreme close-up shots of stabs to the gut, sledgehammers to the face",
-     "url": "https://www.thereviewgeek.com/thefurious-moviereview/"
-    }
-   ],
-   "poster": "/ivQ1Z3lI1xWvAeGDHBw3CCYZDGJ.jpg",
-   "backdrop": "/i0eR9O1FnCgBm1cH8WwqxGbAXMS.jpg",
-   "runtime": 113,
-   "tagline": "To save their loved ones, they will fight everyone.",
-   "genres": [
-    "Action",
-    "Crime",
-    "Thriller"
-   ],
-   "trailer": "Avky8dVaqAI",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Philo",
-     "Starz Amazon Channel",
-     "Starz",
-     "Starz Apple TV channel",
-     "Starz Roku Premium Channel"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home",
-     "Plex"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/1280738/watch?locale=US"
-   }
-  },
-  {
-   "name": "John Wick: Chapter 4",
-   "year": 2023,
-   "kind": "movie",
-   "season": null,
-   "value": 6.43,
-   "style": "gun_fu",
-   "tmdb_rating": 7.71,
-   "overview": "With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.",
-   "fight_quality": 9,
-   "action_density": 8,
-   "grit": 9,
-   "pacing": 9,
-   "crime_tone": 8,
-   "reviews": 4,
-   "evidence": [
-    {
-     "text": "The action in John Wick: Chapter 4 is simply mesmerizing, showcasing action as an art form",
-     "url": "https://movieweb.com/john-wick-chapter-4-fight-scenes-ranked/"
-    },
-    {
-     "text": "The hand-to-hand combat in a “John Wick” film is at once relentless and tantalizing in its down-and-dirty realism",
-     "url": "https://variety.com/2023/film/reviews/john-wick-chapter-4-review-keanu-reeves-donnie-yen-1235546955/"
-    }
-   ],
-   "poster": "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
-   "backdrop": "/7I6VUdPj6tQECNHdviJkUHD2u89.jpg",
-   "runtime": 170,
-   "tagline": "No way back, one way out.",
-   "genres": [
-    "Action",
-    "Thriller",
-    "Crime"
-   ],
-   "trailer": "yjRHZEUamCc",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Amazon Prime Video",
-     "Philo",
-     "AMC Plus Apple TV channel",
-     "AMC+ Amazon Channel",
-     "AMC+",
-     "YouTube TV",
-     "AMC",
-     "Amazon Prime Video with Ads"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home",
-     "FlixFling",
-     "Spectrum On Demand",
-     "Plex"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/603692-john-wick-chapter-4/watch?locale=US"
-   }
-  },
-  {
-   "name": "Warrior Nun",
-   "year": 2020,
-   "kind": "series",
-   "season": 2,
-   "value": 6.43,
-   "style": "mixed",
-   "tmdb_rating": 7.872,
-   "overview": "After waking up in a morgue, an orphaned teen discovers she now possesses superpowers as the chosen Halo-Bearer for a secret sect of demon-hunting nuns.",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 8,
-   "pacing": 8,
-   "crime_tone": null,
-   "reviews": 5,
-   "evidence": [
-    {
-     "text": "The stunt work and action sequences in this second season are thoughtful, necessary and greatly entertaining.",
-     "url": "https://www.dexerto.com/tv-movies/warrior-nun-season-2-review-action-packed-thoughtful-and-a-must-watch-on-netflix-1984649/"
-    },
-    {
-     "text": "Heads are rolling, body parts are flying about and nuns are kicking ass.",
-     "url": "https://www.dexerto.com/tv-movies/warrior-nun-season-2-review-action-packed-thoughtful-and-a-must-watch-on-netflix-1984649/"
-    }
-   ],
-   "poster": "/fLP0mA7FiERZhDP1NJUaHpm6XM8.jpg",
-   "backdrop": "/eLQx33dMaa5mW16TFIZbhaeSqer.jpg",
-   "runtime": 42,
-   "tagline": "Deliver us from evil.",
-   "genres": [
-    "Action & Adventure",
-    "Drama",
-    "Sci-Fi & Fantasy"
-   ],
-   "trailer": "acdP-NzBhjs",
-   "watch": {
-    "region": "KE",
-    "stream": [
-     "Netflix"
-    ],
-    "rent": [],
-    "buy": [],
-    "link": "https://www.themoviedb.org/tv/87689-warrior-nun/watch?locale=KE"
-   }
-  },
-  {
-   "name": "The 13th Warrior",
-   "year": 1999,
-   "kind": "movie",
-   "season": null,
-   "value": 6.41,
-   "style": "swordplay",
-   "tmdb_rating": 6.721,
-   "overview": "A Muslim ambassador exiled from his homeland joins a group of Vikings, initially offended by their behavior but growing to respect them. As they travel together, they learn of a legendary evil closing in and must unite to confront this formidable force.",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 6,
-   "pacing": 8,
-   "crime_tone": null,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "Fight scenes and action sequences are competent and nicely brutal",
-     "url": "https://www.cinedump.com/reviews/2024/8/26/the-13th-warrior-1999"
-    },
-    {
-     "text": "The film maintains a swift pace, captivating viewers with a succession of perilous confrontations and tactical combats",
-     "url": "https://sunsetmoviereviews.wordpress.com/2024/12/01/the-13th-warrior-1999-review/"
-    }
-   ],
-   "poster": "/pj1IQQ7ajwaOrjjTCxyM1L4mSnX.jpg",
-   "backdrop": "/sjZIN2oDzOLGYuz21QwWw1tJ8ly.jpg",
-   "runtime": 103,
-   "tagline": "Prey for the living.",
-   "genres": [
-    "Adventure",
-    "History",
-    "Action"
-   ],
-   "trailer": "RikXt796p2o",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Amazon Prime Video",
-     "Amazon Prime Video with Ads"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Google Play Movies",
-     "YouTube",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/1911-the-13th-warrior/watch?locale=US"
-   }
-  },
-  {
-   "name": "The Best of the Martial Arts Films",
-   "year": 1990,
-   "kind": "movie",
-   "season": null,
-   "value": 6.4,
-   "style": "mixed",
-   "tmdb_rating": 8.8,
-   "overview": "The most explosive barehanded combat sequences ever filmed. An electrifying video of martial arts mastery and mayhem. This program takes a behind-the-scenes look at the weapons, the mystical eastern philosophy, and the incredible skills that have made martial arts films one of the most popular genres in the world today.",
-   "fight_quality": 8,
-   "action_density": 9,
-   "grit": 6,
-   "pacing": 8,
-   "crime_tone": null,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "90 minutes of clips of fights",
-     "url": "https://letterboxd.com/film/the-best-of-the-martial-arts-films/"
-    },
-    {
-     "text": "most explosive barehanded combat sequences",
-     "url": "https://www.themoviedb.org/movie/356568-the-best-of-the-martial-arts-films"
-    }
-   ],
-   "poster": "/xzKbLbMUlinOPyaoLG7y7Vh1B8E.jpg",
-   "backdrop": "/dAz9wfEJzjXNw8nR2qUmaeFXIMk.jpg",
-   "runtime": 91,
-   "tagline": "The Deadliest Art",
-   "genres": [
-    "Documentary",
-    "Action"
-   ],
-   "trailer": "4bjeKcY2tx0",
-   "watch": null
   },
   {
    "name": "John Wick: Chapter 2",
@@ -2021,11 +640,1572 @@
    }
   },
   {
+   "name": "American Ninja Warrior",
+   "year": 2009,
+   "kind": "series",
+   "season": 9,
+   "value": 6.36,
+   "style": "mixed",
+   "tmdb_rating": 6.818,
+   "overview": "Follow competitors as they tackle a series of challenging obstacle courses in both city qualifying and city finals rounds across the country. Those that successfully complete the finals course in their designated region move on to the national finals round in Las Vegas, where they face a stunning four-stage course modeled after the famed Mt. Midoriyama course in Japan. The winner will take home a grand prize of $1 million.",
+   "fight_quality": 8,
+   "action_density": 9,
+   "grit": 6,
+   "pacing": 8,
+   "crime_tone": null,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "obstacles used",
+     "url": "https://en.wikipedia.org/wiki/American_Ninja_Warrior_season_9"
+    },
+    {
+     "text": "competitors run Stage 1",
+     "url": "https://episode.ninja/series/american-ninja-warrior/season-9"
+    }
+   ],
+   "poster": "/iAL6JYSfMp3v009qbQCyMwiGl2g.jpg",
+   "backdrop": "/wCuGxz9dxsPPPoCW9eqcZnEyM4A.jpg",
+   "runtime": 60,
+   "tagline": "",
+   "genres": [
+    "Reality"
+   ],
+   "trailer": null,
+   "watch": {
+    "region": "US",
+    "stream": [
+     "fuboTV",
+     "Peacock Premium",
+     "NBC",
+     "Peacock Premium Plus",
+     "Wonder Project Amazon Channel"
+    ],
+    "rent": [],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/tv/37913-american-ninja-warrior/watch?locale=US"
+   }
+  },
+  {
    "name": "The Continental: From the World of John Wick",
    "year": 2023,
    "kind": "series",
    "season": 1,
+   "value": 6.3,
+   "style": "mixed",
+   "tmdb_rating": 7.365,
+   "overview": "The origin behind the iconic hotel-for-assassins through the eyes and actions of a young Winston Scott, as he's dragged into the Hell-scape of 1970's New York City to face a past he thought he'd left behind. Winston charts a deadly course through the hotel's mysterious underworld in a harrowing attempt to seize the hotel where he will eventually take his future throne.",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 8,
+   "pacing": 6,
+   "crime_tone": 9,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "top-notch action sequences, expertly choreographed fight scenes",
+     "url": "https://readysteadycut.com/2023/09/21/the-continental-from-the-world-of-john-wick-review/"
+    },
+    {
+     "text": "filled with top-notch action sequences, expertly choreographed fight scenes, and disturbingly creative death scenes",
+     "url": "https://readysteadycut.com/2023/09/21/the-continental-from-the-world-of-john-wick-review/"
+    }
+   ],
+   "poster": "/2urdwqEL9FRkGMKAkhfvWTALG00.jpg",
+   "backdrop": "/1gajPADcRyzmYvfAefbJwhCy4bk.jpg",
+   "runtime": null,
+   "tagline": "Prepare for check-in.",
+   "genres": [
+    "Crime",
+    "Drama",
+    "Action & Adventure"
+   ],
+   "trailer": "Z3KmgnQbor8",
+   "watch": {
+    "region": "KE",
+    "stream": [
+     "Amazon Prime Video"
+    ],
+    "rent": [],
+    "buy": [],
+    "link": "https://www.themoviedb.org/tv/72710-the-continental-from-the-world-of-john-wick/watch?locale=KE"
+   }
+  },
+  {
+   "name": "Ip Man: The Awakening",
+   "year": 2021,
+   "kind": "movie",
+   "season": null,
+   "value": 6.29,
+   "style": "hand_to_hand",
+   "tmdb_rating": 6.8,
+   "overview": "When a young Master Ip stops a kidnapping, he ignites a turf war with a ruthless human-trafficking ring. In retaliation, the gang kidnaps one of Ip Man's close friends, forcing him to face the group's brutal boxing champion head-on.",
+   "fight_quality": 6,
+   "action_density": 8,
+   "grit": 6,
+   "pacing": 8,
+   "crime_tone": 7,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "fight scenes every few minutes",
+     "url": "https://theactionelite.com/ip-man-the-awakening-2022-review/"
+    },
+    {
+     "text": "regular fight scenes make for an easy watch",
+     "url": "https://theactionelite.com/ip-man-the-awakening-2022-review/"
+    }
+   ],
+   "poster": "/A7vhdyGrpPMKXsuFBZzxmave94F.jpg",
+   "backdrop": "/Xfn9eDOaZKSz5W3PRoJI928I9c.jpg",
+   "runtime": 76,
+   "tagline": "The legend begins",
+   "genres": [
+    "Action",
+    "Adventure",
+    "History",
+    "Drama"
+   ],
+   "trailer": "yVCiktvgHb4",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Amazon Prime Video",
+     "Peacock Premium",
+     "Hi-YAH",
+     "Amazon Prime Video with Ads",
+     "Peacock Premium Plus"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/875104/watch?locale=US"
+   }
+  },
+  {
+   "name": "John Wick Chapter 2: Wick-vizzed",
+   "year": 2017,
+   "kind": "movie",
+   "season": null,
+   "value": 6.28,
+   "style": "gun_fu",
+   "tmdb_rating": 7.6,
+   "overview": "A candid look at rehearsal footage in support of a focus on pre-viz.",
+   "fight_quality": 9,
+   "action_density": 8,
+   "grit": 8,
+   "pacing": 7,
+   "crime_tone": 9,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "non-stop, thrillingly choreographed action",
+     "url": "https://www.rottentomatoes.com/m/john_wick_chapter_2"
+    },
+    {
+     "text": "bone-crunching action",
+     "url": "https://flickside.com/john-wick-chapter-2-review-keanu-reeves/"
+    }
+   ],
+   "poster": "/qQFBj2tBlkKhAcAgDVpdFWLX5x.jpg",
+   "backdrop": "/vWNGnjBB3pa6R8slwjhwDxRqBUf.jpg",
+   "runtime": 5,
+   "tagline": "",
+   "genres": [
+    "Documentary"
+   ],
+   "trailer": null,
+   "watch": null
+  },
+  {
+   "name": "Warrior",
+   "year": 2011,
+   "kind": "movie",
+   "season": null,
+   "value": 6.23,
+   "style": "mixed",
+   "tmdb_rating": 7.845,
+   "overview": "The youngest son of an alcoholic former boxer returns home, where he's trained by his father for competition in a mixed martial arts tournament – a path that puts the fighter on a collision course with his estranged, older brother.",
+   "fight_quality": 8,
+   "action_density": 6,
+   "grit": 7,
+   "pacing": 8,
+   "crime_tone": null,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "gripping action",
+     "url": "https://www.rottentomatoes.com/m/1212910-warrior"
+    },
+    {
+     "text": "quickly and brutally knocks out opponents",
+     "url": "https://en.wikipedia.org/wiki/Warrior_(2011_film)"
+    }
+   ],
+   "poster": "/zeGvf99lr63RcvFXa6Woyq3iPs1.jpg",
+   "backdrop": "/zb7b40ieuRGiIc9ebIEapneaCsl.jpg",
+   "runtime": 140,
+   "tagline": "Family is worth fighting for.",
+   "genres": [
+    "Drama",
+    "Action"
+   ],
+   "trailer": "I5kzcwcQA1Q",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Lionsgate+ Amazon Channel",
+     "Outside TV Features Amzon Channel"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/59440-warrior/watch?locale=US"
+   }
+  },
+  {
+   "name": "John Wick: Assassin's Code",
+   "year": 2015,
+   "kind": "movie",
+   "season": null,
+   "value": 6.23,
+   "style": "gun_fu",
+   "tmdb_rating": 7.7,
+   "overview": "John Wick Movie Extra",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 8,
+   "pacing": 8,
+   "crime_tone": 9,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "intense combat scenes",
+     "url": "https://movieweb.com/john-wick-best-action-scenes/"
+    },
+    {
+     "text": "visceral, emotional quality",
+     "url": "https://gamerant.com/john-wick-best-fights-every-movie/"
+    }
+   ],
+   "poster": "/fJbw16AwM59dEhSiCIAfFGgIgOP.jpg",
+   "backdrop": null,
+   "runtime": 5,
+   "tagline": "John Wick's world vs. the assassin underworld",
+   "genres": [],
+   "trailer": null,
+   "watch": null
+  },
+  {
+   "name": "Ip Man 4: The Finale",
+   "year": 2019,
+   "kind": "movie",
+   "season": null,
+   "value": 6.23,
+   "style": "hand_to_hand",
+   "tmdb_rating": 7.3,
+   "overview": "Following the death of his wife, Ip Man travels to San Francisco to ease tensions between the local kung fu masters and his star student, Bruce Lee, while searching for a better future for his son.",
+   "fight_quality": 8,
+   "action_density": 6,
+   "grit": 7,
+   "pacing": 7,
+   "crime_tone": 4,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "fantastic fights scenes",
+     "url": "https://www.fareastfilms.com/review/ip-man-4-the-finale/"
+    },
+    {
+     "text": "frequent hard-hitting fights",
+     "url": "https://celluloidscore.com/reviews/ip-man-4-the-finale-2019-review/"
+    }
+   ],
+   "poster": "/b5cz6BoyHrgBnhfDHOW5hXRWbln.jpg",
+   "backdrop": "/jZDudPPIV4lSxEVgzfK9Z6nHdhi.jpg",
+   "runtime": 105,
+   "tagline": "",
+   "genres": [
+    "Action",
+    "History",
+    "Drama"
+   ],
+   "trailer": "f40JahDi1Uc",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Amazon Prime Video",
+     "Hulu",
+     "Peacock Premium",
+     "YouTube TV",
+     "Hi-YAH",
+     "ViX Premium Amazon Channel",
+     "Amazon Prime Video with Ads",
+     "Peacock Premium Plus",
+     "Hi-YAH Amazon Channel"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/449924-4/watch?locale=US"
+   }
+  },
+  {
+   "name": "Young Ip Man: Crisis Time",
+   "year": 2020,
+   "kind": "movie",
+   "season": null,
+   "value": 6.22,
+   "style": "hand_to_hand",
+   "tmdb_rating": 5.536,
+   "overview": "In 1917 young Ip Man first came to Hong Kong to study, but his peaceful campus life was unexpectedly broken. A shocking hostage situation occurred on the day when the school held an English speech contest. All students in the school were held hostage, and one person was killed every minute. Facing the immediate crisis, Ip Man stepped forward, but unexpectedly discovered that the kidnapper was his master, and his good brother turned out to be an accomplice of the kidnapper.",
+   "fight_quality": 6,
+   "action_density": 8,
+   "grit": 7,
+   "pacing": 7,
+   "crime_tone": 6,
+   "reviews": 4,
+   "evidence": [
+    {
+     "text": "plenty of quality fight scenes",
+     "url": "https://neofilmshop.com/blogs/news/film-review-ip-man-crisis-time-2020"
+    },
+    {
+     "text": "some satisfying action sequences",
+     "url": "https://www.wearemoviegeeks.com/2023/04/young-ip-man-crisis-time-review/"
+    }
+   ],
+   "poster": "/jWeP8CIjHY7iPpcV9mWPWJEWez9.jpg",
+   "backdrop": "/2HRXtyR5Xd2ann68k9wOCHzJs8X.jpg",
+   "runtime": 79,
+   "tagline": "",
+   "genres": [
+    "Action"
+   ],
+   "trailer": null,
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Hi-YAH",
+     "Hi-YAH Amazon Channel"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store"
+    ],
+    "link": "https://www.themoviedb.org/movie/751391/watch?locale=US"
+   }
+  },
+  {
+   "name": "As Above, So Below: The Underworld of 'John Wick'",
+   "year": 2017,
+   "kind": "movie",
+   "season": null,
+   "value": 6.22,
+   "style": "gun_fu",
+   "tmdb_rating": 7.35,
+   "overview": "A close look at the assassin's lifestyle in the film.",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 8,
+   "pacing": 8,
+   "crime_tone": 9,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "complexly conceived and constructed with careful choreography",
+     "url": "https://thecriticalcritics.com/reviews/movie-review-john-wick-chapter-2/"
+    },
+    {
+     "text": "the franchise always makes good use of the settings",
+     "url": "https://collider.com/john-wick-best-action-scenes-ranked/"
+    }
+   ],
+   "poster": null,
+   "backdrop": null,
+   "runtime": 5,
+   "tagline": "",
+   "genres": [
+    "Documentary"
+   ],
+   "trailer": null,
+   "watch": null
+  },
+  {
+   "name": "Ip Man: Kung Fu Legend",
+   "year": 2026,
+   "kind": "movie",
+   "season": null,
+   "value": 6.22,
+   "style": "hand_to_hand",
+   "tmdb_rating": 7.045,
+   "overview": "In 1950s Hong Kong, British merchants and Chinese triads have joined forces to expand their territory, forcibly demolishing factories without regard for public welfare. This move draws fierce opposition from Ip Man, standing up for the workers, he faces pressure from all sides. Framed for murder, he is sent to prison. Within the prison walls, the triads set multiple deadly traps. Can Ip Man overcome these trials, escape the danger, and clear his name?",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 6,
+   "pacing": 8,
+   "crime_tone": 8,
+   "reviews": 1,
+   "evidence": [
+    {
+     "text": "action is consistently entertaining",
+     "url": "https://asianmoviepulse.com/2026/06/ip-man-kung-fu-legend-2026/"
+    },
+    {
+     "text": "editing maintains a brisk pace",
+     "url": "https://asianmoviepulse.com/2026/06/ip-man-kung-fu-legend-2026/"
+    }
+   ],
+   "poster": "/m3Low6jJrKXHSYFpXNkmYsG1Q6I.jpg",
+   "backdrop": "/6HBbzW5D7StUBRi0yO6ZEq9rNB5.jpg",
+   "runtime": 94,
+   "tagline": "",
+   "genres": [
+    "Action"
+   ],
+   "trailer": "cqlZSRvH7BU",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Hi-YAH Amazon Channel",
+     "Tencent Video"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Fandango At Home",
+     "Plex"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/1628071-2/watch?locale=US"
+   }
+  },
+  {
+   "name": "Sakra",
+   "year": 2023,
+   "kind": "movie",
+   "season": null,
+   "value": 6.2,
+   "style": "wuxia",
+   "tmdb_rating": 6.471,
+   "overview": "Qiao Feng is the respected leader of a roving band of martial artists. After he is wrongfully accused of murder and subsequently exiled, Qiao Feng goes on the run in search of answers about his own mysterious origin story—and the unknown enemies working to destroy him from the shadows.",
+   "fight_quality": 8,
+   "action_density": 6,
+   "grit": 7,
+   "pacing": 5,
+   "crime_tone": 4,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "Sakra soars in the action department",
+     "url": "https://www.fareastfilms.com/review/sakra/"
+    },
+    {
+     "text": "kinetic energy to the action",
+     "url": "https://theactionelite.com/sakra-2023-review/"
+    }
+   ],
+   "poster": "/jGKCpt3zzbGZbgoza6HCvecqElM.jpg",
+   "backdrop": "/e5H1SGeouEonsXHlQ6rEY8aAAWa.jpg",
+   "runtime": 130,
+   "tagline": "When a warrior belongs nowhere, the enemy is everywhere.",
+   "genres": [
+    "Action",
+    "Adventure"
+   ],
+   "trailer": "aHP_pyGtFIk",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Amazon Prime Video",
+     "Peacock Premium",
+     "Hi-YAH",
+     "Amazon Prime Video with Ads",
+     "Peacock Premium Plus",
+     "Hi-YAH Amazon Channel"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home",
+     "Rakuten Viki",
+     "Plex"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/990140/watch?locale=US"
+   }
+  },
+  {
+   "name": "John Wick: Chapter 3 - Parabellum",
+   "year": 2019,
+   "kind": "movie",
+   "season": null,
+   "value": 6.19,
+   "style": "gun_fu",
+   "tmdb_rating": 7.439,
+   "overview": "Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn.",
+   "fight_quality": 8,
+   "action_density": 8,
+   "grit": 7,
+   "pacing": 8,
+   "crime_tone": 9,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "pure aesthetic desensitization",
+     "url": "https://variety.com/2019/film/reviews/john-wick-3-review-film-parabellum-1203210529/"
+    },
+    {
+     "text": "exhilarating, sometimes semi-comic, occasionally merely exhausting",
+     "url": "https://www.hollywoodreporter.com/movies/movie-reviews/john-wick-chapter-3-parabellum-review-1209471/"
+    }
+   ],
+   "poster": "/ziEuG1essDuWuC5lpWUaw1uXY2O.jpg",
+   "backdrop": "/vVpEOvdxVBP2aV166j5Xlvb5Cdc.jpg",
+   "runtime": 131,
+   "tagline": "If you want peace, prepare for war.",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Crime"
+   ],
+   "trailer": "pU8-7BX9uxs",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Amazon Prime Video",
+     "Philo",
+     "AMC+ Amazon Channel",
+     "YouTube TV",
+     "Amazon Prime Video with Ads"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home",
+     "FlixFling",
+     "Spectrum On Demand",
+     "Plex"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/458156-john-wick-chapter-3-parabellum/watch?locale=US"
+   }
+  },
+  {
+   "name": "Desert Warrior",
+   "year": 2026,
+   "kind": "movie",
+   "season": null,
+   "value": 6.11,
+   "style": "swordplay",
+   "tmdb_rating": 5.921,
+   "overview": "In 7th-century Arabia, Princess Hind becomes a warrior to defy the ruthless Emperor Kisra. Forged into a warrior and aided by legendary bandit Hanzala, Hind unites warring tribes for a last stand—the historic Battle of Dhi Qar—that will change history.",
+   "fight_quality": 6,
+   "action_density": 7,
+   "grit": 8,
+   "pacing": 5,
+   "crime_tone": 6,
+   "reviews": 4,
+   "evidence": [
+    {
+     "text": "Plenty of elaborate battles scenes",
+     "url": "https://www.hollywoodreporter.com/movies/movie-reviews/desert-warrior-review-anthony-mackie-saudi-arabia-1236573205/"
+    },
+    {
+     "text": "Spectacular and often surprising battle sequence",
+     "url": "https://geekvibesnation.com/desert-warrior-review/"
+    }
+   ],
+   "poster": "/waxnw1NpzTPY5JkqWvu0muSopRJ.jpg",
+   "backdrop": "/ohlNSR8MsHk5e6fcAxqAJmcz4Sm.jpg",
+   "runtime": 127,
+   "tagline": "One warrior must unite them all.",
+   "genres": [
+    "History",
+    "War",
+    "Action"
+   ],
+   "trailer": "fraAGOuT3sA",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Hulu"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/898704-desert-warrior/watch?locale=US"
+   }
+  },
+  {
+   "name": "Martial Arts of Shaolin",
+   "year": 1986,
+   "kind": "movie",
+   "season": null,
+   "value": 6.05,
+   "style": "mixed",
+   "tmdb_rating": 6.3,
+   "overview": "In ancient China, Zhi Ming trains at the legendary Northern Shaolin temple to avenge the death of his father at the hands of a nefarious magistrate.",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 6,
+   "pacing": 8,
+   "crime_tone": 4,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "Martial Arts of Shaolin has some spectacular martial arts sequences",
+     "url": "https://theactionelite.com/martial-arts-of-shaolin-1986-review/"
+    },
+    {
+     "text": "Jet Li stars in this Shaw Brother’s gem which has some truly breathtaking martial arts",
+     "url": "https://theactionelite.com/martial-arts-of-shaolin-1986-review/"
+    }
+   ],
+   "poster": "/5Gk38G7JcGJY6aR4cdrZ8sftSsv.jpg",
+   "backdrop": "/mcYYFEONBY5XzTDoT7d4xrhkTwt.jpg",
+   "runtime": 94,
+   "tagline": "",
+   "genres": [
+    "Action",
+    "Comedy"
+   ],
+   "trailer": "MZ9KthGwgTE",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Hi-YAH",
+     "Hi-YAH Amazon Channel",
+     "ARROW"
+    ],
+    "rent": [
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube"
+    ],
+    "buy": [
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube"
+    ],
+    "link": "https://www.themoviedb.org/movie/37032/watch?locale=US"
+   }
+  },
+  {
+   "name": "Kung Fu: The Legend Continues",
+   "year": 1993,
+   "kind": "series",
+   "season": 2,
+   "value": 6.03,
+   "style": "hand_to_hand",
+   "tmdb_rating": 6.6,
+   "overview": "Like his legendary namesake, Kwai Chang Caine is a warrior monk, operating a Shaolin temple in Northern California. After an evil priest, Tan, destroys the temple, Caine and his young son, Peter each believe the other has perished. The two embark on very different paths -- Caine wanders the Earth, while Peter is a cop. When fate brings the two together, they work to overcome their differing philosophies to battle Tan, and then to help the innocent and bring justice to the new Wild West -- 90s urban America.",
+   "fight_quality": null,
+   "action_density": 6,
+   "grit": 5,
+   "pacing": null,
+   "crime_tone": 7,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "The series is a modern action crime drama focusing on a Shaolin priest and his police detective son.",
+     "url": "https://en.wikipedia.org/wiki/Kung_Fu:_The_Legend_Continues"
+    },
+    {
+     "text": "Season 2 plotlines involve kung fu tournaments, assassins, gang robberies, and police murder investigations.",
+     "url": "https://www.themoviedb.org/tv/636-kung-fu-the-legend-continues/season/2"
+    }
+   ],
+   "poster": "/ncY99oMyS8kZvFcloSV4WNxqYjE.jpg",
+   "backdrop": "/uAMN1SGszrIqgEbg4OFAVBm3A66.jpg",
+   "runtime": 44,
+   "tagline": "",
+   "genres": [
+    "Action & Adventure",
+    "Drama"
+   ],
+   "trailer": null,
+   "watch": {
+    "region": "US",
+    "stream": [],
+    "rent": [],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/tv/636-kung-fu-the-legend-continues/watch?locale=US"
+   }
+  },
+  {
+   "name": "The Fate of the Furious",
+   "year": 2017,
+   "kind": "movie",
+   "season": null,
+   "value": 5.99,
+   "style": "brawl",
+   "tmdb_rating": 6.846,
+   "overview": "When a mysterious woman seduces Dom into the world of crime and a betrayal of those closest to him, the crew face trials that will test them as never before.",
+   "fight_quality": 8,
+   "action_density": 8,
+   "grit": 6,
+   "pacing": 8,
+   "crime_tone": 7,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "stunning action set pieces",
+     "url": "https://variety.com/2017/film/reviews/the-fate-of-the-furious-review-vin-diesel-dwayne-johnson-1202026947/"
+    },
+    {
+     "text": "crazy over the top, are also usually crazy entertaining",
+     "url": "https://www.highonfilms.com/the-fate-of-the-furious-2017-movie-review/"
+    }
+   ],
+   "poster": "/dImWM7GJqryWJO9LHa3XQ8DD5NH.jpg",
+   "backdrop": "/3IJ8kG8i84PncXkSovu0PaZQfjM.jpg",
+   "runtime": 136,
+   "tagline": "Never give up on family.",
+   "genres": [
+    "Action",
+    "Crime",
+    "Thriller"
+   ],
+   "trailer": "iVdIiOKBPkg",
+   "watch": {
+    "region": "KE",
+    "stream": [
+     "Netflix",
+     "Amazon Prime Video"
+    ],
+    "rent": [],
+    "buy": [],
+    "link": "https://www.themoviedb.org/movie/337339-the-fate-of-the-furious/watch?locale=KE"
+   }
+  },
+  {
+   "name": "Kung Fu Soccer",
+   "year": 2026,
+   "kind": "movie",
+   "season": null,
+   "value": 5.98,
+   "style": "mixed",
+   "tmdb_rating": 5.768,
+   "overview": "Dismissed as underdogs before they even step onto the pitch, the Emei Women's Football Team enters the prestigious Supreme Invincible Cup determined to prove everyone wrong. Led by captain Shuangshuang, star striker Yulong, and mentor Xu Feng, the team combines martial arts mastery with football skill in a thrilling quest for victory. Against mounting challenges and impossible odds, they fight to make their mark and chase their championship dream.",
+   "fight_quality": 7,
+   "action_density": 8,
+   "grit": 3,
+   "pacing": 8,
+   "crime_tone": null,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "Matches take center stage right away, featuring spectacular martial arts set pieces and physical comedy.",
+     "url": "https://asianmoviepulse.com/2026/08/kung-fu-soccer-2026/"
+    },
+    {
+     "text": "The high-octane matches feature strong action direction, over-the-top CGI, and detailed practical injury effects.",
+     "url": "https://www.flickeringmyth.com/movie-review-kung-fu-soccer-2026/"
+    }
+   ],
+   "poster": "/kTf9kJ3QMQqYs6wNdYJeVtwIZ2Z.jpg",
+   "backdrop": "/J1UgJwRxDQS92kw75KgeVFZMHf.jpg",
+   "runtime": 106,
+   "tagline": "One kick can ignite the world.",
+   "genres": [
+    "Action",
+    "Comedy",
+    "Fantasy"
+   ],
+   "trailer": "ru-fkVO4eTs",
+   "watch": null
+  },
+  {
+   "name": "Kung Fu Panda: Legends of Awesomeness",
+   "year": 2011,
+   "kind": "series",
+   "season": 3,
+   "value": 5.93,
+   "style": "wuxia",
+   "tmdb_rating": 7.4,
+   "overview": "Now living in his permanent home at the Jade Palace with the rest of the Furious Five, Po the Panda trains, battles, learns, teaches, stumbles, gabs and \"geeks out\" as the newest hero in the Valley of Peace.",
+   "fight_quality": 6,
+   "action_density": 6,
+   "grit": 3,
+   "pacing": 6,
+   "crime_tone": 4,
+   "reviews": 1,
+   "evidence": [
+    {
+     "text": "Po enters an underground fight club and confronts various villains, thugs, and crime bosses.",
+     "url": "https://en.wikipedia.org/wiki/Kung_Fu_Panda:_Legends_of_Awesomeness_season_3"
+    },
+    {
+     "text": "Master Gia trains Fung and the Croc Bandits in invincible kung fu fighting moves.",
+     "url": "https://en.wikipedia.org/wiki/Kung_Fu_Panda:_Legends_of_Awesomeness_season_3"
+    }
+   ],
+   "poster": "/rkq5Jt7boR5v65bDbELHz3DW7sv.jpg",
+   "backdrop": "/abmwQvkZh6yufaodYwnOV15EST0.jpg",
+   "runtime": 23,
+   "tagline": "",
+   "genres": [
+    "Action & Adventure",
+    "Animation",
+    "Comedy",
+    "Sci-Fi & Fantasy",
+    "Kids"
+   ],
+   "trailer": null,
+   "watch": {
+    "region": "US",
+    "stream": [],
+    "rent": [],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/tv/39898-kung-fu-panda-legends-of-awesomeness/watch?locale=US"
+   }
+  },
+  {
+   "name": "Across the Furious Sea",
+   "year": 2023,
+   "kind": "movie",
+   "season": null,
+   "value": 5.92,
+   "style": "brawl",
+   "tmdb_rating": 6.3,
+   "overview": "A murder case reveals unknown secrets of the killer and the victim.",
+   "fight_quality": 7,
+   "action_density": 6,
+   "grit": 8,
+   "pacing": 8,
+   "crime_tone": 9,
+   "reviews": 1,
+   "evidence": [
+    {
+     "text": "a large portion of the film consists of Jin chasing Miao Miao",
+     "url": "https://asianmoviepulse.com/2024/05/film-review-across-the-furious-sea-2023-by-cao-bao-ping/"
+    },
+    {
+     "text": "relentless in its pacing",
+     "url": "https://asianmoviepulse.com/2024/05/film-review-across-the-furious-sea-2023-by-cao-bao-ping/"
+    }
+   ],
+   "poster": "/qCMqLOHZNut5DdUXjU2lAIwNKMH.jpg",
+   "backdrop": "/ZhGLgD066SagMiIOZ0wScQQLHa.jpg",
+   "runtime": 144,
+   "tagline": "",
+   "genres": [
+    "Crime",
+    "Thriller",
+    "Drama",
+    "Mystery"
+   ],
+   "trailer": null,
+   "watch": null
+  },
+  {
+   "name": "Kung Fu Panda: Secrets of the Furious Five",
+   "year": 2008,
+   "kind": "movie",
+   "season": null,
+   "value": 5.8,
+   "style": "hand_to_hand",
+   "tmdb_rating": 6.801,
+   "overview": "Ordered to teach a martial arts class of rambunctious bunny kittens, Po tells stories of each of the Furious Five's pasts.",
+   "fight_quality": 6,
+   "action_density": 5,
+   "grit": 3,
+   "pacing": null,
+   "crime_tone": null,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "Violence & peril 3/10",
+     "url": "https://www.movie-knight.com/title/kung-fu-panda-secrets-of-the-furious-five-2008"
+    },
+    {
+     "text": "Po tells stories of each of the Furious Five's pasts",
+     "url": "https://www.themoviedb.org/movie/15854-kung-fu-panda-secrets-of-the-furious-five"
+    }
+   ],
+   "poster": "/3HENPRM1tGRswyjgiIbP9b4sult.jpg",
+   "backdrop": "/iezp56ettTUsHWgBjkqvEps5oxc.jpg",
+   "runtime": 25,
+   "tagline": "Now you can see what no one else have seen before.",
+   "genres": [
+    "Animation",
+    "Family",
+    "Action"
+   ],
+   "trailer": null,
+   "watch": null
+  },
+  {
+   "name": "The Fast and the Furious",
+   "year": 2001,
+   "kind": "movie",
+   "season": null,
+   "value": 5.79,
+   "style": "brawl",
+   "tmdb_rating": 7.026,
+   "overview": "Dominic Toretto is a Los Angeles street racer suspected of masterminding a series of big-rig hijackings. When undercover cop Brian O'Conner infiltrates Toretto's iconoclastic crew, he falls for Toretto's sister and must choose a side: the gang or the LAPD.",
+   "fight_quality": 6,
+   "action_density": 7,
+   "grit": 5,
+   "pacing": 8,
+   "crime_tone": 8,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "Critics praised action sequences",
+     "url": "https://en.wikipedia.org/wiki/The_Fast_and_the_Furious_(2001_film)"
+    },
+    {
+     "text": "Sleek and shiny on the surface",
+     "url": "https://www.rottentomatoes.com/m/1108372-fast_and_the_furious"
+    }
+   ],
+   "poster": "/gqY0ITBgT7A82poL9jv851qdnIb.jpg",
+   "backdrop": "/jY9ef5nqY4xIIMu3yzW3qamUCoi.jpg",
+   "runtime": 106,
+   "tagline": "If you have what it takes, you can have it all.",
+   "genres": [
+    "Action",
+    "Crime",
+    "Thriller"
+   ],
+   "trailer": "iIU1xlDbbQk",
+   "watch": {
+    "region": "KE",
+    "stream": [
+     "Netflix",
+     "Amazon Prime Video"
+    ],
+    "rent": [],
+    "buy": [],
+    "link": "https://www.themoviedb.org/movie/9799-the-fast-and-the-furious/watch?locale=KE"
+   }
+  },
+  {
+   "name": "Kung Fu Panda: The Dragon Knight",
+   "year": 2022,
+   "kind": "series",
+   "season": 2,
+   "value": 5.74,
+   "style": "mixed",
+   "tmdb_rating": 7.496,
+   "overview": "Follow the adventures of Po, who partners up with a no-nonsense English knight named Wandering Blade to find a collection of four powerful weapons before a mysterious pair of weasels do, and save the world from destruction.",
+   "fight_quality": null,
+   "action_density": 7,
+   "grit": 2,
+   "pacing": 7,
+   "crime_tone": 3,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "Team Dragon faces constant action including heists, monster attacks, a tournament, and a final showdown for weapons.",
+     "url": "https://www.themoviedb.org/tv/129959-kung-fu-panda-the-dragon-knight/season/2"
+    },
+    {
+     "text": "Po fights the spirit of an ancient master while Blade seeks revenge during the battle for Tikal.",
+     "url": "https://www.themoviedb.org/tv/129959-kung-fu-panda-the-dragon-knight/season/2"
+    }
+   ],
+   "poster": "/7C9TKvU5dNyhvoG9kQvRFsg6vlA.jpg",
+   "backdrop": "/j7FL6KfjEjrGSXt6peQw7U3VL0R.jpg",
+   "runtime": 24,
+   "tagline": "",
+   "genres": [
+    "Animation",
+    "Action & Adventure",
+    "Comedy",
+    "Kids",
+    "Sci-Fi & Fantasy"
+   ],
+   "trailer": "KBB34OWS7P4",
+   "watch": {
+    "region": "KE",
+    "stream": [
+     "Netflix"
+    ],
+    "rent": [],
+    "buy": [],
+    "link": "https://www.themoviedb.org/tv/129959-kung-fu-panda-the-dragon-knight/watch?locale=KE"
+   }
+  },
+  {
+   "name": "The Fast and the Furious: Tokyo Drift",
+   "year": 2006,
+   "kind": "movie",
+   "season": null,
+   "value": 5.28,
+   "style": "other",
+   "tmdb_rating": 6.564,
+   "overview": "In order to avoid a jail sentence, Sean Boswell heads to Tokyo to live with his military father. In a low-rent section of the city, Sean gets caught up in the underground world of drift racing",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 6,
+   "pacing": 8,
+   "crime_tone": 5,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "ramped-up races",
+     "url": "https://screenrant.com/fast-furious-tokyo-drift-best-scenes-action-sequences/"
+    },
+    {
+     "text": "one of the most dramatic chase sequences",
+     "url": "https://screenrant.com/fast-furious-tokyo-drift-best-scenes-action-sequences/"
+    }
+   ],
+   "poster": "/46xqGOwHbh2TH2avWSw3SMXph4E.jpg",
+   "backdrop": "/dMARcKLrv0T7kVJ4iQR3vqTTdtT.jpg",
+   "runtime": 104,
+   "tagline": "On the streets of Tokyo, speed needs no translation.",
+   "genres": [
+    "Action",
+    "Crime",
+    "Thriller"
+   ],
+   "trailer": "K6RWbKMSDcg",
+   "watch": {
+    "region": "KE",
+    "stream": [
+     "Netflix",
+     "Amazon Prime Video"
+    ],
+    "rent": [],
+    "buy": [],
+    "link": "https://www.themoviedb.org/movie/9615-the-fast-and-the-furious-tokyo-drift/watch?locale=KE"
+   }
+  }
+ ],
+ "crime": [
+  {
+   "name": "Warrior",
+   "year": 2019,
+   "kind": "series",
+   "season": 1,
+   "value": 7.01,
+   "style": "hand_to_hand",
+   "tmdb_rating": 7.983,
+   "overview": "A gritty, action-packed crime drama set during the brutal Tong Wars of San Francisco’s Chinatown in the second half of the 19th century. The series follows Ah Sahm, a martial arts prodigy who immigrates from China to San Francisco under mysterious circumstances, and becomes a hatchet man for one of Chinatown’s most powerful tongs.",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 8,
+   "pacing": 8,
+   "crime_tone": 9,
+   "reviews": 5,
+   "evidence": [
+    {
+     "text": "awesome fight scenes",
+     "url": "https://theactionelite.com/warrior-season-1-2019-review/"
+    },
+    {
+     "text": "great fights dotted throughout its run-time",
+     "url": "https://www.thereviewgeek.com/warrior-s1review/"
+    }
+   ],
+   "poster": "/hR9qPFMI6BoR63XK6BBX5Ueghan.jpg",
+   "backdrop": "/akshc6F3VmhJpvniRRlgqDt1ndT.jpg",
+   "runtime": 55,
+   "tagline": "Choose a side.",
+   "genres": [
+    "Crime",
+    "Drama",
+    "Action & Adventure",
+    "Western"
+   ],
+   "trailer": null,
+   "watch": {
+    "region": "US",
+    "stream": [
+     "HBO Max Amazon Channel",
+     "HBO Max"
+    ],
+    "rent": [
+     "Amazon Video"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/tv/73544-warrior/watch?locale=US"
+   }
+  },
+  {
+   "name": "Into the Badlands",
+   "year": 2015,
+   "kind": "series",
+   "season": 2,
+   "value": 6.97,
+   "style": "wuxia",
+   "tmdb_rating": 7.623,
+   "overview": "In a land controlled by feudal barons, a great warrior and a young boy embark on a journey across a dangerous land to find enlightenment. \n\nA genre-bending martial arts series very loosely based on the classic Chinese tale Journey to the West.",
+   "fight_quality": 9,
+   "action_density": 8,
+   "grit": 9,
+   "pacing": 8,
+   "crime_tone": null,
+   "reviews": 4,
+   "evidence": [
+    {
+     "text": "best-executed action scenes on television",
+     "url": "https://www.indiewire.com/criticism/shows/into-the-badlands-review-season-2-1201794886/"
+    },
+    {
+     "text": "cinema-worthy martial arts on the small screen",
+     "url": "https://www.ign.com/articles/2017/05/28/into-the-badlands-season-2-review"
+    }
+   ],
+   "poster": "/jtceMKMxHSriLFUGAUfqHsW7uCo.jpg",
+   "backdrop": "/1p9FUL7MKKOW0ZhsXkbpD3DVTy1.jpg",
+   "runtime": 43,
+   "tagline": "",
+   "genres": [
+    "Action & Adventure",
+    "Drama",
+    "Sci-Fi & Fantasy"
+   ],
+   "trailer": "5KyHy4KRvIc",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Philo",
+     "AMC Plus Apple TV channel",
+     "AMC+ Amazon Channel",
+     "AMC+ Roku Premium Channel",
+     "AMC+",
+     "Spectrum On Demand"
+    ],
+    "rent": [],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/tv/47450-into-the-badlands/watch?locale=US"
+   }
+  },
+  {
+   "name": "The Furious",
+   "year": 2026,
+   "kind": "movie",
+   "season": null,
+   "value": 6.49,
+   "style": "mixed",
+   "tmdb_rating": 8.242,
+   "overview": "When Wang Wei's daughter is abducted by a criminal organization and law enforcement declines to intervene due to corruption, Wei embarks on a solo mission to find her. His sole ally is Navin, a determined journalist whose wife has also mysteriously disappeared. Together, this improbable pair confronts the kidnappers in a fierce martial arts confrontation, driven by an intense desire for retribution.",
+   "fight_quality": 9,
+   "action_density": 8,
+   "grit": 9,
+   "pacing": 9,
+   "crime_tone": 8,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "eye-popping brutality",
+     "url": "https://www.slashfilm.com/2190320/the-furious-2026-movie-review/"
+    },
+    {
+     "text": "extreme close-up shots of stabs to the gut, sledgehammers to the face",
+     "url": "https://www.thereviewgeek.com/thefurious-moviereview/"
+    }
+   ],
+   "poster": "/ivQ1Z3lI1xWvAeGDHBw3CCYZDGJ.jpg",
+   "backdrop": "/i0eR9O1FnCgBm1cH8WwqxGbAXMS.jpg",
+   "runtime": 113,
+   "tagline": "To save their loved ones, they will fight everyone.",
+   "genres": [
+    "Action",
+    "Crime",
+    "Thriller"
+   ],
+   "trailer": "Avky8dVaqAI",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Philo",
+     "Starz Amazon Channel",
+     "Starz",
+     "Starz Apple TV channel",
+     "Starz Roku Premium Channel"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home",
+     "Plex"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/1280738/watch?locale=US"
+   }
+  },
+  {
+   "name": "Warrior Nun",
+   "year": 2020,
+   "kind": "series",
+   "season": 2,
+   "value": 6.4,
+   "style": "mixed",
+   "tmdb_rating": 7.872,
+   "overview": "After waking up in a morgue, an orphaned teen discovers she now possesses superpowers as the chosen Halo-Bearer for a secret sect of demon-hunting nuns.",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 8,
+   "pacing": 8,
+   "crime_tone": null,
+   "reviews": 5,
+   "evidence": [
+    {
+     "text": "The stunt work and action sequences in this second season are thoughtful, necessary and greatly entertaining.",
+     "url": "https://www.dexerto.com/tv-movies/warrior-nun-season-2-review-action-packed-thoughtful-and-a-must-watch-on-netflix-1984649/"
+    },
+    {
+     "text": "Heads are rolling, body parts are flying about and nuns are kicking ass.",
+     "url": "https://www.dexerto.com/tv-movies/warrior-nun-season-2-review-action-packed-thoughtful-and-a-must-watch-on-netflix-1984649/"
+    }
+   ],
+   "poster": "/fLP0mA7FiERZhDP1NJUaHpm6XM8.jpg",
+   "backdrop": "/eLQx33dMaa5mW16TFIZbhaeSqer.jpg",
+   "runtime": 42,
+   "tagline": "Deliver us from evil.",
+   "genres": [
+    "Action & Adventure",
+    "Drama",
+    "Sci-Fi & Fantasy"
+   ],
+   "trailer": "acdP-NzBhjs",
+   "watch": {
+    "region": "KE",
+    "stream": [
+     "Netflix"
+    ],
+    "rent": [],
+    "buy": [],
+    "link": "https://www.themoviedb.org/tv/87689-warrior-nun/watch?locale=KE"
+   }
+  },
+  {
+   "name": "John Wick: Chapter 4",
+   "year": 2023,
+   "kind": "movie",
+   "season": null,
+   "value": 6.4,
+   "style": "gun_fu",
+   "tmdb_rating": 7.7,
+   "overview": "With the price on his head ever increasing, John Wick uncovers a path to defeating The High Table. But before he can earn his freedom, Wick must face off against a new enemy with powerful alliances across the globe and forces that turn old friends into foes.",
+   "fight_quality": 9,
+   "action_density": 8,
+   "grit": 9,
+   "pacing": 9,
+   "crime_tone": 8,
+   "reviews": 4,
+   "evidence": [
+    {
+     "text": "The action in John Wick: Chapter 4 is simply mesmerizing, showcasing action as an art form",
+     "url": "https://movieweb.com/john-wick-chapter-4-fight-scenes-ranked/"
+    },
+    {
+     "text": "The hand-to-hand combat in a “John Wick” film is at once relentless and tantalizing in its down-and-dirty realism",
+     "url": "https://variety.com/2023/film/reviews/john-wick-chapter-4-review-keanu-reeves-donnie-yen-1235546955/"
+    }
+   ],
+   "poster": "/vZloFAK7NmvMGKE7VkF5UHaz0I.jpg",
+   "backdrop": "/7I6VUdPj6tQECNHdviJkUHD2u89.jpg",
+   "runtime": 170,
+   "tagline": "No way back, one way out.",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Crime"
+   ],
+   "trailer": "yjRHZEUamCc",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Amazon Prime Video",
+     "Philo",
+     "AMC Plus Apple TV channel",
+     "AMC+ Amazon Channel",
+     "AMC+",
+     "YouTube TV",
+     "AMC",
+     "Amazon Prime Video with Ads"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home",
+     "FlixFling",
+     "Spectrum On Demand",
+     "Plex"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/603692-john-wick-chapter-4/watch?locale=US"
+   }
+  },
+  {
+   "name": "The 13th Warrior",
+   "year": 1999,
+   "kind": "movie",
+   "season": null,
+   "value": 6.37,
+   "style": "swordplay",
+   "tmdb_rating": 6.721,
+   "overview": "A Muslim ambassador exiled from his homeland joins a group of Vikings, initially offended by their behavior but growing to respect them. As they travel together, they learn of a legendary evil closing in and must unite to confront this formidable force.",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 6,
+   "pacing": 8,
+   "crime_tone": null,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "Fight scenes and action sequences are competent and nicely brutal",
+     "url": "https://www.cinedump.com/reviews/2024/8/26/the-13th-warrior-1999"
+    },
+    {
+     "text": "The film maintains a swift pace, captivating viewers with a succession of perilous confrontations and tactical combats",
+     "url": "https://sunsetmoviereviews.wordpress.com/2024/12/01/the-13th-warrior-1999-review/"
+    }
+   ],
+   "poster": "/pj1IQQ7ajwaOrjjTCxyM1L4mSnX.jpg",
+   "backdrop": "/sjZIN2oDzOLGYuz21QwWw1tJ8ly.jpg",
+   "runtime": 103,
+   "tagline": "Prey for the living.",
+   "genres": [
+    "Adventure",
+    "History",
+    "Action"
+   ],
+   "trailer": "RikXt796p2o",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Amazon Prime Video",
+     "Amazon Prime Video with Ads"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/1911-the-13th-warrior/watch?locale=US"
+   }
+  },
+  {
+   "name": "The Best of the Martial Arts Films",
+   "year": 1990,
+   "kind": "movie",
+   "season": null,
    "value": 6.36,
+   "style": "mixed",
+   "tmdb_rating": 8.8,
+   "overview": "The most explosive barehanded combat sequences ever filmed. An electrifying video of martial arts mastery and mayhem. This program takes a behind-the-scenes look at the weapons, the mystical eastern philosophy, and the incredible skills that have made martial arts films one of the most popular genres in the world today.",
+   "fight_quality": 8,
+   "action_density": 9,
+   "grit": 6,
+   "pacing": 8,
+   "crime_tone": null,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "90 minutes of clips of fights",
+     "url": "https://letterboxd.com/film/the-best-of-the-martial-arts-films/"
+    },
+    {
+     "text": "most explosive barehanded combat sequences",
+     "url": "https://www.themoviedb.org/movie/356568-the-best-of-the-martial-arts-films"
+    }
+   ],
+   "poster": "/xzKbLbMUlinOPyaoLG7y7Vh1B8E.jpg",
+   "backdrop": "/dAz9wfEJzjXNw8nR2qUmaeFXIMk.jpg",
+   "runtime": 91,
+   "tagline": "The Deadliest Art",
+   "genres": [
+    "Documentary",
+    "Action"
+   ],
+   "trailer": "4bjeKcY2tx0",
+   "watch": null
+  },
+  {
+   "name": "John Wick: Chapter 2",
+   "year": 2017,
+   "kind": "movie",
+   "season": null,
+   "value": 6.35,
+   "style": "gun_fu",
+   "tmdb_rating": 7.347,
+   "overview": "John Wick is forced out of retirement by a former associate looking to seize control of a shadowy international assassins’ guild. Bound by a blood oath to aid him, Wick travels to Rome and does battle against some of the world’s most dangerous killers.",
+   "fight_quality": 9,
+   "action_density": 8,
+   "grit": 8,
+   "pacing": 8,
+   "crime_tone": 9,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "non-stop, thrillingly choreographed action",
+     "url": "https://www.rottentomatoes.com/m/john_wick_chapter_2"
+    },
+    {
+     "text": "bone-crunching action presented here is delicious",
+     "url": "https://flickside.com/john-wick-chapter-2-review-keanu-reeves/"
+    }
+   ],
+   "poster": "/hXWBc0ioZP3cN4zCu6SN3YHXZVO.jpg",
+   "backdrop": "/Aa9Lx6gotP0szl9tlt5SPCN08oF.jpg",
+   "runtime": 122,
+   "tagline": "Never stab the devil in the back!",
+   "genres": [
+    "Action",
+    "Thriller",
+    "Crime"
+   ],
+   "trailer": "LZrX9mffH8Y",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Amazon Prime Video",
+     "HBO Max Amazon Channel",
+     "Philo",
+     "AMC+ Amazon Channel",
+     "YouTube TV",
+     "Amazon Prime Video with Ads"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home",
+     "FlixFling"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "YouTube",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/324552-john-wick-chapter-2/watch?locale=US"
+   }
+  },
+  {
+   "name": "The Continental: From the World of John Wick",
+   "year": 2023,
+   "kind": "series",
+   "season": 1,
+   "value": 6.32,
    "style": "mixed",
    "tmdb_rating": 7.365,
    "overview": "The origin behind the iconic hotel-for-assassins through the eyes and actions of a young Winston Scott, as he's dragged into the Hell-scape of 1970's New York City to face a past he thought he'd left behind. Winston charts a deadly course through the hotel's mysterious underworld in a harrowing attempt to seize the hotel where he will eventually take his future throne.",
@@ -2070,7 +2250,7 @@
    "year": 1995,
    "kind": "series",
    "season": 2,
-   "value": 6.32,
+   "value": 6.27,
    "style": "swordplay",
    "tmdb_rating": 7.529,
    "overview": "Xena is an infamous warrior on a quest to seek redemption for her past sins against the innocent. Accompanied by her comrade-in-arms Gabrielle, the campy couple use their formidable fighting skills to help those who are unable to defend themselves.",
@@ -2114,11 +2294,46 @@
    }
   },
   {
+   "name": "Don't F*#% With John Wick",
+   "year": 2015,
+   "kind": "movie",
+   "season": null,
+   "value": 6.27,
+   "style": "gun_fu",
+   "tmdb_rating": 7.461,
+   "overview": "Behind the scenes look at fight choreography and action training.",
+   "fight_quality": 9,
+   "action_density": 8,
+   "grit": 9,
+   "pacing": 8,
+   "crime_tone": 8,
+   "reviews": 3,
+   "evidence": [
+    {
+     "text": "John Wick sets the tone for the movie and starts the domino effect",
+     "url": "https://movieweb.com/john-wick-movies-best-fight-scenes/"
+    },
+    {
+     "text": "incredible action sequences with each new installment",
+     "url": "https://screenrant.com/best-john-wick-movie-fight-scenes/"
+    }
+   ],
+   "poster": "/d3m7SxiehljQ2r5dIHg7fGjfLXp.jpg",
+   "backdrop": null,
+   "runtime": 15,
+   "tagline": "",
+   "genres": [
+    "Documentary"
+   ],
+   "trailer": null,
+   "watch": null
+  },
+  {
    "name": "Deadliest Warrior",
    "year": 2009,
    "kind": "series",
    "season": 3,
-   "value": 6.31,
+   "value": 6.27,
    "style": "swordplay",
    "tmdb_rating": 7.4,
    "overview": "Deadliest Warrior was a television program in which information on historical or modern warriors and their weapons are used to determine which of them is the \"deadliest\" based upon tests performed during each episode. The show was characterized by its use of data compiled in creating a dramatization of the warriors' battle to the death. The show ran for three seasons.",
@@ -2159,46 +2374,11 @@
    }
   },
   {
-   "name": "Don't F*#% With John Wick",
-   "year": 2015,
-   "kind": "movie",
-   "season": null,
-   "value": 6.31,
-   "style": "gun_fu",
-   "tmdb_rating": 7.461,
-   "overview": "Behind the scenes look at fight choreography and action training.",
-   "fight_quality": 9,
-   "action_density": 8,
-   "grit": 9,
-   "pacing": 8,
-   "crime_tone": 8,
-   "reviews": 3,
-   "evidence": [
-    {
-     "text": "John Wick sets the tone for the movie and starts the domino effect",
-     "url": "https://movieweb.com/john-wick-movies-best-fight-scenes/"
-    },
-    {
-     "text": "incredible action sequences with each new installment",
-     "url": "https://screenrant.com/best-john-wick-movie-fight-scenes/"
-    }
-   ],
-   "poster": "/d3m7SxiehljQ2r5dIHg7fGjfLXp.jpg",
-   "backdrop": null,
-   "runtime": 15,
-   "tagline": "",
-   "genres": [
-    "Documentary"
-   ],
-   "trailer": null,
-   "watch": null
-  },
-  {
    "name": "American Ninja Warrior",
    "year": 2009,
    "kind": "series",
    "season": 9,
-   "value": 6.29,
+   "value": 6.25,
    "style": "mixed",
    "tmdb_rating": 6.818,
    "overview": "Follow competitors as they tackle a series of challenging obstacle courses in both city qualifying and city finals rounds across the country. Those that successfully complete the finals course in their designated region move on to the national finals round in Las Vegas, where they face a stunning four-stage course modeled after the famed Mt. Midoriyama course in Japan. The winner will take home a grand prize of $1 million.",
@@ -2250,7 +2430,7 @@
    "year": 2015,
    "kind": "movie",
    "season": null,
-   "value": 6.29,
+   "value": 6.25,
    "style": "gun_fu",
    "tmdb_rating": 7.7,
    "overview": "John Wick Movie Extra",
@@ -2283,7 +2463,7 @@
    "year": 2021,
    "kind": "movie",
    "season": null,
-   "value": 6.28,
+   "value": 6.24,
    "style": "hand_to_hand",
    "tmdb_rating": 6.8,
    "overview": "When a young Master Ip stops a kidnapping, he ignites a turf war with a ruthless human-trafficking ring. In retaliation, the gang kidnaps one of Ip Man's close friends, forcing him to face the group's brutal boxing champion head-on.",
@@ -2345,7 +2525,7 @@
    "year": 2017,
    "kind": "movie",
    "season": null,
-   "value": 6.27,
+   "value": 6.23,
    "style": "gun_fu",
    "tmdb_rating": 7.35,
    "overview": "A close look at the assassin's lifestyle in the film.",
@@ -2380,7 +2560,7 @@
    "year": 2017,
    "kind": "movie",
    "season": null,
-   "value": 6.25,
+   "value": 6.2,
    "style": "gun_fu",
    "tmdb_rating": 7.6,
    "overview": "A candid look at rehearsal footage in support of a focus on pre-viz.",
@@ -2415,7 +2595,7 @@
    "year": 2019,
    "kind": "movie",
    "season": null,
-   "value": 6.2,
+   "value": 6.15,
    "style": "gun_fu",
    "tmdb_rating": 7.439,
    "overview": "Super-assassin John Wick returns with a $14 million price tag on his head and an army of bounty-hunting killers on his trail. After killing a member of the shadowy international assassin’s guild, the High Table, John Wick is excommunicado, but the world’s most ruthless hit men and women await his every turn.",
@@ -2475,64 +2655,11 @@
    }
   },
   {
-   "name": "Ip Man: Kung Fu Legend",
-   "year": 2026,
-   "kind": "movie",
-   "season": null,
-   "value": 6.17,
-   "style": "hand_to_hand",
-   "tmdb_rating": 7.045,
-   "overview": "In 1950s Hong Kong, British merchants and Chinese triads have joined forces to expand their territory, forcibly demolishing factories without regard for public welfare. This move draws fierce opposition from Ip Man, standing up for the workers, he faces pressure from all sides. Framed for murder, he is sent to prison. Within the prison walls, the triads set multiple deadly traps. Can Ip Man overcome these trials, escape the danger, and clear his name?",
-   "fight_quality": 8,
-   "action_density": 7,
-   "grit": 6,
-   "pacing": 8,
-   "crime_tone": 8,
-   "reviews": 1,
-   "evidence": [
-    {
-     "text": "action is consistently entertaining",
-     "url": "https://asianmoviepulse.com/2026/06/ip-man-kung-fu-legend-2026/"
-    },
-    {
-     "text": "editing maintains a brisk pace",
-     "url": "https://asianmoviepulse.com/2026/06/ip-man-kung-fu-legend-2026/"
-    }
-   ],
-   "poster": "/m3Low6jJrKXHSYFpXNkmYsG1Q6I.jpg",
-   "backdrop": "/6HBbzW5D7StUBRi0yO6ZEq9rNB5.jpg",
-   "runtime": 94,
-   "tagline": "",
-   "genres": [
-    "Action"
-   ],
-   "trailer": "cqlZSRvH7BU",
-   "watch": {
-    "region": "US",
-    "stream": [
-     "Hi-YAH Amazon Channel",
-     "Tencent Video"
-    ],
-    "rent": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Fandango At Home",
-     "Plex"
-    ],
-    "buy": [
-     "Amazon Video",
-     "Apple TV Store",
-     "Fandango At Home"
-    ],
-    "link": "https://www.themoviedb.org/movie/1628071-2/watch?locale=US"
-   }
-  },
-  {
    "name": "Warrior",
    "year": 2011,
    "kind": "movie",
    "season": null,
-   "value": 6.17,
+   "value": 6.13,
    "style": "mixed",
    "tmdb_rating": 7.845,
    "overview": "The youngest son of an alcoholic former boxer returns home, where he's trained by his father for competition in a mixed martial arts tournament – a path that puts the fighter on a collision course with his estranged, older brother.",
@@ -2584,11 +2711,64 @@
    }
   },
   {
+   "name": "Ip Man: Kung Fu Legend",
+   "year": 2026,
+   "kind": "movie",
+   "season": null,
+   "value": 6.11,
+   "style": "hand_to_hand",
+   "tmdb_rating": 7.045,
+   "overview": "In 1950s Hong Kong, British merchants and Chinese triads have joined forces to expand their territory, forcibly demolishing factories without regard for public welfare. This move draws fierce opposition from Ip Man, standing up for the workers, he faces pressure from all sides. Framed for murder, he is sent to prison. Within the prison walls, the triads set multiple deadly traps. Can Ip Man overcome these trials, escape the danger, and clear his name?",
+   "fight_quality": 8,
+   "action_density": 7,
+   "grit": 6,
+   "pacing": 8,
+   "crime_tone": 8,
+   "reviews": 1,
+   "evidence": [
+    {
+     "text": "action is consistently entertaining",
+     "url": "https://asianmoviepulse.com/2026/06/ip-man-kung-fu-legend-2026/"
+    },
+    {
+     "text": "editing maintains a brisk pace",
+     "url": "https://asianmoviepulse.com/2026/06/ip-man-kung-fu-legend-2026/"
+    }
+   ],
+   "poster": "/m3Low6jJrKXHSYFpXNkmYsG1Q6I.jpg",
+   "backdrop": "/6HBbzW5D7StUBRi0yO6ZEq9rNB5.jpg",
+   "runtime": 94,
+   "tagline": "",
+   "genres": [
+    "Action"
+   ],
+   "trailer": "cqlZSRvH7BU",
+   "watch": {
+    "region": "US",
+    "stream": [
+     "Hi-YAH Amazon Channel",
+     "Tencent Video"
+    ],
+    "rent": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Fandango At Home",
+     "Plex"
+    ],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/movie/1628071-2/watch?locale=US"
+   }
+  },
+  {
    "name": "Young Ip Man: Crisis Time",
    "year": 2020,
    "kind": "movie",
    "season": null,
-   "value": 6.14,
+   "value": 6.11,
    "style": "hand_to_hand",
    "tmdb_rating": 5.536,
    "overview": "In 1917 young Ip Man first came to Hong Kong to study, but his peaceful campus life was unexpectedly broken. A shocking hostage situation occurred on the day when the school held an English speech contest. All students in the school were held hostage, and one person was killed every minute. Facing the immediate crisis, Ip Man stepped forward, but unexpectedly discovered that the kidnapper was his master, and his good brother turned out to be an accomplice of the kidnapper.",
@@ -2640,9 +2820,9 @@
    "year": 2010,
    "kind": "movie",
    "season": null,
-   "value": 6.14,
+   "value": 6.1,
    "style": "hand_to_hand",
-   "tmdb_rating": 7.46,
+   "tmdb_rating": 7.5,
    "overview": "Having defeated the best fighters of the Imperial Japanese army in occupied Shanghai, Ip Man and his family settle in post-war Hong Kong. Struggling to make a living, Master Ip opens a kung fu school to bring his celebrated art of Wing Chun to the troubled youth of Hong Kong. His growing reputation soon brings challenges from powerful enemies, including pre-eminent Hung Gar master, Hung Quan.",
    "fight_quality": 9,
    "action_density": 8,
@@ -2709,7 +2889,7 @@
    "year": 2026,
    "kind": "movie",
    "season": null,
-   "value": 6.05,
+   "value": 6.01,
    "style": "swordplay",
    "tmdb_rating": 5.921,
    "overview": "In 7th-century Arabia, Princess Hind becomes a warrior to defy the ruthless Emperor Kisra. Forged into a warrior and aided by legendary bandit Hanzala, Hind unites warring tribes for a last stand—the historic Battle of Dhi Qar—that will change history.",
@@ -2762,51 +2942,59 @@
    }
   },
   {
-   "name": "Across the Furious Sea",
-   "year": 2023,
-   "kind": "movie",
-   "season": null,
-   "value": 5.93,
-   "style": "brawl",
-   "tmdb_rating": 6.3,
-   "overview": "A murder case reveals unknown secrets of the killer and the victim.",
-   "fight_quality": 7,
+   "name": "Kung Fu: The Legend Continues",
+   "year": 1993,
+   "kind": "series",
+   "season": 2,
+   "value": 6.0,
+   "style": "hand_to_hand",
+   "tmdb_rating": 6.6,
+   "overview": "Like his legendary namesake, Kwai Chang Caine is a warrior monk, operating a Shaolin temple in Northern California. After an evil priest, Tan, destroys the temple, Caine and his young son, Peter each believe the other has perished. The two embark on very different paths -- Caine wanders the Earth, while Peter is a cop. When fate brings the two together, they work to overcome their differing philosophies to battle Tan, and then to help the innocent and bring justice to the new Wild West -- 90s urban America.",
+   "fight_quality": null,
    "action_density": 6,
-   "grit": 8,
-   "pacing": 8,
-   "crime_tone": 9,
-   "reviews": 1,
+   "grit": 5,
+   "pacing": null,
+   "crime_tone": 7,
+   "reviews": 2,
    "evidence": [
     {
-     "text": "a large portion of the film consists of Jin chasing Miao Miao",
-     "url": "https://asianmoviepulse.com/2024/05/film-review-across-the-furious-sea-2023-by-cao-bao-ping/"
+     "text": "The series is a modern action crime drama focusing on a Shaolin priest and his police detective son.",
+     "url": "https://en.wikipedia.org/wiki/Kung_Fu:_The_Legend_Continues"
     },
     {
-     "text": "relentless in its pacing",
-     "url": "https://asianmoviepulse.com/2024/05/film-review-across-the-furious-sea-2023-by-cao-bao-ping/"
+     "text": "Season 2 plotlines involve kung fu tournaments, assassins, gang robberies, and police murder investigations.",
+     "url": "https://www.themoviedb.org/tv/636-kung-fu-the-legend-continues/season/2"
     }
    ],
-   "poster": "/qCMqLOHZNut5DdUXjU2lAIwNKMH.jpg",
-   "backdrop": "/ZhGLgD066SagMiIOZ0wScQQLHa.jpg",
-   "runtime": 144,
+   "poster": "/ncY99oMyS8kZvFcloSV4WNxqYjE.jpg",
+   "backdrop": "/uAMN1SGszrIqgEbg4OFAVBm3A66.jpg",
+   "runtime": 44,
    "tagline": "",
    "genres": [
-    "Crime",
-    "Thriller",
-    "Drama",
-    "Mystery"
+    "Action & Adventure",
+    "Drama"
    ],
    "trailer": null,
-   "watch": null
+   "watch": {
+    "region": "US",
+    "stream": [],
+    "rent": [],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/tv/636-kung-fu-the-legend-continues/watch?locale=US"
+   }
   },
   {
    "name": "Ip Man 4: The Finale",
    "year": 2019,
    "kind": "movie",
    "season": null,
-   "value": 5.93,
+   "value": 5.89,
    "style": "hand_to_hand",
-   "tmdb_rating": 7.267,
+   "tmdb_rating": 7.3,
    "overview": "Following the death of his wife, Ip Man travels to San Francisco to ease tensions between the local kung fu masters and his star student, Bruce Lee, while searching for a better future for his son.",
    "fight_quality": 8,
    "action_density": 6,
@@ -2865,11 +3053,86 @@
    }
   },
   {
+   "name": "Across the Furious Sea",
+   "year": 2023,
+   "kind": "movie",
+   "season": null,
+   "value": 5.88,
+   "style": "brawl",
+   "tmdb_rating": 6.3,
+   "overview": "A murder case reveals unknown secrets of the killer and the victim.",
+   "fight_quality": 7,
+   "action_density": 6,
+   "grit": 8,
+   "pacing": 8,
+   "crime_tone": 9,
+   "reviews": 1,
+   "evidence": [
+    {
+     "text": "a large portion of the film consists of Jin chasing Miao Miao",
+     "url": "https://asianmoviepulse.com/2024/05/film-review-across-the-furious-sea-2023-by-cao-bao-ping/"
+    },
+    {
+     "text": "relentless in its pacing",
+     "url": "https://asianmoviepulse.com/2024/05/film-review-across-the-furious-sea-2023-by-cao-bao-ping/"
+    }
+   ],
+   "poster": "/qCMqLOHZNut5DdUXjU2lAIwNKMH.jpg",
+   "backdrop": "/ZhGLgD066SagMiIOZ0wScQQLHa.jpg",
+   "runtime": 144,
+   "tagline": "",
+   "genres": [
+    "Crime",
+    "Thriller",
+    "Drama",
+    "Mystery"
+   ],
+   "trailer": null,
+   "watch": null
+  },
+  {
+   "name": "Kung Fu Soccer",
+   "year": 2026,
+   "kind": "movie",
+   "season": null,
+   "value": 5.85,
+   "style": "mixed",
+   "tmdb_rating": 5.768,
+   "overview": "Dismissed as underdogs before they even step onto the pitch, the Emei Women's Football Team enters the prestigious Supreme Invincible Cup determined to prove everyone wrong. Led by captain Shuangshuang, star striker Yulong, and mentor Xu Feng, the team combines martial arts mastery with football skill in a thrilling quest for victory. Against mounting challenges and impossible odds, they fight to make their mark and chase their championship dream.",
+   "fight_quality": 7,
+   "action_density": 8,
+   "grit": 3,
+   "pacing": 8,
+   "crime_tone": null,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "Matches take center stage right away, featuring spectacular martial arts set pieces and physical comedy.",
+     "url": "https://asianmoviepulse.com/2026/08/kung-fu-soccer-2026/"
+    },
+    {
+     "text": "The high-octane matches feature strong action direction, over-the-top CGI, and detailed practical injury effects.",
+     "url": "https://www.flickeringmyth.com/movie-review-kung-fu-soccer-2026/"
+    }
+   ],
+   "poster": "/kTf9kJ3QMQqYs6wNdYJeVtwIZ2Z.jpg",
+   "backdrop": "/J1UgJwRxDQS92kw75KgeVFZMHf.jpg",
+   "runtime": 106,
+   "tagline": "One kick can ignite the world.",
+   "genres": [
+    "Action",
+    "Comedy",
+    "Fantasy"
+   ],
+   "trailer": "ru-fkVO4eTs",
+   "watch": null
+  },
+  {
    "name": "The Fate of the Furious",
    "year": 2017,
    "kind": "movie",
    "season": null,
-   "value": 5.88,
+   "value": 5.84,
    "style": "brawl",
    "tmdb_rating": 6.846,
    "overview": "When a mysterious woman seduces Dom into the world of crime and a betrayal of those closest to him, the crew face trials that will test them as never before.",
@@ -2915,7 +3178,7 @@
    "year": 2023,
    "kind": "movie",
    "season": null,
-   "value": 5.84,
+   "value": 5.8,
    "style": "wuxia",
    "tmdb_rating": 6.471,
    "overview": "Qiao Feng is the respected leader of a roving band of martial artists. After he is wrongfully accused of murder and subsequently exiled, Qiao Feng goes on the run in search of answers about his own mysterious origin story—and the unknown enemies working to destroy him from the shadows.",
@@ -2978,7 +3241,7 @@
    "year": 2001,
    "kind": "movie",
    "season": null,
-   "value": 5.82,
+   "value": 5.77,
    "style": "brawl",
    "tmdb_rating": 7.026,
    "overview": "Dominic Toretto is a Los Angeles street racer suspected of masterminding a series of big-rig hijackings. When undercover cop Brian O'Conner infiltrates Toretto's iconoclastic crew, he falls for Toretto's sister and must choose a side: the gang or the LAPD.",
@@ -3024,7 +3287,7 @@
    "year": 1986,
    "kind": "movie",
    "season": null,
-   "value": 5.77,
+   "value": 5.73,
    "style": "mixed",
    "tmdb_rating": 6.3,
    "overview": "In ancient China, Zhi Ming trains at the legendary Northern Shaolin temple to avenge the death of his father at the hands of a nefarious magistrate.",
@@ -3074,11 +3337,61 @@
    }
   },
   {
+   "name": "Kung Fu Panda: Legends of Awesomeness",
+   "year": 2011,
+   "kind": "series",
+   "season": 3,
+   "value": 5.71,
+   "style": "wuxia",
+   "tmdb_rating": 7.4,
+   "overview": "Now living in his permanent home at the Jade Palace with the rest of the Furious Five, Po the Panda trains, battles, learns, teaches, stumbles, gabs and \"geeks out\" as the newest hero in the Valley of Peace.",
+   "fight_quality": 6,
+   "action_density": 6,
+   "grit": 3,
+   "pacing": 6,
+   "crime_tone": 4,
+   "reviews": 1,
+   "evidence": [
+    {
+     "text": "Po enters an underground fight club and confronts various villains, thugs, and crime bosses.",
+     "url": "https://en.wikipedia.org/wiki/Kung_Fu_Panda:_Legends_of_Awesomeness_season_3"
+    },
+    {
+     "text": "Master Gia trains Fung and the Croc Bandits in invincible kung fu fighting moves.",
+     "url": "https://en.wikipedia.org/wiki/Kung_Fu_Panda:_Legends_of_Awesomeness_season_3"
+    }
+   ],
+   "poster": "/rkq5Jt7boR5v65bDbELHz3DW7sv.jpg",
+   "backdrop": "/abmwQvkZh6yufaodYwnOV15EST0.jpg",
+   "runtime": 23,
+   "tagline": "",
+   "genres": [
+    "Action & Adventure",
+    "Animation",
+    "Comedy",
+    "Sci-Fi & Fantasy",
+    "Kids"
+   ],
+   "trailer": null,
+   "watch": {
+    "region": "US",
+    "stream": [],
+    "rent": [],
+    "buy": [
+     "Amazon Video",
+     "Apple TV Store",
+     "Google Play Movies",
+     "Fandango At Home"
+    ],
+    "link": "https://www.themoviedb.org/tv/39898-kung-fu-panda-legends-of-awesomeness/watch?locale=US"
+   }
+  },
+  {
    "name": "Kung Fu Panda: Secrets of the Furious Five",
    "year": 2008,
    "kind": "movie",
    "season": null,
-   "value": 5.68,
+   "value": 5.64,
    "style": "hand_to_hand",
    "tmdb_rating": 6.801,
    "overview": "Ordered to teach a martial arts class of rambunctious bunny kittens, Po tells stories of each of the Furious Five's pasts.",
@@ -3111,11 +3424,58 @@
    "watch": null
   },
   {
+   "name": "Kung Fu Panda: The Dragon Knight",
+   "year": 2022,
+   "kind": "series",
+   "season": 2,
+   "value": 5.37,
+   "style": "mixed",
+   "tmdb_rating": 7.496,
+   "overview": "Follow the adventures of Po, who partners up with a no-nonsense English knight named Wandering Blade to find a collection of four powerful weapons before a mysterious pair of weasels do, and save the world from destruction.",
+   "fight_quality": null,
+   "action_density": 7,
+   "grit": 2,
+   "pacing": 7,
+   "crime_tone": 3,
+   "reviews": 2,
+   "evidence": [
+    {
+     "text": "Team Dragon faces constant action including heists, monster attacks, a tournament, and a final showdown for weapons.",
+     "url": "https://www.themoviedb.org/tv/129959-kung-fu-panda-the-dragon-knight/season/2"
+    },
+    {
+     "text": "Po fights the spirit of an ancient master while Blade seeks revenge during the battle for Tikal.",
+     "url": "https://www.themoviedb.org/tv/129959-kung-fu-panda-the-dragon-knight/season/2"
+    }
+   ],
+   "poster": "/7C9TKvU5dNyhvoG9kQvRFsg6vlA.jpg",
+   "backdrop": "/j7FL6KfjEjrGSXt6peQw7U3VL0R.jpg",
+   "runtime": 24,
+   "tagline": "",
+   "genres": [
+    "Animation",
+    "Action & Adventure",
+    "Comedy",
+    "Kids",
+    "Sci-Fi & Fantasy"
+   ],
+   "trailer": "KBB34OWS7P4",
+   "watch": {
+    "region": "KE",
+    "stream": [
+     "Netflix"
+    ],
+    "rent": [],
+    "buy": [],
+    "link": "https://www.themoviedb.org/tv/129959-kung-fu-panda-the-dragon-knight/watch?locale=KE"
+   }
+  },
+  {
    "name": "The Fast and the Furious: Tokyo Drift",
    "year": 2006,
    "kind": "movie",
    "season": null,
-   "value": 5.13,
+   "value": 5.08,
    "style": "other",
    "tmdb_rating": 6.564,
    "overview": "In order to avoid a jail sentence, Sean Boswell heads to Tokyo to live with his military father. In a low-rent section of the city, Sean gets caught up in the underground world of drift racing",

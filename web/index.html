@@ -1,75 +1,252 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<script>(function(){var h=location.hash||"";if(h.indexOf("#/title/")===0||h.indexOf("#/chat")===0){location.replace("/app/"+h);}})();</script>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>ActionPicker: ask for a fight film</title>
-<meta name="description" content="A private recommender for martial-arts action and gritty crime films and series. Ask a question, get a short stack of picks.">
+<title>ActionPicker: martial-arts and crime picks, scored from the reviews</title>
+<meta name="description" content="ActionPicker reads published reviews of martial-arts action and gritty crime films and series, scores the fights, and ranks fists and blades above gun-fu. Ask it for tonight's pick.">
 <meta name="theme-color" content="#0E2A24">
+<meta property="og:title" content="ActionPicker">
+<meta property="og:description" content="A private picker for martial-arts action and gritty crime. It reads the reviews, scores the fights, and answers when you ask for a pick.">
+<meta property="og:type" content="website">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://image.tmdb.org">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wdth,wght@75..100,500..800&family=Newsreader:ital,wght@0,400..600;1,400..500&display=swap">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="landing.css">
 </head>
 <body>
-<a class="skip" href="#question">Skip to the question box</a>
+<a class="skip" href="#main">Skip to content</a>
+
+<!-- The track: one long brush stroke laid over the whole document, drawn by scroll -->
+<svg class="track" id="track" aria-hidden="true" focusable="false">
+  <defs>
+    <clipPath id="clipDark"><rect id="clipDarkA" x="0" y="0" width="0" height="0"/><rect id="clipDarkB" x="0" y="0" width="0" height="0"/></clipPath>
+    <clipPath id="clipDawn"><rect id="clipDawnR" x="0" y="0" width="0" height="0"/></clipPath>
+    <g id="ghostG"><path id="ghost" fill="none" stroke="currentColor" stroke-width="1.5" stroke-dasharray="1 11" stroke-linecap="round"/></g>
+    <g id="inkG" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+      <path id="ink" stroke-width="7"/>
+      <path id="strandA" stroke-width="1.4" opacity=".55" transform="translate(-6 3)"/>
+      <path id="strandB" stroke-width="1" opacity=".45" transform="translate(6 -2)"/>
+    </g>
+  </defs>
+  <use href="#ghostG" clip-path="url(#clipDark)" class="ghost-dark"/>
+  <use href="#ghostG" clip-path="url(#clipDawn)" class="ghost-dawn"/>
+  <use href="#inkG" clip-path="url(#clipDark)" class="ink-dark"/>
+  <use href="#inkG" clip-path="url(#clipDawn)" class="ink-dawn"/>
+  <g id="edgeG" clip-path="url(#clipDark)"><path id="edge" fill="none" stroke-width="1.6" stroke-linecap="round" transform="translate(-2 -2.5)"/></g>
+</svg>
+<div class="fighters" id="fighters" aria-hidden="true"></div>
+
 <header class="top">
-  <div class="brand">
-    <h1 class="wordmark"><a href="#/">ActionPicker</a></h1>
-    <p class="strap">Fight films and crime stories, picked from what reviewers wrote.</p>
-  </div>
-  <div class="top-controls">
-    <div class="seg" role="group" aria-label="Rank titles for">
-      <button type="button" class="seg-btn" data-mode="action" aria-pressed="true">Action</button>
-      <button type="button" class="seg-btn" data-mode="crime" aria-pressed="false">Crime</button>
-    </div>
-    <button type="button" class="jump" id="jump-shelf">Browse the shelf</button>
-  </div>
+  <a class="mark" href="/">ActionPicker</a>
+  <a class="top-link" href="/app/">Open the picker</a>
 </header>
 
-<main class="room">
-  <section class="counter" id="counter" aria-labelledby="counter-title">
-    <h2 class="vh" id="counter-title">Ask for picks</h2>
-    <div class="intro" id="intro"></div>
-    <div class="log" id="log" role="log" aria-live="polite" aria-relevant="additions text" aria-label="Conversation"></div>
-    <form class="composer" id="composer" novalidate>
-      <label class="vh" for="question">Your question</label>
-      <div class="slip-input">
-        <textarea id="question" name="question" rows="1" maxlength="500" placeholder="Ask for a style, a mood, or something like a film you loved" autocomplete="off"></textarea>
-        <button type="submit" class="ask" id="ask-btn">Ask</button>
-      </div>
-      <div class="composer-foot">
-        <span class="hint">Enter sends. Shift and Enter adds a new line.</span>
-        <span class="count" id="count" aria-live="polite"></span>
-      </div>
-    </form>
-  </section>
+<main id="main">
 
-  <aside class="shelf" id="shelf" aria-labelledby="shelf-title">
-    <div class="shelf-head">
-      <h2 id="shelf-title">The shelf</h2>
-      <p class="shelf-note" id="shelf-note"></p>
-      <div class="seg seg-small" role="group" aria-label="Show">
-        <button type="button" class="seg-btn" data-kind="all" aria-pressed="true">All</button>
-        <button type="button" class="seg-btn" data-kind="movie" aria-pressed="false">Movies</button>
-        <button type="button" class="seg-btn" data-kind="series" aria-pressed="false">Series</button>
+<section class="s hero" data-track="R" data-scene="roof" aria-labelledby="h-hero">
+  <div class="scene" aria-hidden="true">
+    <svg class="layer" data-depth=".12" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+      <circle cx="1060" cy="170" r="64" fill="#E6EAE3" opacity=".92"/>
+      <circle cx="1084" cy="156" r="58" fill="#0A1F1A"/>
+      <g fill="#9DB3A8" opacity=".5"><circle cx="220" cy="90" r="1.4"/><circle cx="470" cy="160" r="1"/><circle cx="760" cy="70" r="1.2"/><circle cx="1300" cy="250" r="1"/><circle cx="900" cy="300" r="1"/><circle cx="120" cy="320" r="1.1"/></g>
+    </svg>
+    <svg class="layer" data-depth=".22" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+      <path fill="#102E27" d="M0 900V560h70v-40h60v60h50V470h90v90h40v-30h70v-80h30v-30h20v30h40v160h60v-70h100v90h50V430h110v140h40v-50h90v60h60V500h80v-40h40v40h50v100h70v-60h90v360z"/>
+      <g fill="#E9B949" opacity=".42"><rect x="200" y="500" width="8" height="10"/><rect x="230" y="530" width="8" height="10"/><rect x="590" y="480" width="8" height="10"/><rect x="610" y="520" width="8" height="10"/><rect x="760" y="460" width="8" height="10"/><rect x="800" y="500" width="8" height="10"/><rect x="1140" y="520" width="8" height="10"/><rect x="1290" y="560" width="8" height="10"/></g>
+    </svg>
+    <svg class="layer rain" data-depth=".34" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+      <g stroke="#9DB3A8" stroke-width="1" opacity=".16"><path d="M80 120l-10 34M260 60l-10 34M410 220l-10 34M560 110l-10 34M700 260l-10 34M860 140l-10 34M990 330l-10 34M1150 90l-10 34M1320 200l-10 34M150 380l-10 34M480 420l-10 34M640 360l-10 34M940 470l-10 34M1240 400l-10 34M1390 520l-10 34M330 560l-10 34M800 610l-10 34M1100 650l-10 34"/></g>
+    </svg>
+    <svg class="layer" data-depth=".4" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+      <path fill="#143A31" d="M0 900V650h120v-30h40v30h160v-90h60v90h120V600h30v-40h12v40h30v100h200v-60h140v80h90V620h150v80h40v-50h130v250z"/>
+      <path d="M318 560v-60m-12 20h24" stroke="#143A31" stroke-width="4" fill="none"/>
+    </svg>
+  </div>
+  <div class="roof" aria-hidden="true">
+    <svg class="roof-tex"><defs><pattern id="brick" width="64" height="22" patternUnits="userSpaceOnUse"><path d="M0 21h64M32 0v11M0 11h64M0 11v11" stroke="#0F2620" stroke-width="1.5" fill="none"/></pattern></defs><rect width="100%" height="100%" fill="url(#brick)"/></svg>
+    <svg class="roof-art" viewBox="0 0 420 220" preserveAspectRatio="xMaxYMax meet">
+      <g fill="#0A1F1A"><rect x="250" y="20" width="90" height="70"/><path d="M244 20h102l-51-26z"/><rect x="258" y="90" width="8" height="40"/><rect x="324" y="90" width="8" height="40"/><path d="M262 108l66-18M262 90l66 18" stroke="#0A1F1A" stroke-width="4"/></g>
+      <path d="M250 22h90" stroke="#E9B949" stroke-width="1.5" opacity=".7"/>
+      <path d="M60 130V10h-26" stroke="#0A1F1A" stroke-width="6" fill="none"/>
+      <rect x="20" y="6" width="22" height="9" fill="#E9B949"/>
+      <path d="M22 15L-60 130h160L40 15z" fill="#E9B949" opacity=".07"/>
+    </svg>
+  </div>
+  <div class="copy">
+    <h1 id="h-hero">ActionPicker</h1>
+    <p class="lead">It reads the published reviews of martial-arts action and gritty crime, scores every fight, and tells you what to watch tonight.</p>
+    <div class="btns">
+      <a class="btn btn-main" href="/app/">Open the picker</a>
+      <a class="btn btn-quiet" href="/app/#/chat">Ask for a pick</a>
+    </div>
+    <figure class="shelf">
+      <figcaption class="shelf-cap" id="shelfCap">Tonight's shelf, top three</figcaption>
+      <ol class="fan" id="fan">
+        <li class="slot ph"><span class="ph-name">Ip Man</span></li>
+        <li class="slot ph"><span class="ph-name">John Wick</span></li>
+        <li class="slot ph"><span class="ph-name">Warrior</span></li>
+      </ol>
+    </figure>
+  </div>
+</section>
+
+<section class="s reads" id="reads" data-track="L" data-scene="dojo" aria-labelledby="h-reads">
+  <div class="stage">
+    <div class="scene" aria-hidden="true">
+    <svg class="layer" data-depth=".03" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice">
+      <g fill="#E6EAE3" opacity=".045"><rect x="40" y="80" width="300" height="560"/><rect x="380" y="80" width="300" height="560"/><rect x="760" y="80" width="300" height="560"/><rect x="1100" y="80" width="300" height="560"/></g>
+      <g stroke="#2A4A41" stroke-width="3" fill="none"><path d="M40 80h1360M40 640h1360M40 80v560M340 80v560M380 80v560M680 80v560M760 80v560M1060 80v560M1100 80v560M1400 80v560"/><path d="M40 220h300M40 360h300M40 500h300M380 220h300M380 360h300M380 500h300M760 220h300M760 360h300M760 500h300M1100 220h300M1100 360h300M1100 500h300M115 80v560M190 80v560M265 80v560M455 80v560M530 80v560M605 80v560M835 80v560M910 80v560M985 80v560M1175 80v560M1250 80v560M1325 80v560" stroke-width="1.5"/></g>
+      <rect x="0" y="40" width="1440" height="24" fill="#0A1F1A"/>
+      <rect x="0" y="640" width="1440" height="260" fill="#0B231D"/>
+      <g stroke="#14332B" stroke-width="2"><path d="M0 700h1440M0 770h1440M0 850h1440"/></g>
+    </svg>
+  </div>
+
+    <div class="copy">
+      <h2 id="h-reads">It reads the reviews so you don't have to</h2>
+      <p class="body">For every title, an AI reads what critics actually wrote about the fights. It pulls out the lines that matter and turns them into five scores. Code does the ranking, so the order never drifts with a mood.</p>
+      <div class="board" id="board">
+        <article class="slip" id="slip" aria-labelledby="slipName">
+          <div class="slip-head">
+            <h3 id="slipName">Warrior</h3>
+            <p class="slip-meta" id="slipMeta">2019 series</p>
+          </div>
+          <ul class="meter" id="meter" aria-label="Scores out of ten"></ul>
+          <ul class="quotes" id="quotes"></ul>
+        </article>
       </div>
     </div>
-    <ol class="shelf-list" id="shelf-list"></ol>
-  </aside>
+  </div>
+</section>
+
+<section class="s ladder-s" id="ladder" data-track="R" data-scene="alley" aria-labelledby="h-ladder">
+  <div class="scene" aria-hidden="true">
+    <svg class="layer" data-depth=".1" viewBox="0 0 1440 900" preserveAspectRatio="xMaxYMid slice">
+      <path fill="#0D251F" d="M940 0h500v900H1040z"/>
+      <path fill="#0C211C" d="M940 0v900h100V0z" opacity=".0"/>
+      <g stroke="#173A31" stroke-width="2"><path d="M980 90h460M995 190h445M1005 290h435M1015 390h425M1025 490h415M1035 590h405M1045 690h395"/></g>
+      <g stroke="#2A4A41" stroke-width="3" fill="none"><path d="M1120 160h260v14h-260zM1120 174l260 150M1120 330h260v14h-260zM1380 344l-260 150M1120 500h260v14h-260z"/><path d="M1140 160v-60M1360 160v-60M1140 330v-60M1360 330v-60M1140 500v-60M1360 500v-60" stroke-width="1.5"/></g>
+      <path d="M1000 0v900" stroke="#14332B" stroke-width="10"/>
+      <circle cx="1240" cy="640" r="7" fill="#E9B949"/>
+      <path d="M1240 600v34" stroke="#2A4A41" stroke-width="2"/>
+      <path d="M1236 646l-120 254h250L1244 646z" fill="#E9B949" opacity=".06"/>
+      <ellipse cx="1240" cy="860" rx="120" ry="10" fill="#E9B949" opacity=".14"/>
+    </svg>
+  </div>
+  <div class="copy">
+    <h2 id="h-ladder">Fists and blades come first</h2>
+    <p class="body">Every title earns a base score from its fights. Then the style it fights in decides how much of that score it keeps. This is the rule the code runs, straight from its weights file.</p>
+    <ol class="ladder" id="ladderList">
+      <li data-styles="hand_to_hand swordplay wuxia" style="--keep:1"><b>Hand-to-hand, swordplay and wuxia</b><span class="keep">keeps the full score</span><span class="ex" data-ex></span></li>
+      <li data-styles="mixed" style="--keep:.9"><b>Mixed styles</b><span class="keep">keeps 90 percent</span><span class="ex" data-ex></span></li>
+      <li data-styles="gun_fu" style="--keep:.85"><b>Gun-fu</b><span class="keep">keeps 85 percent</span><span class="ex" data-ex></span></li>
+      <li data-styles="brawl" style="--keep:.8"><b>Brawling</b><span class="keep">keeps 80 percent</span><span class="ex" data-ex></span></li>
+      <li data-styles="other" style="--keep:.5"><b>Action that is not built on fighting</b><span class="keep">keeps half</span><span class="ex" data-ex></span></li>
+    </ol>
+    <p class="aside">So a great gunfight film can still top the shelf. It just has to fight harder to get there.</p>
+  </div>
+</section>
+
+<section class="s chat-s" id="chat" data-track="L" data-scene="room" aria-labelledby="h-chat">
+  <div class="scene" aria-hidden="true">
+    <svg class="layer" data-depth=".06" viewBox="0 0 1440 900" preserveAspectRatio="xMinYMid meet">
+      <rect x="70" y="90" width="330" height="720" fill="#0B231D"/>
+      <g fill="#E6EAE3" opacity=".05"><rect x="96" y="120" width="128" height="200"/><rect x="246" y="120" width="128" height="200"/></g>
+      <g stroke="#1D4037" stroke-width="2" fill="none"><path d="M96 120h278v200H96zM235 120v200M96 186h278M96 252h278M142 120v200M188 120v200M282 120v200M328 120v200"/></g>
+      <path d="M50 90h370M70 70v760M400 70v760" stroke="#1D4037" stroke-width="16"/>
+      <path d="M0 810h1440" stroke="#173A31" stroke-width="3"/>
+    </svg>
+  </div>
+  <div class="copy">
+    <h2 id="h-chat">Ask it anything</h2>
+    <p class="body">Say what kind of night it is. The chat answers from the scored shelf first and tells you why each pick fits.</p>
+    <div class="convo" id="convo">
+      <p class="ask"><span class="who">You</span><span class="typed" id="typed"></span><span class="untyped" id="untyped">Swordplay instead of gunfights tonight. What have you got?</span></p>
+      <div class="answer" id="answer">
+        <p class="reply"><span class="who">ActionPicker</span>Three where the blades do the talking.</p>
+        <ol class="picks" id="picks"></ol>
+      </div>
+    </div>
+    <p class="note">A sample answer, built from tonight's shelf.</p>
+    <a class="btn btn-main" href="/app/#/chat">Ask for a pick</a>
+  </div>
+</section>
+
+<section class="s tmdb-s" id="tmdb" data-track="R" data-scene="field" aria-labelledby="h-tmdb">
+  <div class="copy">
+    <h2 id="h-tmdb">Everything on TMDB, not just the shelf</h2>
+    <p class="body">The shelf is the part that has been scored from reviews. <span id="counts">Each mode holds a ranked list of titles.</span> Ask the chat about anything else and it looks the title up on TMDB live, 2026 releases included.</p>
+    <p class="body">When nobody has read the reviews for a title yet, it says so. You get the facts from TMDB and a plain flag instead of a made-up score.</p>
+    <figure class="field">
+      <svg class="field-art" viewBox="0 0 640 300" role="img" aria-labelledby="fieldT">
+        <title id="fieldT">A small block of scored titles inside a much larger field of TMDB titles</title>
+        <defs><pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="6" cy="6" r="1.3" fill="#9DB3A8" opacity=".35"/></pattern></defs>
+        <rect width="640" height="300" fill="url(#dots)"/>
+        <g id="shelfBlocks" transform="translate(40 96)"></g>
+      </svg>
+      <figcaption><span class="key key-on">Scored from reviews</span><span class="key key-off">Looked up on TMDB when you ask</span></figcaption>
+    </figure>
+    <div class="lookup">
+      <p class="lookup-q">Is that new 2026 release any good for fights?</p>
+      <p class="lookup-a"><span class="flag">not scored yet</span>Found it on TMDB. No reviews have been read for it, so there is no fight score. Here is the cast, runtime and where it streams.</p>
+    </div>
+  </div>
+</section>
+
+<section class="s danco" id="danco" data-track="L" data-scene="dawn" aria-labelledby="h-danco">
+  <div class="scene" aria-hidden="true">
+    <svg class="layer" data-depth=".1" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMax slice">
+      <rect y="560" width="1440" height="340" fill="#D7DDD4"/>
+      <circle cx="300" cy="610" r="90" fill="#E9B949"/>
+      <rect y="610" width="1440" height="290" fill="#D7DDD4"/>
+      <path fill="#B9C6BE" d="M0 900V650h110v-50h80v70h120v-90h60v40h90v-30h140v60h100v-80h70v100h120v-40h130v-60h90v80h110v-30h220v330z"/>
+      <path fill="#9DB3A8" d="M0 900V740h200v-30h150v50h220v-60h40v-30h14v30h40v80h260v-50h180v40h336v130z"/>
+    </svg>
+  </div>
+  <div class="roof roof-dawn" aria-hidden="true"></div>
+  <div class="copy">
+    <h2 id="h-danco">Proudly made by Danco Analytics</h2>
+    <div class="credit">
+      <p class="who-big">Daniel Wanjala Machimbo</p>
+      <p class="role">Machine Learning Engineer at Danco Analytics, Nairobi</p>
+      <p class="body">ActionPicker started as a private tool for one taste in film. The same craft runs it as runs client work: careful data, honest scoring, code that explains itself.</p>
+    </div>
+    <h3 class="invite">Want to build something with data? Let's talk.</h3>
+    <ul class="areas">
+      <li>Machine learning</li><li>Forecasting and analytics</li><li>ETL and data pipelines</li><li>Dashboards</li><li>AI agents</li>
+    </ul>
+    <div class="contact">
+      <a class="btn btn-ink" id="mailLink" href="mailto:danieleinstein1998@gmail.com">danieleinstein1998@gmail.com</a>
+      <button class="btn btn-line" type="button" id="copyMail">Copy email</button>
+      <span class="copied" id="copied" role="status" aria-live="polite"></span>
+    </div>
+    <div class="contact" id="phoneBlock" hidden>
+      <a class="btn btn-ink" id="waLink" href="#">Message on WhatsApp</a>
+      <a class="tel" id="telLink" href="#"></a>
+    </div>
+    <p class="gh"><a href="https://github.com/MadScie254">github.com/MadScie254</a></p>
+  </div>
+</section>
+
 </main>
 
 <footer class="foot">
-  <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
-  <p>The scores come from an AI reading published reviews. Treat them as a well-read opinion, not a measurement.</p>
-  <p id="generated"></p>
+  <div class="foot-in">
+    <p class="foot-mark">ActionPicker</p>
+    <p>This product uses the TMDB API but is not endorsed or certified by TMDB.</p>
+    <p>Scores come from an AI reading published reviews. Treat them as a well-read opinion, not a verdict.</p>
+    <p>Set in Bricolage Grotesque and Newsreader.</p>
+    <p>&copy; <span id="year">2026</span> Danco Analytics</p>
+  </div>
 </footer>
 
-<dialog class="detail" id="detail" aria-labelledby="detail-title">
-  <div class="detail-inner" id="detail-body"></div>
-</dialog>
-
-<script src="app.js" defer></script>
+<script src="landing.js"></script>
 </body>
 </html>

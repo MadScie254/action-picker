@@ -70,6 +70,7 @@ def _cmd_ingest(args, store: Store) -> int:
         return 2
     seed = yaml.safe_load(Path(args.seed).read_text(encoding="utf-8"))
     queries = list(seed.get("seeds", [])) + list(seed.get("discover_queries", []))
+    queries += [f"recent:{d}" for d in seed.get("recent_since", [])]
     tmdb = TmdbSource(key, region=os.environ.get("REGION", "KE"))
     fetcher = ReviewFetcher(cache_dir=args.cache)
     min_votes = load_weights(args.weights).min_votes

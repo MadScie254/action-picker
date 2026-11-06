@@ -74,3 +74,25 @@ def test_connection_error_raises_tmdb_error_without_leaking_api_key():
 
 def test_ratelimit_error_is_a_tmdb_error():
     assert issubclass(RateLimitError, TmdbError)
+
+
+@responses.activate
+def test_discover_recent_reads_movies_and_series_with_date_filter():
+    responses.add(
+        responses.GET, f"{BASE}/discover/movie",
+        json={"results": [{"id": 1, "title": "New Film", "release_date": "2026-02-02",
+                           "overview": "o", "vote_average": 6.1, "vote_count": 12}]},
+    )
+    responses.add(
+        responses.GET, f"{BASE}/discover/tv",
+        json={"results": [{"id": 2, "name": "New Show", "first_air_date": "2025-09-09",
+                           "overview": "o", "vote_average": 7.0, "vote_count": 30}, {"id": 3}]},
+    )
+    titles = TmdbSource("k").discover_recent("2025-01-01", pages=1)
+    assert [(t.tmdb_id, t.kind, t.name, t.year) for t in titles] == [
+        (1, "movie", "New Film", 2026),
+        (2, "series", "New Show", 2025),
+    ]
+    movie_call = responses.calls[0].request.url
+    assert "primary_release_date.gte=2025-01-01" in movie_call
+    assert "first_air_date.gte=2025-01-01" in responses.calls[1].request.url

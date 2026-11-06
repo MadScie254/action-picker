@@ -1,16 +1,35 @@
-﻿// Pure helpers for /api/chat. Files starting with "_" are not routed by Vercel.
+// Pure helpers for /api/chat. Files starting with "_" are not routed by Vercel.
+const tmdb = require("./_tmdb.js");
+
 const MAX_MESSAGE = 500;
 const MAX_HISTORY = 6;
 const MAX_PICKS = 5;
 
 const SYSTEM = [
   "You are ActionPicker, a recommender for martial-arts action and gritty crime movies and series.",
-  "Answer ONLY from the CATALOG below. Never invent titles, scores, dates or streaming services.",
-  "If the catalog has nothing that fits, say so plainly and offer the closest match.",
+  "Answer ONLY from the CATALOG and the LIVE TMDB RESULTS below. Never invent titles, scores, dates or streaming services.",
+  "CATALOG titles were scored by reading published reviews: quote their scores as given (0-10).",
+  "LIVE TMDB RESULTS were looked up just now and have NOT been scored from reviews: never give them a fight or action score, and say plainly that they are not scored yet. You may quote only their TMDB rating and the facts shown.",
+  "Prefer CATALOG titles when they fit; use LIVE TMDB RESULTS for new releases, other titles or anything the catalog lacks.",
+  "If nothing fits, say so plainly and offer the closest match.",
   "Hand-to-hand and swordplay rank above gun-fu; say so when it matters to the pick.",
-  "Quote scores as given (0-10). Say where to watch only when the catalog lists a service.",
+  "Say where to watch only when the catalog lists a service.",
   "Keep replies under 120 words, plain sentences, no markdown, no emoji.",
-  'Reply with JSON only: {"reply": "<text>", "picks": ["<exact catalog title>", ...]} with at most 5 picks.',
+  'Reply with JSON only: {"reply": "<text>", "picks": ["<exact title>", ...]} with at most 5 picks, each copied exactly from the CATALOG or the LIVE TMDB RESULTS.',
+].join("\n");
+
+const PLAN_SYSTEM = [
+  "Turn the user's request into a TMDB search plan for martial-arts action and gritty crime films and series.",
+  "Reply with JSON only, no prose: " +
+    '{"queries": [up to 3 short keyword phrases such as "martial arts", "kung fu", "samurai", "heist", "triad"],' +
+    ' "titles": [exact titles the user named, up to 3],' +
+    ' "similar_to": "<one title the user wants more of, or null>",' +
+    ' "genres": [from action, adventure, crime, thriller, drama, war, western, mystery, scifi, comedy, animation, horror, history, fantasy],' +
+    ' "kind": "movie" | "tv" | "any",' +
+    ' "year_from": <integer or null>, "year_to": <integer or null>,' +
+    ' "sort": "popular" | "new" | "rated"}.',
+  'Use sort "new" and set year_from to the current year when the user asks for new, latest, recent or this year.',
+  "Leave fields empty or null when the request does not say.",
 ].join("\n");
 
 function line(name, a, c) {
@@ -53,44 +72,64 @@ function buildCatalog(data) {
   return { text: lines.join("\n"), names };
 }
 
-function buildMessages(catalogText, history, message) {
-  const turns = (Array.isArray(history) ? history : [])
+function cleanHistory(history) {
+  return (Array.isArray(history) ? history : [])
     .filter((m) => m && (m.role === "user" || m.role === "assistant") && typeof m.content === "string")
     .slice(-MAX_HISTORY)
     .map((m) => ({ role: m.role, content: m.content.slice(0, MAX_MESSAGE) }));
+}
+
+function buildMessages(catalogText, history, message, liveText) {
+  const live = liveText ? `\n\nLIVE TMDB RESULTS (not scored from reviews):\n${liveText}` : "";
   return [
-    { role: "system", content: `${SYSTEM}\n\nCATALOG:\n${catalogText}` },
-    ...turns,
+    { role: "system", content: `${SYSTEM}\n\nCATALOG:\n${catalogText}${live}` },
+    ...cleanHistory(history),
     { role: "user", content: String(message).slice(0, MAX_MESSAGE) },
   ];
 }
 
-function parseReply(raw, names) {
+function buildPlanMessages(history, message, today) {
+  return [
+    { role: "system", content: `${PLAN_SYSTEM}\nToday is ${today.toISOString().slice(0, 10)}.` },
+    ...cleanHistory(history).slice(-4),
+    { role: "user", content: String(message).slice(0, MAX_MESSAGE) },
+  ];
+}
+
+function parseJson(raw) {
   const text = typeof raw === "string" ? raw : JSON.stringify(raw ?? "");
   const cleaned = text.trim().replace(/^```(?:json)?\s*|\s*```$/g, "");
   const start = cleaned.indexOf("{");
   const end = cleaned.lastIndexOf("}");
   if (start !== -1 && end > start) {
     try {
-      const obj = JSON.parse(cleaned.slice(start, end + 1));
-      if (obj && typeof obj.reply === "string") {
-        const known = new Set(names);
-        const picks = (Array.isArray(obj.picks) ? obj.picks : [])
-          .filter((p, i, all) => known.has(p) && all.indexOf(p) === i)
-          .slice(0, MAX_PICKS);
-        return { reply: obj.reply.trim(), picks };
-      }
+      return { obj: JSON.parse(cleaned.slice(start, end + 1)), cleaned };
     } catch (_) {
-      // fall through to plain text
+      // fall through
     }
   }
-  return { reply: cleaned, picks: [] };
+  return { obj: null, cleaned };
+}
+
+// `live` is an optional array of live TMDB candidates the model may also pick from.
+function parseReply(raw, names, live = []) {
+  const { obj, cleaned } = parseJson(raw);
+  if (obj && typeof obj.reply === "string") {
+    const known = new Set(names);
+    const liveByName = new Map(live.map((c) => [c.name, c]));
+    const picks = (Array.isArray(obj.picks) ? obj.picks : [])
+      .filter((p, i, all) => typeof p === "string" && (known.has(p) || liveByName.has(p)) && all.indexOf(p) === i)
+      .slice(0, MAX_PICKS);
+    const extras = picks.filter((p) => !known.has(p)).map((p) => liveByName.get(p));
+    return { reply: obj.reply.trim(), picks, extras };
+  }
+  return { reply: cleaned, picks: [], extras: [] };
 }
 
 const QUOTA_MESSAGE = "Today's free AI allowance is used up. It resets at 03:00 Nairobi time.";
 
 // Each provider resolves to { text } on success or { fail: "quota" | "busy" | "error" }.
-async function callCloudflare(fetchImpl, env, messages) {
+async function callCloudflare(fetchImpl, env, messages, maxTokens = 500) {
   const model = env.LLM_CHAT_MODEL || env.LLM_MODEL;
   let r;
   try {
@@ -99,7 +138,7 @@ async function callCloudflare(fetchImpl, env, messages) {
       {
         method: "POST",
         headers: { Authorization: `Bearer ${env.LLM_API_KEY}`, "Content-Type": "application/json" },
-        body: JSON.stringify({ messages, max_tokens: 500, temperature: 0.3 }),
+        body: JSON.stringify({ messages, max_tokens: maxTokens, temperature: 0.3 }),
       }
     );
   } catch (_) {
@@ -111,7 +150,9 @@ async function callCloudflare(fetchImpl, env, messages) {
       try {
         const j = await r.json();
         code = j && j.errors && j.errors[0] && j.errors[0].code;
-      } catch (_) {}
+      } catch (_) {
+        code = undefined;
+      }
       return { fail: code === 4006 ? "quota" : "busy" };
     }
     return { fail: "error" };
@@ -125,8 +166,8 @@ async function callCloudflare(fetchImpl, env, messages) {
   }
 }
 
-async function callGemini(fetchImpl, env, messages) {
-  const model = env.GEMINI_MODEL || "gemini-3.5-flash";
+async function callGemini(fetchImpl, env, messages, opts = {}) {
+  const model = opts.model || env.GEMINI_MODEL || "gemini-3.5-flash";
   const system = messages.find((m) => m.role === "system");
   const contents = messages
     .filter((m) => m.role !== "system")
@@ -141,7 +182,7 @@ async function callGemini(fetchImpl, env, messages) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: system ? system.content : "" }] },
           contents,
-          generationConfig: { responseMimeType: "application/json", maxOutputTokens: 1500, temperature: 0.3 },
+          generationConfig: { responseMimeType: "application/json", maxOutputTokens: opts.maxTokens || 1500, temperature: 0.3 },
         }),
       }
     );
@@ -181,10 +222,34 @@ function clientKey(req) {
   return first || (req.socket && req.socket.remoteAddress) || "unknown";
 }
 
-function createHandler({ fetchImpl, env, data, limiter = makeLimiter(15, 10 * 60 * 1000) }) {
+function createHandler({ fetchImpl, env, data, limiter = makeLimiter(15, 10 * 60 * 1000), now = () => new Date() }) {
   const catalog = buildCatalog(data);
   const hasCloudflare = Boolean(env.CLOUDFLARE_ACCOUNT_ID && env.LLM_API_KEY && (env.LLM_CHAT_MODEL || env.LLM_MODEL));
   const hasGemini = Boolean(env.GEMINI_API_KEY);
+  const hasTmdb = Boolean(env.TMDB_API_KEY);
+  let cloudflareSkipUntil = 0; // after a quota failure, skip Cloudflare for a while
+
+  async function answer(messages) {
+    let result = { fail: "error" };
+    const useCf = hasCloudflare && Date.now() >= cloudflareSkipUntil;
+    if (useCf) {
+      result = await callCloudflare(fetchImpl, env, messages);
+      if (result.fail === "quota") cloudflareSkipUntil = Date.now() + 30 * 60 * 1000;
+    }
+    if (result.fail && hasGemini) result = await callGemini(fetchImpl, env, messages);
+    return result;
+  }
+
+  // A cheap first call that turns the question into a TMDB search plan. Any failure means no plan.
+  async function plan(history, message) {
+    if (!hasGemini || !hasTmdb) return null;
+    const r = await callGemini(fetchImpl, env, buildPlanMessages(history, message, now()), {
+      model: env.GEMINI_PLAN_MODEL || "gemini-3.1-flash-lite",
+      maxTokens: 400,
+    });
+    return r.text ? parseJson(r.text).obj : null;
+  }
+
   return async function handler(req, res) {
     res.setHeader("Cache-Control", "no-store");
     if (req.method !== "POST") return res.status(405).json({ error: "Use POST." });
@@ -200,17 +265,22 @@ function createHandler({ fetchImpl, env, data, limiter = makeLimiter(15, 10 * 60
     if (!limiter(clientKey(req))) {
       return res.status(429).json({ error: "Too many questions in a short time. Wait a few minutes, then ask again.", code: "rate" });
     }
-    const messages = buildMessages(catalog.text, body.history, message);
-    let result = { fail: "error" };
-    if (hasCloudflare) result = await callCloudflare(fetchImpl, env, messages);
-    if (result.fail && hasGemini) result = await callGemini(fetchImpl, env, messages);
+    let live = [];
+    try {
+      const p = await plan(body.history, message);
+      if (p) live = await tmdb.findCandidates(fetchImpl, env.TMDB_API_KEY, p, catalog.names, now());
+    } catch (_) {
+      live = [];
+    }
+    const messages = buildMessages(catalog.text, body.history, message, live.map(tmdb.candidateLine).join("\n"));
+    const result = await answer(messages);
     if (result.fail === "quota") return res.status(503).json({ error: QUOTA_MESSAGE, code: "quota" });
     if (result.fail === "busy") {
       return res.status(502).json({ error: "The AI is busy. Try again in a moment." });
     }
     if (result.fail) return res.status(502).json({ error: "The AI could not answer." });
-    return res.status(200).json(parseReply(result.text, catalog.names));
+    return res.status(200).json(parseReply(result.text, catalog.names, live));
   };
 }
 
-module.exports = { MAX_MESSAGE, buildCatalog, buildMessages, parseReply, createHandler, makeLimiter };
+module.exports = { MAX_MESSAGE, buildCatalog, buildMessages, buildPlanMessages, parseReply, createHandler, makeLimiter };

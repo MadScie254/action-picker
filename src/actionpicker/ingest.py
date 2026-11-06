@@ -68,7 +68,9 @@ def run_ingest(
     before = store.title_count()
     for query in queries:
         try:
-            for title in tmdb.discover(query):
+            # "recent:2025-06-01" means: action and crime releases since that date.
+            found = tmdb.discover_recent(query[7:]) if query.startswith("recent:") else tmdb.discover(query)
+            for title in found:
                 store.upsert_title(title)
         except RateLimitError as exc:
             report.stopped_on_ratelimit, report.stop_reason = True, f"TMDB: {exc}"

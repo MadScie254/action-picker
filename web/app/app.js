@@ -32,6 +32,8 @@
   const state = {
     data: null,
     byName: new Map(),
+    extras: new Map(), // live TMDB picks from chat, not scored from reviews
+    details: new Map(), // /api/title results keyed by "kind:id"
     mode: safeGet(localStorage, "ap-c-mode") === "crime" ? "crime" : "action",
     kind: "all",
     turns: loadTurns(),
@@ -61,8 +63,8 @@
     } catch (_) { return []; }
   }
   function saveTurns() {
-    const keep = state.turns.slice(-20).map(({ id, q, status, reply, picks, error, sel }) =>
-      ({ id, q, status, reply, picks, error, sel }));
+    const keep = state.turns.slice(-20).map(({ id, q, status, reply, picks, extras, error, sel }) =>
+      ({ id, q, status, reply, picks, extras, error, sel }));
     safeSet(sessionStorage, STORE, JSON.stringify(keep));
   }
 
@@ -132,6 +134,35 @@
     try { return new URL(url).hostname.replace(/^www\./, ""); } catch (_) { return "source"; }
   }
   const titleHash = (name) => "#/title/" + encodeURIComponent(name);
+
+  /* Live picks: titles the chat found on TMDB that have no review scores yet. */
+  function cleanExtras(list) {
+    if (!Array.isArray(list)) return [];
+    return list.filter((x) => x && typeof x.name === "string" && Number.isInteger(x.id))
+      .map((x) => ({
+        id: x.id, kind: x.kind === "series" ? "series" : "movie", name: x.name,
+        year: Number.isInteger(x.year) ? x.year : null,
+        overview: typeof x.overview === "string" ? x.overview : "",
+        tmdb_rating: typeof x.rating === "number" ? x.rating : null,
+        votes: typeof x.votes === "number" ? x.votes : null,
+        poster: typeof x.poster === "string" ? x.poster : null,
+        backdrop: typeof x.backdrop === "string" ? x.backdrop : null,
+        unscored: true,
+      }));
+  }
+  function registerExtras(list) {
+    for (const x of list || []) if (x && !state.byName.has(x.name)) state.extras.set(x.name, x);
+  }
+  const findTitle = (name) => state.byName.get(name) || state.extras.get(name) || null;
+  async function loadDetails(t) {
+    const key = `${t.kind}:${t.id}`;
+    if (state.details.has(key)) return state.details.get(key);
+    const res = await fetch(`/api/title?id=${encodeURIComponent(t.id)}&kind=${encodeURIComponent(t.kind)}`);
+    if (!res.ok) throw new Error(`TMDB lookup answered ${res.status}`);
+    const d = await res.json();
+    state.details.set(key, d);
+    return d;
+  }
   function modeRow(name) {
     const list = state.data ? state.data[state.mode] : [];
     const i = list.findIndex((t) => t.name === name);
@@ -209,7 +240,7 @@
     els.intro.append(
       h("h2", { class: "lede", text: "Tell me what you’re in the mood to watch." }),
       h("p", { class: "voice", text: n
-        ? `I know all ${n} titles on this shelf, scored from what critics wrote about the fights, the grit and the pace. Ask for a style, a feeling, or something like a film you loved.`
+        ? `${n} titles on this shelf are scored from what critics wrote about the fights, the grit and the pace. I can also search every film and series on TMDB, new 2026 releases included, and flag the ones I have not scored yet. Ask for a style, a feeling, or something like a film you loved.`
         : "Ask for a style, a feeling, or something like a film you loved." }),
       h("ul", { class: "examples", "aria-label": "Example questions" },
         EXAMPLES.map(([label, q]) => h("li", null,
@@ -253,7 +284,8 @@
       return art;
     }
     if (turn.reply) art.append(h("p", { class: "turn-a voice" }, h("span", { class: "vh", text: "Answer: " }), turn.reply));
-    const picks = (turn.picks || []).map((name) => state.byName.get(name)).filter(Boolean);
+    registerExtras(turn.extras);
+    const picks = (turn.picks || []).map(findTitle).filter(Boolean);
     if (picks.length) art.append(handoff(turn, picks));
     else if ((turn.picks || []).length) art.append(h("p", { class: "picks-missing", text: "The titles in that answer are not on this shelf." }));
     return art;
@@ -290,7 +322,34 @@
     return wrap;
   }
 
+  /* Slip for a live TMDB find: no review scores, so none are shown. */
+  function liveSlip(t, i, total, level) {
+    return h("section", { class: "slip", "aria-label": `Pick slip for ${t.name}` },
+      h("div", { class: "slip-top" },
+        h("span", { class: "slip-rank" }, h("b", { text: "New find" }), "straight from TMDB"),
+        total > 1 ? h("span", { class: "slip-of", text: `Pick ${i + 1} of ${total}` }) : null),
+      h(level || "h4", { class: "slip-title", text: t.name }),
+      h("p", { class: "slip-meta" },
+        h("span", { text: kindLine(t) }),
+        h("span", { class: "style-tag", text: "Not scored from reviews yet" })),
+      h("div", { class: "slip-body" },
+        h("div", null,
+          t.overview ? h("p", { class: "why", text: t.overview }) : null,
+          h("p", { class: "where" }, h("b", { text: "Heads up: " }),
+            "I have not read reviews of this one yet, so there is no fight, grit or pace score.")),
+        h("div", null,
+          typeof t.tmdb_rating === "number"
+            ? h("p", { class: "big-score", style: "margin:0 0 14px" }, t.tmdb_rating.toFixed(1),
+              h("small", { text: `TMDB user rating${t.votes ? ` from ${t.votes.toLocaleString("en")} votes` : ""}` }))
+            : h("p", { class: "muted", text: "No TMDB rating yet." }))),
+      h("div", { class: "slip-actions" },
+        h("button", { type: "button", class: "btn", text: "Open full details", onClick: (e) => openTitle(t.name, e.currentTarget) }),
+        h("button", { type: "button", class: "textbtn", text: "Ask for more like this",
+          onClick: () => { setQuestion(`More like ${t.name}, but something I haven't seen yet.`); } })));
+  }
+
   function slip(t, i, total, level) {
+    if (t.unscored) return liveSlip(t, i, total, level);
     const row = modeRow(t.name);
     const ev = (t.evidence || [])[0];
     return h("section", { class: "slip", "aria-label": `Pick slip for ${t.name}` },
@@ -365,6 +424,8 @@
       turn.status = "done";
       turn.reply = typeof body.reply === "string" ? body.reply : "";
       turn.picks = Array.isArray(body.picks) ? body.picks.filter((p) => typeof p === "string") : [];
+      turn.extras = cleanExtras(body.extras);
+      registerExtras(turn.extras);
       turn.sel = 0; turn.fresh = !reduced();
     } catch (err) {
       turn.status = "error";
@@ -462,7 +523,55 @@
     return sec;
   }
 
+  /* Detail sheet for a live TMDB find: basics now, runtime/trailer/watch once /api/title answers. */
+  function renderLiveDetail(t) {
+    const more = h("div", { class: "d-grid" },
+      h("section", { class: "d-sec wide" }, h("p", { class: "muted", text: "Loading trailer and where to watch" })));
+    const head = t.backdrop
+      ? h("img", { class: "d-backdrop", src: IMG + "w1280" + t.backdrop, alt: "", width: 1280, height: 548, loading: "lazy", decoding: "async" })
+      : h("div", { class: "d-nobackdrop" });
+    const tagline = h("p", { class: "tagline" });
+    const meta = h("p", { class: "d-meta" }, h("span", { text: kindLine(t) }),
+      h("span", { class: "style-tag", text: "Not scored from reviews yet" }));
+    els.dbody.replaceChildren(
+      closeBtn(), head,
+      h("div", { class: "d-head" },
+        h("div", { class: "dposter" }, poster(t, "w500")),
+        h("div", { class: "d-titles" }, h("h2", { id: "detail-title", text: t.name }), meta),
+        typeof t.tmdb_rating === "number"
+          ? h("p", { class: "d-score big-score", style: "margin:0" }, t.tmdb_rating.toFixed(1), h("small", { text: "TMDB user rating" }))
+          : h("span")),
+      h("div", { class: "d-body" },
+        tagline,
+        t.overview ? h("p", { class: "overview", text: t.overview }) : h("p", { class: "overview muted", text: "No synopsis on file." }),
+        h("p", { class: "style-note" }, h("b", { text: "No fight scores yet. " }),
+          "This title came straight from TMDB. It has not been through the review scoring, so it has no fight, grit or pace numbers and no reviewer quotes."),
+        more,
+        h("div", { class: "d-foot" },
+          h("button", { type: "button", class: "btn", text: "Ask for more like this",
+            onClick: () => { const n = t.name; state.opener = els.q; els.dlg.close(); setQuestion(`More like ${n}, but something I haven't seen yet.`); } }),
+          h("button", { type: "button", class: "btn btn-line", text: "Close", onClick: () => els.dlg.close() }))));
+    loadDetails(t).then((d) => {
+      if (!more.isConnected) return;
+      if (d.tagline) tagline.textContent = d.tagline;
+      const bits = [kindLine({ ...t, runtime: d.runtime })];
+      meta.firstChild.textContent = bits[0];
+      if ((d.genres || []).length) meta.append(h("span", { text: d.genres.join(", ") }));
+      const full = { ...t, ...d, name: t.name };
+      more.replaceChildren(watchBlock(full), h("div", { class: "wide" }, trailerBlock(full)));
+    }).catch(() => {
+      if (!more.isConnected) return;
+      more.replaceChildren(h("section", { class: "d-sec wide" },
+        h("p", { class: "muted", text: "Trailer and watch listings could not be loaded right now." }),
+        h("a", { class: "d-link", href: `https://www.themoviedb.org/${t.kind === "series" ? "tv" : "movie"}/${t.id}`,
+          target: "_blank", rel: "noopener noreferrer", text: "Open this title on TMDB" },
+        h("span", { class: "vh", text: " (opens in a new tab)" }))));
+    });
+  }
+
   function renderDetail(name) {
+    const live = !state.byName.has(name) && state.extras.get(name);
+    if (live) { renderLiveDetail(live); return; }
     const t = state.byName.get(name);
     if (!t) {
       els.dbody.replaceChildren(closeBtn(), h("div", { class: "d-missing" },

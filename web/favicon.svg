@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="ActionPicker">
+  <rect width="64" height="64" rx="14" fill="#10130f"/>
+  <!-- two blades cross to form an A; the tips poke past the crossing -->
+  <polygon points="9,55 18,59 44,4" fill="#e9efe0"/>
+  <polygon points="55,55 46,59 20,4" fill="#f2b632"/>
+  <rect x="23" y="40" width="18" height="4" rx="1" fill="#10130f"/>
+  <rect x="24" y="41" width="16" height="2" fill="#f2b632"/>
+</svg>

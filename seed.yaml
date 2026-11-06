@@ -4,9 +4,9 @@ seeds:
   - Ip Man 2
   - Sakra
   - John Wick
-  - John Wick: Chapter 2
-  - John Wick: Chapter 3 - Parabellum
-  - John Wick: Chapter 4
+  - "John Wick: Chapter 2"
+  - "John Wick: Chapter 3 - Parabellum"
+  - "John Wick: Chapter 4"
   - The Furious
   - Warrior
   - Into the Badlands
@@ -17,3 +17,6 @@ discover_queries:
   - wuxia swordplay
   - gritty crime thriller
   - triad gangster
+# Action and crime releases since these dates (TMDB discover, most popular first).
+recent_since:
+  - "2025-01-01"

@@ -59,6 +59,35 @@ class TmdbSource:
             )
         return titles
 
+    def discover_recent(self, since: str, pages: int = 2) -> list[Title]:
+        """Action and crime releases on or after `since` (YYYY-MM-DD), most popular first."""
+        titles: list[Title] = []
+        for media, kind, genres, date_key in (
+            ("movie", "movie", "28|80", "primary_release_date"),
+            ("tv", "series", "10759|80", "first_air_date"),
+        ):
+            for page in range(1, pages + 1):
+                data = self._get(
+                    f"/discover/{media}",
+                    with_genres=genres,
+                    sort_by="popularity.desc",
+                    include_adult="false",
+                    page=str(page),
+                    **{f"{date_key}.gte": since, "vote_count.gte": "3"},
+                )
+                for r in data.get("results", []):
+                    name = r.get("title") if media == "movie" else r.get("name")
+                    date = r.get("release_date") if media == "movie" else r.get("first_air_date")
+                    if not name:
+                        continue
+                    titles.append(
+                        Title(
+                            None, r["id"], kind, name, _year(date), r.get("overview", ""),
+                            float(r.get("vote_average") or 0), int(r.get("vote_count") or 0),
+                        )
+                    )
+        return titles
+
     def seasons(self, tmdb_id: int) -> list[int]:
         data = self._get(f"/tv/{tmdb_id}")
         return [s["season_number"] for s in data.get("seasons", []) if s["season_number"] > 0]

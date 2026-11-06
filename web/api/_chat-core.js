@@ -126,7 +126,7 @@ async function callCloudflare(fetchImpl, env, messages) {
 }
 
 async function callGemini(fetchImpl, env, messages) {
-  const model = env.GEMINI_MODEL || "gemini-3.8-flash";
+  const model = env.GEMINI_MODEL || "gemini-3.5-flash";
   const system = messages.find((m) => m.role === "system");
   const contents = messages
     .filter((m) => m.role !== "system")
@@ -151,8 +151,9 @@ async function callGemini(fetchImpl, env, messages) {
   if (!r.ok) return { fail: r.status === 429 ? "quota" : "error" };
   try {
     const j = await r.json();
-    const text = j && j.candidates && j.candidates[0] && j.candidates[0].content.parts[0].text;
-    return text == null ? { fail: "error" } : { text };
+    const parts = (j && j.candidates && j.candidates[0] && j.candidates[0].content && j.candidates[0].content.parts) || [];
+    const text = parts.filter((p) => p && !p.thought && typeof p.text === "string").map((p) => p.text).join("");
+    return text ? { text } : { fail: "error" };
   } catch (_) {
     return { fail: "error" };
   }

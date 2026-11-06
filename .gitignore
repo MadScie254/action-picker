@@ -8,3 +8,5 @@ __pycache__/
 .venv/
 *.db
 *.log
+web-variants/
+cache/

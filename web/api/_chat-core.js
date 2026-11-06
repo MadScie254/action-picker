@@ -126,7 +126,7 @@ async function callCloudflare(fetchImpl, env, messages) {
 }
 
 async function callGemini(fetchImpl, env, messages) {
-  const model = env.GEMINI_MODEL || "gemini-2.5-flash";
+  const model = env.GEMINI_MODEL || "gemini-3.8-flash";
   const system = messages.find((m) => m.role === "system");
   const contents = messages
     .filter((m) => m.role !== "system")
@@ -141,7 +141,7 @@ async function callGemini(fetchImpl, env, messages) {
         body: JSON.stringify({
           systemInstruction: { parts: [{ text: system ? system.content : "" }] },
           contents,
-          generationConfig: { responseMimeType: "application/json", maxOutputTokens: 500, temperature: 0.3 },
+          generationConfig: { responseMimeType: "application/json", maxOutputTokens: 1500, temperature: 0.3 },
         }),
       }
     );
@@ -158,7 +158,29 @@ async function callGemini(fetchImpl, env, messages) {
   }
 }
 
-function createHandler({ fetchImpl, env, data }) {
+// Best-effort per-IP limit. Serverless instances keep their own memory, so this
+// slows a casual abuser; it is not a hard guarantee.
+function makeLimiter(max, windowMs, now = Date.now) {
+  const hits = new Map();
+  return function allow(key) {
+    const t = now();
+    const recent = (hits.get(key) || []).filter((x) => t - x < windowMs);
+    if (recent.length >= max) { hits.set(key, recent); return false; }
+    recent.push(t);
+    hits.set(key, recent);
+    if (hits.size > 5000) {
+      for (const [k, v] of hits) if (!v.some((x) => t - x < windowMs)) hits.delete(k);
+    }
+    return true;
+  };
+}
+function clientKey(req) {
+  const xf = req.headers && req.headers["x-forwarded-for"];
+  const first = typeof xf === "string" ? xf.split(",")[0].trim() : "";
+  return first || (req.socket && req.socket.remoteAddress) || "unknown";
+}
+
+function createHandler({ fetchImpl, env, data, limiter = makeLimiter(15, 10 * 60 * 1000) }) {
   const catalog = buildCatalog(data);
   const hasCloudflare = Boolean(env.CLOUDFLARE_ACCOUNT_ID && env.LLM_API_KEY && (env.LLM_CHAT_MODEL || env.LLM_MODEL));
   const hasGemini = Boolean(env.GEMINI_API_KEY);
@@ -174,6 +196,9 @@ function createHandler({ fetchImpl, env, data }) {
     if (!hasCloudflare && !hasGemini) {
       return res.status(500).json({ error: "Chat is not configured on the server." });
     }
+    if (!limiter(clientKey(req))) {
+      return res.status(429).json({ error: "Too many questions in a short time. Wait a few minutes, then ask again.", code: "rate" });
+    }
     const messages = buildMessages(catalog.text, body.history, message);
     let result = { fail: "error" };
     if (hasCloudflare) result = await callCloudflare(fetchImpl, env, messages);
@@ -187,4 +212,4 @@ function createHandler({ fetchImpl, env, data }) {
   };
 }
 
-module.exports = { MAX_MESSAGE, buildCatalog, buildMessages, parseReply, createHandler };
+module.exports = { MAX_MESSAGE, buildCatalog, buildMessages, parseReply, createHandler, makeLimiter };

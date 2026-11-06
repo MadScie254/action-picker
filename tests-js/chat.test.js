@@ -152,3 +152,27 @@ test("handler reports missing configuration without leaking names", async () => 
   await handler({ method: "POST", body: { message: "hi" } }, res);
   assert.equal(res.code, 500);
 });
+
+test("limiter allows up to the cap per key, then blocks, then recovers", () => {
+  let t = 0;
+  const allow = core.makeLimiter(2, 1000, () => t);
+  assert.equal(allow("a"), true);
+  assert.equal(allow("a"), true);
+  assert.equal(allow("a"), false);
+  assert.equal(allow("b"), true);
+  t = 1500;
+  assert.equal(allow("a"), true);
+});
+
+test("handler answers 429 when the limiter says no, without calling the AI", async () => {
+  let called = 0;
+  const handler = core.createHandler({
+    fetchImpl: async () => { called++; return { ok: true, status: 200, json: async () => ({}) }; },
+    env: { GEMINI_API_KEY: "g" }, data: DATA, limiter: () => false,
+  });
+  const res = fakeRes();
+  await handler({ method: "POST", body: { message: "hi" }, headers: { "x-forwarded-for": "1.2.3.4, 5.6.7.8" } }, res);
+  assert.equal(res.code, 429);
+  assert.equal(res.body.code, "rate");
+  assert.equal(called, 0);
+});

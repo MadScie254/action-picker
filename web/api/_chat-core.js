@@ -1,4 +1,4 @@
-// Pure helpers for /api/chat. Files starting with "_" are not routed by Vercel.
+﻿// Pure helpers for /api/chat. Files starting with "_" are not routed by Vercel.
 const MAX_MESSAGE = 500;
 const MAX_HISTORY = 6;
 const MAX_PICKS = 5;
@@ -87,8 +87,81 @@ function parseReply(raw, names) {
   return { reply: cleaned, picks: [] };
 }
 
+const QUOTA_MESSAGE = "Today's free AI allowance is used up. It resets at 03:00 Nairobi time.";
+
+// Each provider resolves to { text } on success or { fail: "quota" | "busy" | "error" }.
+async function callCloudflare(fetchImpl, env, messages) {
+  const model = env.LLM_CHAT_MODEL || env.LLM_MODEL;
+  let r;
+  try {
+    r = await fetchImpl(
+      `https://api.cloudflare.com/client/v4/accounts/${env.CLOUDFLARE_ACCOUNT_ID}/ai/run/${model}`,
+      {
+        method: "POST",
+        headers: { Authorization: `Bearer ${env.LLM_API_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({ messages, max_tokens: 500, temperature: 0.3 }),
+      }
+    );
+  } catch (_) {
+    return { fail: "error" };
+  }
+  if (!r.ok) {
+    if (r.status === 429) {
+      let code;
+      try {
+        const j = await r.json();
+        code = j && j.errors && j.errors[0] && j.errors[0].code;
+      } catch (_) {}
+      return { fail: code === 4006 ? "quota" : "busy" };
+    }
+    return { fail: "error" };
+  }
+  try {
+    const j = await r.json();
+    const text = j && j.result && j.result.response;
+    return text == null ? { fail: "error" } : { text };
+  } catch (_) {
+    return { fail: "error" };
+  }
+}
+
+async function callGemini(fetchImpl, env, messages) {
+  const model = env.GEMINI_MODEL || "gemini-2.5-flash";
+  const system = messages.find((m) => m.role === "system");
+  const contents = messages
+    .filter((m) => m.role !== "system")
+    .map((m) => ({ role: m.role === "assistant" ? "model" : "user", parts: [{ text: m.content }] }));
+  let r;
+  try {
+    r = await fetchImpl(
+      `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`,
+      {
+        method: "POST",
+        headers: { "x-goog-api-key": env.GEMINI_API_KEY, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          systemInstruction: { parts: [{ text: system ? system.content : "" }] },
+          contents,
+          generationConfig: { responseMimeType: "application/json", maxOutputTokens: 500, temperature: 0.3 },
+        }),
+      }
+    );
+  } catch (_) {
+    return { fail: "error" };
+  }
+  if (!r.ok) return { fail: r.status === 429 ? "quota" : "error" };
+  try {
+    const j = await r.json();
+    const text = j && j.candidates && j.candidates[0] && j.candidates[0].content.parts[0].text;
+    return text == null ? { fail: "error" } : { text };
+  } catch (_) {
+    return { fail: "error" };
+  }
+}
+
 function createHandler({ fetchImpl, env, data }) {
   const catalog = buildCatalog(data);
+  const hasCloudflare = Boolean(env.CLOUDFLARE_ACCOUNT_ID && env.LLM_API_KEY && (env.LLM_CHAT_MODEL || env.LLM_MODEL));
+  const hasGemini = Boolean(env.GEMINI_API_KEY);
   return async function handler(req, res) {
     res.setHeader("Cache-Control", "no-store");
     if (req.method !== "POST") return res.status(405).json({ error: "Use POST." });
@@ -98,39 +171,19 @@ function createHandler({ fetchImpl, env, data }) {
     if (message.length > MAX_MESSAGE) {
       return res.status(400).json({ error: `Keep it under ${MAX_MESSAGE} characters.` });
     }
-    const { CLOUDFLARE_ACCOUNT_ID: acct, LLM_API_KEY: key, LLM_MODEL: model } = env;
-    if (!acct || !key || !model) {
+    if (!hasCloudflare && !hasGemini) {
       return res.status(500).json({ error: "Chat is not configured on the server." });
     }
-    let upstream;
-    try {
-      upstream = await fetchImpl(
-        `https://api.cloudflare.com/client/v4/accounts/${acct}/ai/run/${model}`,
-        {
-          method: "POST",
-          headers: { Authorization: `Bearer ${key}`, "Content-Type": "application/json" },
-          body: JSON.stringify({
-            messages: buildMessages(catalog.text, body.history, message),
-            max_tokens: 600,
-            temperature: 0.3,
-          }),
-        }
-      );
-    } catch (_) {
-      return res.status(502).json({ error: "The AI is unreachable. Try again in a moment." });
+    const messages = buildMessages(catalog.text, body.history, message);
+    let result = { fail: "error" };
+    if (hasCloudflare) result = await callCloudflare(fetchImpl, env, messages);
+    if (result.fail && hasGemini) result = await callGemini(fetchImpl, env, messages);
+    if (result.fail === "quota") return res.status(503).json({ error: QUOTA_MESSAGE, code: "quota" });
+    if (result.fail === "busy") {
+      return res.status(502).json({ error: "The AI is busy. Try again in a moment." });
     }
-    if (!upstream.ok) {
-      const why = upstream.status === 429 ? "The AI is busy. Try again in a moment." : "The AI could not answer.";
-      return res.status(502).json({ error: why });
-    }
-    let payload;
-    try {
-      payload = await upstream.json();
-    } catch (_) {
-      return res.status(502).json({ error: "The AI could not answer." });
-    }
-    const raw = payload && payload.result && payload.result.response;
-    return res.status(200).json(parseReply(raw, catalog.names));
+    if (result.fail) return res.status(502).json({ error: "The AI could not answer." });
+    return res.status(200).json(parseReply(result.text, catalog.names));
   };
 }
 

@@ -103,6 +103,49 @@ test("handler hides upstream details and secrets on failure", async () => {
   assert.ok(!JSON.stringify(res.body).includes("tok"));
 });
 
+const QUOTA = { ok: false, status: 429, json: async () => ({ errors: [{ code: 4006, message: "used up daily free allocation" }] }) };
+
+test("handler uses LLM_CHAT_MODEL when set", async () => {
+  const urls = [];
+  const fetchImpl = async (url) => { urls.push(url); return { ok: true, status: 200, json: async () => ({ result: { response: '{"reply":"ok","picks":[]}' } }) }; };
+  const handler = core.createHandler({ fetchImpl, env: { ...ENV, LLM_CHAT_MODEL: "@cf/small" }, data: DATA });
+  await handler({ method: "POST", body: { message: "hi" } }, fakeRes());
+  assert.match(urls[0], /\/ai\/run\/@cf\/small$/);
+});
+
+test("handler explains a used-up free allowance with the reset time", async () => {
+  const handler = core.createHandler({ fetchImpl: async () => QUOTA, env: ENV, data: DATA });
+  const res = fakeRes();
+  await handler({ method: "POST", body: { message: "hi" } }, res);
+  assert.equal(res.code, 503);
+  assert.match(res.body.error, /03:00/);
+  assert.equal(res.body.code, "quota");
+});
+
+test("handler falls back to Gemini when Cloudflare quota is used up", async () => {
+  const calls = [];
+  const fetchImpl = async (url, opts) => {
+    calls.push(url);
+    if (url.includes("cloudflare")) return QUOTA;
+    return { ok: true, status: 200, json: async () => ({ candidates: [{ content: { parts: [{ text: '{"reply":"From Gemini.","picks":["Ip Man 2"]}' }] } }] }) };
+  };
+  const handler = core.createHandler({ fetchImpl, env: { ...ENV, GEMINI_API_KEY: "g" }, data: DATA });
+  const res = fakeRes();
+  await handler({ method: "POST", body: { message: "hi" } }, res);
+  assert.equal(res.code, 200);
+  assert.equal(res.body.reply, "From Gemini.");
+  assert.deepEqual(res.body.picks, ["Ip Man 2"]);
+  assert.ok(calls[1].includes("generativelanguage.googleapis.com"));
+});
+
+test("handler works with only Gemini configured", async () => {
+  const fetchImpl = async () => ({ ok: true, status: 200, json: async () => ({ candidates: [{ content: { parts: [{ text: '{"reply":"hi","picks":[]}' }] } }] }) });
+  const handler = core.createHandler({ fetchImpl, env: { GEMINI_API_KEY: "g" }, data: DATA });
+  const res = fakeRes();
+  await handler({ method: "POST", body: { message: "hi" } }, res);
+  assert.equal(res.code, 200);
+});
+
 test("handler reports missing configuration without leaking names", async () => {
   const handler = core.createHandler({ fetchImpl: async () => {}, env: {}, data: DATA });
   const res = fakeRes();

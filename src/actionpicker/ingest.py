@@ -54,7 +54,14 @@ def _process_title(store, tmdb, finder, fetcher, extractor, title: Title) -> boo
 
 
 def run_ingest(
-    store: Store, tmdb, finder, fetcher, extractor, queries: list[str], limit: int = 30
+    store: Store,
+    tmdb,
+    finder,
+    fetcher,
+    extractor,
+    queries: list[str],
+    limit: int = 30,
+    min_votes: int = 0,
 ) -> IngestReport:
     """Discover titles, then fetch reviews and score up to `limit` pending titles."""
     report = IngestReport()
@@ -70,7 +77,7 @@ def run_ingest(
             log.warning("discover %r failed: %s", query, exc)
     report.titles_added = store.title_count() - before
 
-    for title in store.pending_titles(limit):
+    for title in store.pending_titles(limit, min_votes):
         try:
             scored = _process_title(store, tmdb, finder, fetcher, extractor, title)
         except (RateLimitError, LlmError) as exc:

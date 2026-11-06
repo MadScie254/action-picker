@@ -2,8 +2,10 @@ from actionpicker.models import Scores, Title
 from actionpicker.store import Store
 
 
-def make_title(tmdb_id: int = 1, kind: str = "movie", name: str = "Ip Man") -> Title:
-    return Title(None, tmdb_id, kind, name, 2008, "overview", 8.0, 3000)
+def make_title(
+    tmdb_id: int = 1, kind: str = "movie", name: str = "Ip Man", vote_count: int = 3000
+) -> Title:
+    return Title(None, tmdb_id, kind, name, 2008, "overview", 8.0, vote_count)
 
 
 def make_scores(title_id: int, season_id: int | None = None) -> Scores:
@@ -20,6 +22,15 @@ def make_scores(title_id: int, season_id: int | None = None) -> Scores:
         evidence=[{"text": "great wing chun", "url": "https://x.test/a"}],
         content_hash="h1",
     )
+
+
+def test_pending_titles_skips_titles_below_min_votes():
+    store = Store(":memory:")
+    store.upsert_title(make_title(tmdb_id=1, vote_count=3))
+    store.upsert_title(make_title(tmdb_id=2, vote_count=500))
+    assert len(store.pending_titles(limit=10)) == 2
+    kept = store.pending_titles(limit=10, min_votes=25)
+    assert [t.tmdb_id for t in kept] == [2]
 
 
 def test_upsert_title_is_idempotent():

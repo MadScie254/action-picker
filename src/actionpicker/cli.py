@@ -72,7 +72,10 @@ def _cmd_ingest(args, store: Store) -> int:
     queries = list(seed.get("seeds", [])) + list(seed.get("discover_queries", []))
     tmdb = TmdbSource(key, region=os.environ.get("REGION", "KE"))
     fetcher = ReviewFetcher(cache_dir=args.cache)
-    report = run_ingest(store, tmdb, find_review_urls, fetcher, extract_scores, queries, args.limit)
+    min_votes = load_weights(args.weights).min_votes
+    report = run_ingest(
+        store, tmdb, find_review_urls, fetcher, extract_scores, queries, args.limit, min_votes
+    )
     print(report)
     return 0
 

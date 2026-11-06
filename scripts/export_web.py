@@ -7,7 +7,7 @@ from __future__ import annotations
 
 import argparse
 import json
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from actionpicker.rank import load_weights, rank
@@ -17,7 +17,7 @@ from actionpicker.store import Store
 def build(db: str, weights_path: str, top: int = 50) -> dict:
     store = Store(db)
     w = load_weights(weights_path)
-    out: dict = {"generated": datetime.now(timezone.utc).isoformat(timespec="seconds")}
+    out: dict = {"generated": datetime.now(UTC).isoformat(timespec="seconds")}
     for mode in ("action", "crime"):
         rows = []
         for r in rank(store.all_scored(), w, mode, set())[:top]:

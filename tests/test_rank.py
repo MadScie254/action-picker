@@ -40,6 +40,13 @@ def test_null_fields_treated_as_missing_not_zero():
     assert missing > zero
 
 
+def test_titles_with_too_few_votes_are_filtered_out():
+    thin = Title(1, 1001, "movie", "Featurette", 2015, "", 7.0, 3)
+    cands = [(thin, sc(1)), (ti(2), sc(2))]
+    assert W.min_votes > 3
+    assert [r.title.id for r in rank(cands, W)] == [2]
+
+
 def test_low_action_density_filtered():
     cands = [(ti(1), sc(1, action_density=4)), (ti(2), sc(2, action_density=5))]
     assert [r.title.id for r in rank(cands, W)] == [2]

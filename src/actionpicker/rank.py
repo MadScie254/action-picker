@@ -17,6 +17,7 @@ class Weights:
     style_factor: dict[str, float]
     min_action_density: int
     shrinkage_k: float
+    min_votes: int = 0
 
 
 @dataclass
@@ -35,6 +36,7 @@ def load_weights(path: str) -> Weights:
         style_factor=dict(raw["style_factor"]),
         min_action_density=int(raw["min_action_density"]),
         shrinkage_k=float(raw["shrinkage_k"]),
+        min_votes=int(raw.get("min_votes", 0)),
     )
 
 
@@ -63,6 +65,8 @@ def rank(
     for title, s in cands:
         if (title.id, s.season_id) in exclude or (title.id, None) in exclude:
             continue
+        if (title.vote_count or 0) < w.min_votes:
+            continue  # featurettes, shorts and obscure uploads
         if s.action_density is None or s.action_density < w.min_action_density:
             continue
         pool.append((title, s, score(s, title.tmdb_rating, w, mode)))

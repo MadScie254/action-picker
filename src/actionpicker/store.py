@@ -140,12 +140,13 @@ class Store:
         ).fetchone()
         return _scores(row) if row else None
 
-    def pending_titles(self, limit: int) -> list[Title]:
+    def pending_titles(self, limit: int, min_votes: int = 0) -> list[Title]:
         rows = self.db.execute(
             f"SELECT {_TITLE_COLS} FROM titles t "
             "WHERE NOT EXISTS (SELECT 1 FROM scores s WHERE s.title_id=t.id) "
-            "AND t.attempts < 3 ORDER BY t.attempts, t.id LIMIT ?",
-            (limit,),
+            "AND t.attempts < 3 AND COALESCE(t.vote_count, 0) >= ? "
+            "ORDER BY t.attempts, t.id LIMIT ?",
+            (min_votes, limit),
         ).fetchall()
         return [_title(r) for r in rows]
 
